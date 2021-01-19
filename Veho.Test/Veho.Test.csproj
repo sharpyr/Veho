@@ -44,6 +44,8 @@
         <Reference Include="System.Xml" />
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="Src\Alpha\LinqVsForeachTest.cs" />
+        <Compile Include="Src\Alpha\MatrixLinqVsForeachTest.cs" />
         <Compile Include="Src\Matrix\MatrixTest.cs" />
         <Compile Include="Src\Vector\MapperTest.cs" />
         <Compile Include="Src\Vector\ReducersTest.cs" />

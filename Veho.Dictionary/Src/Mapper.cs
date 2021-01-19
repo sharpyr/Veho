@@ -9,6 +9,7 @@ namespace Veho.Dictionary {
       foreach (var value in dict.Keys)
         vec[i++] = fn(value);
       return vec;
+      
     }
     public static P[] MapValues<_, V, P>(this IDictionary<_, V> dict, Func<V, P> fn) {
       var vec = new P[dict.Count];
