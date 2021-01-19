@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <PackageVersion>0.0.5</PackageVersion>
+    <Title>Veho.Matrix</Title>
+    <Authors>Hoyeung Wong</Authors>
+    <Description>Matrix iterate tools</Description>
+    <Copyright>Hoyeung Wong</Copyright>
+    <Company>Hoyeung Wong</Company>
+    <AssemblyVersion>0.0.5</AssemblyVersion>
+    <FileVersion>0.0.5</FileVersion>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="NUnit" Version="3.13.0"/>
+  </ItemGroup>
+</Project>
