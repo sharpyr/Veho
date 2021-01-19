@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <PackageVersion>0.0.6</PackageVersion>
+        <Title>Veho.Entries</Title>
+        <Authors>Hoyeung Wong</Authors>
+        <Description>Entries iterate tools</Description>
+        <Copyright>Hoyeung Wong</Copyright>
+        <Company>Hoyeung Wong</Company>
+        <AssemblyVersion>0.0.6</AssemblyVersion>
+        <FileVersion>0.0.6</FileVersion>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    </PropertyGroup>
+</Project>
