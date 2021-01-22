@@ -14,8 +14,7 @@ namespace Veho.Vector {
     public static TO[] Map<T, TO>(this T[] vector, Func<T, TO> fn) {
       var hi = vector.Length;
       var result = new TO[hi];
-      for (var i = 0; i < hi; i++)
-        result[i] = fn(vector[i]);
+      for (var i = 0; i < hi; i++) result[i] = fn(vector[i]);
       return result;
     }
     public static TO[] Map<T, TO>(this T[] vector, Func<int, T, TO> fn) {
