@@ -109,5 +109,25 @@ namespace Veho.Matrix {
           matrix[i, j] = fn(i, j, matrix[i, j]);
       return matrix;
     }
+
+    public static TO[,] CastTo<T, TO>(this T[,] matrix) {
+      //$"{typeof(tIn)} to {typeof(tOut)}".wL();
+      //Func<tIn, tOut> conv = Operator.Convert<tIn, tOut>;
+      var (h, w) = matrix.Size();
+      TO Conv(T value) => (TO) Convert.ChangeType(value, typeof(TO));
+      var target = new TO[h, w];
+      for (var i = 0; i < h; i++)
+        for (var j = 0; j < w; j++)
+          target[i, j] = Conv(matrix[i, j]);
+      return target;
+    }
+    public static TO[,] CastTo<T, TO>(this T[,] matrix, Converter<T, TO> converter) {
+      var (h, w) = matrix.Size();
+      var target = new TO[h, w];
+      for (var i = 0; i < h; i++)
+        for (var j = 0; j < w; j++)
+          target[i, j] = converter(matrix[i, j]);
+      return target;
+    }
   }
 }
