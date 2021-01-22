@@ -2,14 +2,14 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <PackageVersion>0.0.8</PackageVersion>
+    <PackageVersion>0.0.9</PackageVersion>
     <Title>Veho.Dictionary</Title>
     <Authors>Hoyeung Wong</Authors>
     <Description>Dictionary iterate tools</Description>
     <Copyright>Hoyeung Wong</Copyright>
     <Company>Hoyeung Wong</Company>
-    <AssemblyVersion>0.0.8</AssemblyVersion>
-    <FileVersion>0.0.8</FileVersion>
+    <AssemblyVersion>0.0.9</AssemblyVersion>
+    <FileVersion>0.0.9</FileVersion>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 </Project>
