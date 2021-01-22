@@ -1,20 +1,20 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <PackageVersion>0.0.7</PackageVersion>
+    <PackageVersion>0.0.8</PackageVersion>
     <Title>Veho</Title>
     <Authors>Hoyeung Wong</Authors>
     <Description>iterate tools</Description>
     <Copyright>Hoyeung Wong</Copyright>
     <Company>Hoyeung Wong</Company>
-    <AssemblyVersion>0.0.7</AssemblyVersion>
-    <FileVersion>0.0.7</FileVersion>
+    <AssemblyVersion>0.0.8</AssemblyVersion>
+    <FileVersion>0.0.8</FileVersion>
   </PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Veho.Dictionary\Veho.Dictionary.csproj" />
-    <ProjectReference Include="..\Veho.Entries\Veho.Entries.csproj" />
-    <ProjectReference Include="..\Veho.Matrix\Veho.Matrix.csproj" />
-    <ProjectReference Include="..\Veho.Vector\Veho.Vector.csproj" />
+    <ProjectReference Include="..\Veho.Dictionary\Veho.Dictionary.csproj"/>
+    <ProjectReference Include="..\Veho.Entries\Veho.Entries.csproj"/>
+    <ProjectReference Include="..\Veho.Matrix\Veho.Matrix.csproj"/>
+    <ProjectReference Include="..\Veho.Vector\Veho.Vector.csproj"/>
   </ItemGroup>
 </Project>
