@@ -129,5 +129,17 @@ namespace Veho.Matrix {
           target[i, j] = converter(matrix[i, j]);
       return target;
     }
+
+    public static T[,] ZeroOut<T>(this T[,] matrix) {
+      var (h, w) = matrix.Size();
+      var (xlo, xhi) = matrix.XBound();
+      var (ylo, yhi) = matrix.YBound();
+      if (xlo == 0 && ylo == 0) return matrix;
+      var target = new T[h, w];
+      for (var i = xlo; i <= xhi; i++)
+        for (var j = ylo; j <= yhi; j++)
+          target[i - xlo, j - ylo] = matrix[i, j];
+      return target;
+    }
   }
 }
