@@ -1,7 +1,10 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Veho.Matrix {
   public static class Utils {
+    public static IEnumerable<T> AsEnum<T>(this T[,] matrix) => matrix.OfType<T>();
     public static T[,] Transpose<T>(this T[,] matrix) {
       var (h, w) = matrix.Size();
       var target = new T[w, h];
@@ -13,6 +16,7 @@ namespace Veho.Matrix {
     }
 
     public static T[] Flatten<T>(this T[,] matrix) {
+      // matrix.OfType<T>().ToArray();
       var (h, w) = matrix.Size();
       var vec = new T[matrix.Length];
       var label = 0;
@@ -30,6 +34,15 @@ namespace Veho.Matrix {
         for (var j = 0; j < w; j++)
           vec[label++] = fn(matrix[i, j]);
       return vec;
+    }
+    
+    public static void Copy<T>(this T[,] matrix, T[,] target, int xStart = 0, int yStart = 0) {
+      var wd = matrix.Width();
+      for (var i = 0; i < matrix.Height(); i++) {
+        for (var j = 0; j < wd; j++) {
+          target[xStart + i, yStart + j] = matrix[i, j];
+        }
+      }
     }
   }
 }

@@ -2,18 +2,18 @@
 
 namespace Veho.Matrix {
   public static class Zippers {
-    public static T[] Zipper<A, B, T>(this A[] vector, B[] another, Func<A, B, T> fn) {
+    public static T[] Zip<TA, TB, T>(this TA[] vector, TB[] another, Func<TA, TB, T> fn) {
       var hi = vector.Length;
       var result = new T[hi];
       for (var i = 0; i < hi; i++) result[i] = fn(vector[i], another[i]);
       return result;
     }
-    public static A[] Mutazip<A, B>(this A[] vector, B[] another, Func<A, B, A> fn) {
+    public static TA[] Mutazip<TA, TB>(this TA[] vector, TB[] another, Func<TA, TB, TA> fn) {
       var hi = vector.Length;
       for (var i = 0; i < hi; i++) vector[i] = fn(vector[i], another[i]);
       return vector;
     }
-    public static T[,] DuoZipper<A, B, T>(this Func<A, B, T> fn, A[,] a, B[,] b) {
+    public static T[,] Zipper<TA, TB, T>(this Func<TA, TB, T> fn, TA[,] a, TB[,] b) {
       var (height, width) = a.Size();
       var matrix = new T[height, width];
       for (var i = 0; i < height; i++)
@@ -21,7 +21,7 @@ namespace Veho.Matrix {
           matrix[i, j] = fn(a[i, j], b[i, j]);
       return matrix;
     }
-    public static T[,] TriZipper<A, B, C, T>(this Func<A, B, C, T> fn, A[,] a, B[,] b, C[,] c) {
+    public static T[,] Zipper<TA, TB, TC, T>(this Func<TA, TB, TC, T> fn, TA[,] a, TB[,] b, TC[,] c) {
       var (height, width) = a.Size();
       var matrix = new T[height, width];
       for (var i = 0; i < height; i++)
@@ -29,7 +29,7 @@ namespace Veho.Matrix {
           matrix[i, j] = fn(a[i, j], b[i, j], c[i, j]);
       return matrix;
     }
-    public static T[,] QuaZipper<A, B, C, D, T>(this Func<A, B, C, D, T> fn, A[,] a, B[,] b, C[,] c, D[,] d) {
+    public static T[,] Zipper<TA, TB, TC, TD, T>(this Func<TA, TB, TC, TD, T> fn, TA[,] a, TB[,] b, TC[,] c, TD[,] d) {
       var (height, width) = a.Size();
       var matrix = new T[height, width];
       for (var i = 0; i < height; i++)
