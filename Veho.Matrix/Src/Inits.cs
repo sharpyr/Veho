@@ -18,8 +18,8 @@ namespace Veho.Matrix {
       return matrix;
     }
 
-    public static int[] LowerBounds1B = {1, 1};
+    public static readonly int[] DoubleOne = {1, 1};
     public static T[,] M1B<T>(int h, int w) =>
-      (T[,]) Array.CreateInstance(typeof(T), new[] {h, w}, LowerBounds1B);
+      (T[,]) Array.CreateInstance(typeof(T), new[] {h, w}, DoubleOne);
   }
 }

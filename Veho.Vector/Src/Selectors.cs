@@ -11,6 +11,7 @@ namespace Veho.Vector {
       Array.Sort(arr, comparer);
       return arr;
     }
-    // public static void SetLength<T>(this T[] arr, int hi) => Array.Resize(ref arr, hi + 1);
+    public static bool Every<T>(this T[] arr, Predicate<T> match) => Array.TrueForAll(arr, match);
+    public static bool Some<T>(this T[] arr, Predicate<T> match) => Array.Exists(arr, match);
   }
 }
