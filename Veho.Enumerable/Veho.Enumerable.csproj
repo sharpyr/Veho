@@ -3,8 +3,8 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <PackageVersion>0.0.10</PackageVersion>
-    <Title>Veho.Entries</Title>
-    <Description>Entries iterate tools</Description>
+    <Title>Veho.Enumerable</Title>
+    <Description>Enumerable iterate tools</Description>
     <Authors>Hoyeung Wong</Authors>
     <Company>Hoyeung Wong</Company>
     <Copyright>Copyright (c) Hoyeung Wong 2020-present</Copyright>
