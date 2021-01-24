@@ -14,7 +14,6 @@ namespace Veho.Enumerable {
       var i = 0;
       foreach (var x in en) func(i++, x);
     }
-
     public static int Hi<T>(this IEnumerable<T> en) => en.Count() - 1;
   }
 }
