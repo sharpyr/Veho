@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -13,10 +13,11 @@
     <FileVersion>0.0.11</FileVersion>
   </PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Veho.Dictionary\Veho.Dictionary.csproj"/>
-    <ProjectReference Include="..\Veho.Entries\Veho.Entries.csproj"/>
-    <ProjectReference Include="..\Veho.Enumerable\Veho.Enumerable.csproj"/>
-    <ProjectReference Include="..\Veho.Matrix\Veho.Matrix.csproj"/>
-    <ProjectReference Include="..\Veho.Vector\Veho.Vector.csproj"/>
+    <ProjectReference Include="..\Veho.Dictionary\Veho.Dictionary.csproj" />
+    <ProjectReference Include="..\Veho.Entries\Veho.Entries.csproj" />
+    <ProjectReference Include="..\Veho.Enumerable\Veho.Enumerable.csproj" />
+    <ProjectReference Include="..\Veho.List\Veho.List.csproj" />
+    <ProjectReference Include="..\Veho.Matrix\Veho.Matrix.csproj" />
+    <ProjectReference Include="..\Veho.Vector\Veho.Vector.csproj" />
   </ItemGroup>
 </Project>

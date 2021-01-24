@@ -14,6 +14,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Veho.Entries", "Veho.Entrie
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Veho.Enumerable", "Veho.Enumerable\Veho.Enumerable.csproj", "{AB61D056-F6A7-4DEA-A1E4-6B4DECF73C9E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Veho.List", "Veho.List\Veho.List.csproj", "{06C0B26C-0537-4FE6-8080-527D6CD71218}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,5 +50,9 @@ Global
 		{AB61D056-F6A7-4DEA-A1E4-6B4DECF73C9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AB61D056-F6A7-4DEA-A1E4-6B4DECF73C9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AB61D056-F6A7-4DEA-A1E4-6B4DECF73C9E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06C0B26C-0537-4FE6-8080-527D6CD71218}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06C0B26C-0537-4FE6-8080-527D6CD71218}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06C0B26C-0537-4FE6-8080-527D6CD71218}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06C0B26C-0537-4FE6-8080-527D6CD71218}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
