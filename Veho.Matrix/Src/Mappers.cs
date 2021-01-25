@@ -129,11 +129,11 @@ namespace Veho.Matrix {
           target[i, j] = converter(matrix[i, j]);
       return target;
     }
-    
+
     public static T[,] ZeroOut<T>(this T[,] matrix) {
       var (h, w) = matrix.Size();
       var target = new T[h, w];
-      Array.Copy(matrix, 1, target, 0, matrix.Length);
+      Array.Copy(matrix, matrix.XLo(), target, 0, matrix.Length);
       return target;
       // var (h, w) = matrix.Size();
       // var (xlo, ylo) = (matrix.XLo(), matrix.YLo());
