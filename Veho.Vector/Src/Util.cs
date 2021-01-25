@@ -14,5 +14,12 @@ namespace Veho.Vector {
     }
 
     public static void Resize<T>(this T[] vector, int len) => Array.Resize(ref vector, len);
+
+    public static T[] ZeroOut<T>(this T[] vector) {
+      var len = vector.Length;
+      var target = new T[len];
+      Array.Copy(vector, 1, target, 0, len);
+      return target;
+    }
   }
 }

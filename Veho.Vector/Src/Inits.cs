@@ -16,6 +16,6 @@ namespace Veho.Vector {
 
     public static readonly int[] SingleOne = {1};
 
-    public static T[] V1B<T>(int len) => (T[]) Array.CreateInstance(typeof(T), new[] {len}, SingleOne);
+    public static Array V1B<T>(int len) => Array.CreateInstance(typeof(T), new[] {len}, SingleOne);
   }
 }

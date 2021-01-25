@@ -35,13 +35,11 @@ namespace Veho.Matrix {
       return vec;
     }
 
-    public static void Copy<T>(this T[,] matrix, T[,] target, int xStart = 0, int yStart = 0) {
+    public static void Copy<T>(this T[,] matrix, T[,] target, int xlb = 0, int ylb = 0) {
       var wd = matrix.Width();
-      for (var i = 0; i < matrix.Height(); i++) {
-        for (var j = 0; j < wd; j++) {
-          target[xStart + i, yStart + j] = matrix[i, j];
-        }
-      }
+      for (var i = 0; i < matrix.Height(); i++)
+        for (var j = 0; j < wd; j++)
+          target[xlb + i, ylb + j] = matrix[i, j];
     }
   }
 }
