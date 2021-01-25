@@ -10,7 +10,7 @@ namespace Veho.Vector {
 
     public static T Reduce<T>(this T[] vector, Func<T, T, T> sequence) {
       var hi = vector.Length;
-      if (hi == 0) throw new IndexOutOfRangeException();
+      if (hi == 0) return default; //throw new IndexOutOfRangeException();
       var accum = vector[0];
       for (var i = 1; i < hi; i++) accum = sequence(accum, vector[i]);
       return accum;
@@ -36,7 +36,7 @@ namespace Veho.Vector {
 
     public static T Reduce<T>(this T[] vector, Func<int, T, T, T> sequence) {
       var hi = vector.Length;
-      if (hi == 0) throw new IndexOutOfRangeException();
+      if (hi == 0) return default; //throw new IndexOutOfRangeException();
       var accum = vector[0];
       for (var i = 1; i < hi; i++) accum = sequence(i, accum, vector[i]);
       return accum;
@@ -53,5 +53,10 @@ namespace Veho.Vector {
           return accum;
       }
     }
+
+    public static string Join(this string[] vector, string de = ", ") =>
+      vector.Length == 0 ? "" : vector.Reduce((acc, cu) => acc + de + cu);
+    public static string Join<T>(this T[] vector, string de = ", ") =>
+      vector.Length == 0 ? "" : vector.Reduce((acc, cu) => acc + de + cu, x => x.ToString());
   }
 }

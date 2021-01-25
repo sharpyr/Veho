@@ -53,7 +53,7 @@ namespace Veho.Matrix {
     public static TO[] MapRows<T, TO>(this T[,] matrix, Func<T[], TO> rowTo) {
       var (h, w) = matrix.Size();
       var vertica = new TO[h];
-      for (var i = 0; i < w; i++) vertica[i] = rowTo(matrix.Row(i, w));
+      for (var i = 0; i < h; i++) vertica[i] = rowTo(matrix.Row(i, w));
       return vertica;
     }
 
@@ -129,17 +129,20 @@ namespace Veho.Matrix {
           target[i, j] = converter(matrix[i, j]);
       return target;
     }
-
+    
     public static T[,] ZeroOut<T>(this T[,] matrix) {
       var (h, w) = matrix.Size();
-      var (xlo, xhi) = matrix.XBound();
-      var (ylo, yhi) = matrix.YBound();
-      if (xlo == 0 && ylo == 0) return matrix;
       var target = new T[h, w];
-      for (var i = xlo; i <= xhi; i++)
-        for (var j = ylo; j <= yhi; j++)
-          target[i - xlo, j - ylo] = matrix[i, j];
+      Array.Copy(matrix, 1, target, 0, matrix.Length);
       return target;
+      // var (h, w) = matrix.Size();
+      // var (xlo, ylo) = (matrix.XLo(), matrix.YLo());
+      // if (xlo == 0 && ylo == 0) return matrix;
+      // var target = new T[h, w];
+      // for (var i = 0; i < h; i++)
+      //   for (var j = 0; j < w; j++)
+      //     target[i, j] = matrix[xlo + i, ylo + j];
+      // return target;
     }
   }
 }
