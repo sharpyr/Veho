@@ -13,4 +13,7 @@
     <FileVersion>0.0.16</FileVersion>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Veho.Entries\Veho.Entries.csproj" />
+  </ItemGroup>
 </Project>

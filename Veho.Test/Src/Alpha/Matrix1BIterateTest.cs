@@ -46,13 +46,14 @@ namespace Veho.Test.Alpha {
       record.Add("Init", eta.ElapsedMilliseconds);
 
       eta.Restart();
+      var size = (4, 5);
       for (var i = 0; i < count; i++) {
-        var mx = PanBase.M1B<int>(4, 5);
+        var mx = size.M1B<int>();
       }
       eta.Stop();
       record.Add("M1B", eta.ElapsedMilliseconds);
 
-      var matrix1B = PanBase.M1B<int>(4, 5);
+      var matrix1B = (4, 5).M1B<int>();
       var ((xlo, xhi), (ylo, yhi)) = (matrix1B.XBound(), matrix1B.YBound());
       for (var i = xlo; i <= xhi; i++)
         for (var j = ylo; j <= yhi; j++)
@@ -79,7 +80,7 @@ namespace Veho.Test.Alpha {
         var mx = matrix1B.ZeroOut(x => x);
       }
       eta.Stop();
-      record.Add("ZeroOut", eta.ElapsedMilliseconds);
+      record.Add("ZeroOut(Mapped)", eta.ElapsedMilliseconds);
       Console.WriteLine($"ZeroOut {matrix1B.ZeroOut(x => x).Deco()}");
 
       eta.Restart();
