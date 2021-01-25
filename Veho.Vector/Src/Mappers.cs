@@ -6,6 +6,7 @@ namespace Veho.Vector {
     public static void Iterate<T>(this T[] vector, Action<T> fn) {
       var hi = vector.Length;
       for (var i = 0; i < hi; i++) fn(vector[i]);
+      // Array.ForEach(vector, fn);
     }
     public static void Iterate<T>(this T[] vector, Action<int, T> fn) {
       var hi = vector.Length;
