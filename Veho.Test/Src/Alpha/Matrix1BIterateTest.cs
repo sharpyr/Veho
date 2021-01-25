@@ -44,7 +44,6 @@ namespace Veho.Test.Alpha {
       }
       eta.Stop();
       record.Add("Init", eta.ElapsedMilliseconds);
-      Console.WriteLine( Inits.Init(4, 5, (x, y) => x + y).Deco());
 
       eta.Restart();
       for (var i = 0; i < count; i++) {
@@ -58,22 +57,21 @@ namespace Veho.Test.Alpha {
       for (var i = xlo; i <= xhi; i++)
         for (var j = ylo; j <= yhi; j++)
           matrix1B[i, j] = i + j;
-      Console.WriteLine(matrix1B.Deco());
-      
+
       eta.Restart();
       for (var i = 0; i < count; i++) {
         var mx = matrix1B.ZeroOut();
       }
       eta.Stop();
-      Console.WriteLine(matrix1B.Deco());
+      Console.WriteLine($"ZeroOut {matrix1B.ZeroOut().Deco()}");
       record.Add("ZeroOut", eta.ElapsedMilliseconds);
-      
+
       eta.Restart();
       for (var i = 0; i < count; i++) {
         var mx = matrix1B.ZeroOutBeta();
       }
       eta.Stop();
-      Console.WriteLine(matrix1B.Deco());
+      Console.WriteLine($"ZeroOutBeta {matrix1B.ZeroOutBeta().Deco()}");
       record.Add("ZeroOutBeta", eta.ElapsedMilliseconds);
 
       foreach (var entry in record) {
