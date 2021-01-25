@@ -26,6 +26,16 @@ namespace Veho.Matrix {
       Array.Copy(matrix, matrix.XLo(), target, 0, matrix.Length);
       return target;
     }
+
+    public static TO[,] ZeroOut<T, TO>(this T[,] matrix) {
+      TO Cast(T v) => (TO) Convert.ChangeType(v, typeof(TO));
+      var ((xlo, h), (ylo, w)) = (matrix.XLeap(), matrix.YLeap());
+      var target = new TO[h, w];
+      for (var i = 0; i < h; i++)
+        for (var j = 0; j < w; j++)
+          target[i, j] = Cast(matrix[xlo + i, ylo + j]);
+      return target;
+    }
     public static TO[,] ZeroOut<T, TO>(this T[,] matrix, Func<T, TO> func) {
       var ((xlo, h), (ylo, w)) = (matrix.XLeap(), matrix.YLeap());
       var target = new TO[h, w];
