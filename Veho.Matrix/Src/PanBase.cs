@@ -1,10 +1,31 @@
 ﻿using System;
 
 namespace Veho.Matrix {
-  public static class Base1 {
+  public static class PanBase {
     public static readonly int[] DoubleOne = {1, 1};
     public static T[,] M1B<T>(int h, int w) =>
       (T[,]) Array.CreateInstance(typeof(T), new[] {h, w}, DoubleOne);
+
+    public static T[,] M1B<T>(this (int, int) size) {
+      var (h, w) = size;
+      return (T[,]) Array.CreateInstance(typeof(T), new[] {h, w}, DoubleOne);
+    }
+
+    public static T[,] M1B<T>(this (int, int) size, Func<int, int, T> func) {
+      var m1B = size.M1B<T>();
+      var (h, w) = size;
+      for (var i = 1; i <= h; i++)
+        for (var j = 1; j <= w; j++)
+          m1B[i, j] = func(i, j);
+      return m1B;
+    }
+
+    public static void Iter1B<T>(this (int, int) size, Action<int, int> action) {
+      var (h, w) = size;
+      for (var i = 1; i <= h; i++)
+        for (var j = 1; j <= w; j++)
+          action(i, j);
+    }
 
     public static T[,] ZeroOut<T>(this T[,] matrix) {
       var (h, w) = matrix.Size();

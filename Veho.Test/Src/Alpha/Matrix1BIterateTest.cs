@@ -47,12 +47,12 @@ namespace Veho.Test.Alpha {
 
       eta.Restart();
       for (var i = 0; i < count; i++) {
-        var mx = Base1.M1B<int>(4, 5);
+        var mx = PanBase.M1B<int>(4, 5);
       }
       eta.Stop();
       record.Add("M1B", eta.ElapsedMilliseconds);
 
-      var matrix1B = Base1.M1B<int>(4, 5);
+      var matrix1B = PanBase.M1B<int>(4, 5);
       var ((xlo, xhi), (ylo, yhi)) = (matrix1B.XBound(), matrix1B.YBound());
       for (var i = xlo; i <= xhi; i++)
         for (var j = ylo; j <= yhi; j++)
