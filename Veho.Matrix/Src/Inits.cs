@@ -2,6 +2,7 @@ using System;
 
 namespace Veho.Matrix {
   public class Inits {
+    public static T[,] IntoMatrix<T>(T element) => new T[,] {{element}};
     public static T[,] Init<T>(int h, int w, Func<int, int, T> fn) {
       var matrix = new T[h, w];
       for (var i = 0; i < h; i++)
@@ -17,7 +18,5 @@ namespace Veho.Matrix {
           matrix[i, j] = value;
       return matrix;
     }
-
-
   }
 }
