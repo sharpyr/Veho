@@ -13,7 +13,7 @@ namespace Veho.Matrix {
       return target;
     }
 
-    public static TO[,] ZeroOutMap<T, TO>(this T[,] matrix, Func<T, TO> func) {
+    public static TO[,] ZeroOut<T, TO>(this T[,] matrix, Func<T, TO> func) {
       var ((xlo, h), (ylo, w)) = (matrix.XLeap(), matrix.YLeap());
       var target = new TO[h, w];
       for (var i = 0; i < h; i++)
@@ -22,7 +22,7 @@ namespace Veho.Matrix {
       return target;
     }
 
-    public static TO[,] ZeroOutMap<T, TO>(this T[,] matrix, Func<int, int, T, TO> func) {
+    public static TO[,] ZeroOut<T, TO>(this T[,] matrix, Func<int, int, T, TO> func) {
       var ((xlo, h), (ylo, w)) = (matrix.XLeap(), matrix.YLeap());
       var target = new TO[h, w];
       for (var i = 0; i < h; i++)

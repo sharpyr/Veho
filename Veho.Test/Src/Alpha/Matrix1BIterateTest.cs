@@ -76,11 +76,11 @@ namespace Veho.Test.Alpha {
 
       eta.Restart();
       for (var i = 0; i < count; i++) {
-        var mx = matrix1B.ZeroOutMap(x => x);
+        var mx = matrix1B.ZeroOut(x => x);
       }
       eta.Stop();
-      record.Add("ZeroOutMap", eta.ElapsedMilliseconds);
-      Console.WriteLine($"ZeroOutMap {matrix1B.ZeroOutMap(x => x).Deco()}");
+      record.Add("ZeroOut", eta.ElapsedMilliseconds);
+      Console.WriteLine($"ZeroOut {matrix1B.ZeroOut(x => x).Deco()}");
 
       eta.Restart();
       for (var i = 0; i < count; i++) {
@@ -88,7 +88,7 @@ namespace Veho.Test.Alpha {
       }
       eta.Stop();
       record.Add("ZeroOut + Map", eta.ElapsedMilliseconds);
-      Console.WriteLine($"ZeroOut + Map {matrix1B.ZeroOutMap(x => x).Deco()}");
+      Console.WriteLine($"ZeroOut + Map {matrix1B.ZeroOut(x => x).Deco()}");
 
       foreach (var entry in record) {
         Console.WriteLine($"[{entry.Key}] ({entry.Value})");
