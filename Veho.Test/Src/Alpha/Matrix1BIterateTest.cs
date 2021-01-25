@@ -47,12 +47,12 @@ namespace Veho.Test.Alpha {
 
       eta.Restart();
       for (var i = 0; i < count; i++) {
-        var mx = Inits.M1B<int>(4, 5);
+        var mx = Base1.M1B<int>(4, 5);
       }
       eta.Stop();
       record.Add("M1B", eta.ElapsedMilliseconds);
 
-      var matrix1B = Inits.M1B<int>(4, 5);
+      var matrix1B = Base1.M1B<int>(4, 5);
       var ((xlo, xhi), (ylo, yhi)) = (matrix1B.XBound(), matrix1B.YBound());
       for (var i = xlo; i <= xhi; i++)
         for (var j = ylo; j <= yhi; j++)
@@ -63,16 +63,32 @@ namespace Veho.Test.Alpha {
         var mx = matrix1B.ZeroOut();
       }
       eta.Stop();
-      Console.WriteLine($"ZeroOut {matrix1B.ZeroOut().Deco()}");
       record.Add("ZeroOut", eta.ElapsedMilliseconds);
+      Console.WriteLine($"ZeroOut {matrix1B.ZeroOut().Deco()}");
 
       eta.Restart();
       for (var i = 0; i < count; i++) {
         var mx = matrix1B.ZeroOutBeta();
       }
       eta.Stop();
-      Console.WriteLine($"ZeroOutBeta {matrix1B.ZeroOutBeta().Deco()}");
       record.Add("ZeroOutBeta", eta.ElapsedMilliseconds);
+      Console.WriteLine($"ZeroOutBeta {matrix1B.ZeroOutBeta().Deco()}");
+
+      eta.Restart();
+      for (var i = 0; i < count; i++) {
+        var mx = matrix1B.ZeroOutMap(x => x);
+      }
+      eta.Stop();
+      record.Add("ZeroOutMap", eta.ElapsedMilliseconds);
+      Console.WriteLine($"ZeroOutMap {matrix1B.ZeroOutMap(x => x).Deco()}");
+
+      eta.Restart();
+      for (var i = 0; i < count; i++) {
+        var mx = matrix1B.ZeroOut().Map(x => x);
+      }
+      eta.Stop();
+      record.Add("ZeroOut + Map", eta.ElapsedMilliseconds);
+      Console.WriteLine($"ZeroOut + Map {matrix1B.ZeroOutMap(x => x).Deco()}");
 
       foreach (var entry in record) {
         Console.WriteLine($"[{entry.Key}] ({entry.Value})");
