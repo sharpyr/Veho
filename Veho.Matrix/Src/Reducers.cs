@@ -2,7 +2,7 @@
 
 namespace Veho.Matrix {
   public static class Reducers {
-    public static TO Flat<T, TO>(this T[,] matrix, Func<TO, T, TO> func, TO accum) {
+    public static TO Fold<T, TO>(this T[,] matrix, Func<TO, T, TO> func, TO accum) {
       var (h, w) = matrix.Size();
       for (var i = 0; i < h; i++)
         for (var j = 0; j < w; j++)
@@ -44,7 +44,7 @@ namespace Veho.Matrix {
       return accum;
     }
 
-    public static TO Flat<T, TO>(this T[,] matrix, Func<int, int, TO, T, TO> func, TO accum) {
+    public static TO Fold<T, TO>(this T[,] matrix, Func<int, int, TO, T, TO> func, TO accum) {
       var (h, w) = matrix.Size();
       for (var i = 0; i < h; i++)
         for (var j = 0; j < w; j++)
