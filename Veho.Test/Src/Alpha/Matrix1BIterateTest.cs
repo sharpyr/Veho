@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using NUnit.Framework;
 using Veho.Matrix;
+using Veho.Matrix.Rows;
 using Veho.Vector;
 using Inits = Veho.Matrix.Inits;
 

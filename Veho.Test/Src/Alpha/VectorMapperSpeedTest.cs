@@ -2,8 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using NUnit.Framework;
+using Veho.Matrix.Rows;
 using Veho.Vector;
-using Veho.Matrix;
 
 namespace Veho.Test.Alpha {
   [TestFixture]
@@ -17,7 +17,7 @@ namespace Veho.Test.Alpha {
       };
       var sample = samples.Row(1);
       var eta = new Stopwatch();
-      var record = new Dictionary<String, long>();
+      var record = new Dictionary<string, long>();
       const double count = (int) 1E+7;
 
       eta.Start();
@@ -38,15 +38,19 @@ namespace Veho.Test.Alpha {
 
       eta.Start();
       for (var i = 0; i < count; i++) {
-        sample.Iterate(x => { var some=x + 1; });
+        sample.Iterate(x => {
+          var some = x + 1;
+        });
       }
       eta.Stop();
       record.Add("Iterate", eta.ElapsedMilliseconds);
-      
-      
+
+
       eta.Restart();
       for (var i = 0; i < count; i++) {
-        Array.ForEach(sample, x => { var some= x + 1; });
+        Array.ForEach(sample, x => {
+          var some = x + 1;
+        });
       }
       eta.Stop();
       record.Add("Array.ForEach", eta.ElapsedMilliseconds);
