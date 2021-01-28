@@ -15,13 +15,6 @@ namespace Veho.Matrix {
       return matrix;
     }
 
-    public static void Iter<T>(this (int, int) size, Action<int, int> fn) {
-      var (h, w) = size;
-      for (var i = 0; i < h; i++)
-        for (var j = 0; j < w; j++)
-          fn(i, j);
-    }
-
     public static T[,] Init<T>(int h, int w, Func<int, int, T> fn) {
       var matrix = new T[h, w];
       for (var i = 0; i < h; i++)
@@ -37,5 +30,7 @@ namespace Veho.Matrix {
           matrix[i, j] = value;
       return matrix;
     }
+
+
   }
 }
