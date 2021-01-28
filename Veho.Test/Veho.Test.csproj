@@ -16,12 +16,17 @@
     <ItemGroup>
         <!--        <PackageReference Include="Microsoft.NETCore.Platforms" Version="1.1.0" />-->
         <!--        <PackageReference Include="NETStandard.Library" Version="2.0.3" />-->
-        <PackageReference Include="NUnit" Version="3.13.0"/>
+        <PackageReference Include="NUnit" Version="3.13.0" />
+        <PackageReference Include="Spare.Deco" Version="0.0.9" />
+        <PackageReference Include="Typen" Version="0.0.2" />
     </ItemGroup>
     <ItemGroup>
-        <ProjectReference Include="..\Veho.Dictionary\Veho.Dictionary.csproj"/>
-        <ProjectReference Include="..\Veho.Entries\Veho.Entries.csproj"/>
-        <ProjectReference Include="..\Veho.Matrix\Veho.Matrix.csproj"/>
-        <ProjectReference Include="..\Veho.Vector\Veho.Vector.csproj"/>
+        <ProjectReference Include="..\Veho.Dictionary\Veho.Dictionary.csproj" />
+        <ProjectReference Include="..\Veho.Entries\Veho.Entries.csproj" />
+        <ProjectReference Include="..\Veho.Matrix\Veho.Matrix.csproj" />
+        <ProjectReference Include="..\Veho.Vector\Veho.Vector.csproj" />
+    </ItemGroup>
+    <ItemGroup>
+      <Folder Include="Src\Utils" />
     </ItemGroup>
 </Project>

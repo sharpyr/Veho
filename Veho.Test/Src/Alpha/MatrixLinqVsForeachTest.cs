@@ -7,15 +7,15 @@ using NUnit.Framework;
 namespace Veho.Test.Alpha {
   public static class MatrixUtils {
     public static T[] LinqColumn<T>(this T[,] matrix, int columnNumber) {
-      return Enumerable.Range(0, matrix.GetLength(0))
-        .Select(x => matrix[x, columnNumber])
-        .ToArray();
+      return System.Linq.Enumerable.Range(0, matrix.GetLength(0))
+                   .Select(x => matrix[x, columnNumber])
+                   .ToArray();
     }
 
     public static T[] LinqRow<T>(this T[,] matrix, int rowNumber) {
-      return Enumerable.Range(0, matrix.GetLength(1))
-        .Select(x => matrix[rowNumber, x])
-        .ToArray();
+      return System.Linq.Enumerable.Range(0, matrix.GetLength(1))
+                   .Select(x => matrix[rowNumber, x])
+                   .ToArray();
     }
 
     public static T[] IterRow<T>(this T[,] matrix, int r) {
