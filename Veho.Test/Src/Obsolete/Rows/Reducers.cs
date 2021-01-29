@@ -1,7 +1,9 @@
 ﻿using System;
+using Veho.Matrix;
 
-namespace Veho.Matrix.Rows {
+namespace Veho.Test.Obsolete.Rows {
   public static class Reducers {
+    #region Basic
     public static TO FoldRow<T, TO>(this T[,] matrix, int x, Func<TO, T, TO> sequence, TO accum) {
       for (var j = 0; j < matrix.Width(); j++) accum = sequence(accum, matrix[x, j]);
       return accum;
@@ -24,6 +26,7 @@ namespace Veho.Matrix.Rows {
       for (var j = 1; j < matrix.Width(); j++) accum = sequence(accum, indicator(matrix[x, j]));
       return accum;
     }
+    #endregion
 
     #region Indexed
     public static TO FoldRow<T, TO>(this T[,] matrix, int x, Func<int, TO, T, TO> sequence, TO accum) {

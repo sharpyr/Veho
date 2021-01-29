@@ -1,13 +1,11 @@
-using System.Collections.Generic;
-
 namespace Veho.Entries {
   public static class Unwinds {
-    public static (K[], V[]) unwind<K, V>(this (K, V)[] dict) {
-      var len = dict.Length;
-      var keys = new K[len];
-      var values = new V[len];
+    public static (TK[], TV[]) Unwind<TK, TV>(this (TK, TV)[] entries) {
+      var len = entries.Length;
+      var keys = new TK[len];
+      var values = new TV[len];
       for (var i = 0; i < len; i++) {
-        var (k, v) = dict[i];
+        var (k, v) = entries[i];
         keys[i] = k;
         values[i] = v;
       }

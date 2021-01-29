@@ -15,21 +15,22 @@ namespace Veho.Test.Alpha {
       for (++x; x < h; x++)
         for (var j = 0; j < w; j++) { action(matrix[x, j]); }
     }
-    public static T Reduce<T>(this T[,] matrix, Func<T, T, T> sequence) {
-      var (h, w) = matrix.Size();
-      if (h == 0 || w == 0) return default;
-      var accum = matrix[0, 0];
-      for (var j = 1; j < w; j++) accum = sequence(accum, matrix[0, j]);
-      for (var i = 1; i < h; i++)
-        for (var j = 0; j < w; j++)
-          accum = sequence(accum, matrix[i, j]);
-      return accum;
-    }
+    // public static T Reduce<T>(this T[,] matrix, Func<T, T, T> sequence) {
+    //   var (h, w) = matrix.Size();
+    //   if (h == 0 || w == 0) return default;
+    //   var accum = matrix[0, 0];
+    //   for (var j = 1; j < w; j++) accum = sequence(accum, matrix[0, j]);
+    //   for (var i = 1; i < h; i++)
+    //     for (var j = 0; j < w; j++)
+    //       accum = sequence(accum, matrix[i, j]);
+    //   return accum;
+    // }
     public static T Reduce1<T>(this T[,] matrix, Func<T, T, T> sequence) {
       var size = matrix.Size();
       if (size.Item1 == 0 || size.Item2 == 0) return default;
       var accum = matrix[0, 0];
-      size.RestOf((0, 0), (i, j) => accum = sequence(accum, matrix[i, j]));
+      void Lambda(int i, int j) => accum = sequence(accum, matrix[i, j]);
+      size.RestOf((0, 0), Lambda);
       return accum;
     }
     public static T Reduce2<T>(this T[,] matrix, Func<T, T, T> sequence) {

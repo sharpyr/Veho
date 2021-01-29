@@ -1,5 +1,6 @@
 ﻿namespace Veho.Matrix {
   public static class Info {
+    public static bool Any<T>(this T[,] matrix) => matrix.Size().Any();
     public static (int height, int width) Size<T>(this T[,] matrix) => (matrix.GetLength(0), matrix.GetLength(1));
     public static (int lo, int hi) XBound<T>(this T[,] matrix) => (matrix.GetLowerBound(0), matrix.GetUpperBound(0));
     public static (int lo, int hi) YBound<T>(this T[,] matrix) => (matrix.GetLowerBound(1), matrix.GetUpperBound(1));

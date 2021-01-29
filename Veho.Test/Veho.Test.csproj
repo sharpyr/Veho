@@ -17,7 +17,7 @@
         <!--        <PackageReference Include="Microsoft.NETCore.Platforms" Version="1.1.0" />-->
         <!--        <PackageReference Include="NETStandard.Library" Version="2.0.3" />-->
         <PackageReference Include="NUnit" Version="3.13.0" />
-        <PackageReference Include="Spare" Version="0.0.9" />
+        <PackageReference Include="Spare" Version="0.0.11" />
         <PackageReference Include="Typen" Version="0.0.2" />
     </ItemGroup>
     <ItemGroup>

@@ -4,8 +4,8 @@ using System.Linq;
 
 namespace Veho.Matrix {
   public static class Utils {
-    public static bool Any<T>(this T[,] matrix) => matrix.Size().Any();
     public static IEnumerable<T> AsEnum<T>(this T[,] matrix) => matrix.OfType<T>();
+    
     public static T[,] Transpose<T>(this T[,] matrix) {
       var (h, w) = matrix.Size();
       var target = new T[w, h];
@@ -41,6 +41,17 @@ namespace Veho.Matrix {
       for (var i = 0; i < matrix.Height(); i++)
         for (var j = 0; j < wd; j++)
           target[xlb + i, ylb + j] = matrix[i, j];
+    }
+
+    public static (TK[,], TV[,]) Unwind<TK, TV>(this (TK key, TV item)[,] entryMatrix) {
+      var (h, w) = entryMatrix.Size();
+      var keys = new TK[h, w];
+      var values = new TV[h, w];
+      entryMatrix.Iterate((i, j, entry) => {
+        keys[i, j] = entry.key;
+        values[i, j] = entry.item;
+      });
+      return (keys, values);
     }
   }
 }
