@@ -8,5 +8,16 @@ namespace Veho.Matrix.Rows {
       for (var i = 0; i < h; i++) vertica[i] = rowTo(matrix.Row(i, w));
       return vertica;
     }
+    
+    public static T[,] RowsToMatrix<T>(this T[][] rows) {
+      if (rows.Length == 0) return Inits.Empty<T>();
+      var (h, w) = (rows.Length, rows[0].Length);
+      var matrix = new T[h, w];
+      for (var i = 0; i < h; i++) {
+        var row = rows[i];
+        for (var j = 0; j < w; j++) matrix[i, j] = row[j];
+      }
+      return matrix;
+    }
   }
 }

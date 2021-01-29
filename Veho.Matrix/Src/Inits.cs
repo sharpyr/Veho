@@ -2,6 +2,8 @@ using System;
 
 namespace Veho.Matrix {
   public static class Inits {
+    public static T[,] Empty<T>() => new T[,] {{ }};
+
     public static T[,] M1X1<T>(this T element) => new T[,] {{element}};
 
     public static T[,] Init<T>(this (int, int) size) => new T[size.Item1, size.Item2];
@@ -30,7 +32,5 @@ namespace Veho.Matrix {
           matrix[i, j] = value;
       return matrix;
     }
-
-
   }
 }

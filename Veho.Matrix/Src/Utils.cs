@@ -5,7 +5,7 @@ using System.Linq;
 namespace Veho.Matrix {
   public static class Utils {
     public static IEnumerable<T> AsEnum<T>(this T[,] matrix) => matrix.OfType<T>();
-    
+
     public static T[,] Transpose<T>(this T[,] matrix) {
       var (h, w) = matrix.Size();
       var target = new T[w, h];
@@ -53,5 +53,8 @@ namespace Veho.Matrix {
       });
       return (keys, values);
     }
+
+
+
   }
 }
