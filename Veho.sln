@@ -18,6 +18,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Veho.List", "Veho.List\Veho
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Veho.Types", "Veho.Types\Veho.Types.csproj", "{BD9AB80D-4733-4881-9FB7-962E0EF4F28B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Veho.Tuple", "Veho.Tuple\Veho.Tuple.csproj", "{5877703D-B32E-433B-A06A-940AA0763390}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -60,5 +62,9 @@ Global
 		{BD9AB80D-4733-4881-9FB7-962E0EF4F28B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BD9AB80D-4733-4881-9FB7-962E0EF4F28B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BD9AB80D-4733-4881-9FB7-962E0EF4F28B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5877703D-B32E-433B-A06A-940AA0763390}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5877703D-B32E-433B-A06A-940AA0763390}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5877703D-B32E-433B-A06A-940AA0763390}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5877703D-B32E-433B-A06A-940AA0763390}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

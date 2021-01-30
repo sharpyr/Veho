@@ -2,40 +2,98 @@
 
 namespace Veho.Matrix {
   public static class Zippers {
-    public static T[] Zip<TA, TB, T>(this TA[] vector, TB[] another, Func<TA, TB, T> fn) {
-      var hi = vector.Length;
-      var result = new T[hi];
-      for (var i = 0; i < hi; i++) result[i] = fn(vector[i], another[i]);
+    public static T[,] Zip<TA, TB, T>(this TA[,] matrix, TB[,] another, Func<TA, TB, T> fn) {
+      var (h, w) = matrix.Size();
+      var result = new T[h, w];
+      for (var i = 0; i < h; i++)
+        for (var j = 0; j < w; j++)
+          result[i, j] = fn(matrix[i, j], another[i, j]);
       return result;
     }
-    public static TA[] Mutazip<TA, TB>(this TA[] vector, TB[] another, Func<TA, TB, TA> fn) {
-      var hi = vector.Length;
-      for (var i = 0; i < hi; i++) vector[i] = fn(vector[i], another[i]);
-      return vector;
+    public static void IterZip<TA, TB>(this TA[,] matrix, TB[,] another, Action<TA, TB> action) {
+      var (h, w) = matrix.Size();
+      for (var i = 0; i < h; i++)
+        for (var j = 0; j < w; j++)
+          action(matrix[i, j], another[i, j]);
+    }
+    public static TA[,] MutaZip<TA, TB>(this TA[,] matrix, TB[,] another, Func<TA, TB, TA> fn) {
+      var (h, w) = matrix.Size();
+      for (var i = 0; i < h; i++)
+        for (var j = 0; j < w; j++)
+          matrix[i, j] = fn(matrix[i, j], another[i, j]);
+      return matrix;
     }
     public static T[,] Zipper<TA, TB, T>(this Func<TA, TB, T> fn, TA[,] a, TB[,] b) {
-      var (height, width) = a.Size();
-      var matrix = new T[height, width];
-      for (var i = 0; i < height; i++)
-        for (var j = 0; j < width; j++)
+      var (h, w) = a.Size();
+      var matrix = new T[h, w];
+      for (var i = 0; i < h; i++)
+        for (var j = 0; j < w; j++)
           matrix[i, j] = fn(a[i, j], b[i, j]);
       return matrix;
     }
     public static T[,] Zipper<TA, TB, TC, T>(this Func<TA, TB, TC, T> fn, TA[,] a, TB[,] b, TC[,] c) {
-      var (height, width) = a.Size();
-      var matrix = new T[height, width];
-      for (var i = 0; i < height; i++)
-        for (var j = 0; j < width; j++)
+      var (h, w) = a.Size();
+      var matrix = new T[h, w];
+      for (var i = 0; i < h; i++)
+        for (var j = 0; j < w; j++)
           matrix[i, j] = fn(a[i, j], b[i, j], c[i, j]);
       return matrix;
     }
     public static T[,] Zipper<TA, TB, TC, TD, T>(this Func<TA, TB, TC, TD, T> fn, TA[,] a, TB[,] b, TC[,] c, TD[,] d) {
-      var (height, width) = a.Size();
-      var matrix = new T[height, width];
-      for (var i = 0; i < height; i++)
-        for (var j = 0; j < width; j++)
+      var (h, w) = a.Size();
+      var matrix = new T[h, w];
+      for (var i = 0; i < h; i++)
+        for (var j = 0; j < w; j++)
           matrix[i, j] = fn(a[i, j], b[i, j], c[i, j], d[i, j]);
       return matrix;
     }
+
+    #region Indexed
+    public static T[,] Zip<TA, TB, T>(this TA[,] matrix, TB[,] another, Func<int, int, TA, TB, T> fn) {
+      var (h, w) = matrix.Size();
+      var result = new T[h, w];
+      for (var i = 0; i < h; i++)
+        for (var j = 0; j < w; j++)
+          result[i, j] = fn(i, j, matrix[i, j], another[i, j]);
+      return result;
+    }
+    public static void IterZip<TA, TB>(this TA[,] matrix, TB[,] another, Action<int, int, TA, TB> action) {
+      var (h, w) = matrix.Size();
+      for (var i = 0; i < h; i++)
+        for (var j = 0; j < w; j++)
+          action(i, j, matrix[i, j], another[i, j]);
+    }
+    public static TA[,] MutaZip<TA, TB>(this TA[,] matrix, TB[,] another, Func<int, int, TA, TB, TA> fn) {
+      var (h, w) = matrix.Size();
+      for (var i = 0; i < h; i++)
+        for (var j = 0; j < w; j++)
+          matrix[i, j] = fn(i, j, matrix[i, j], another[i, j]);
+      return matrix;
+    }
+    public static T[,] Zipper<TA, TB, T>(this Func<int, int, TA, TB, T> fn, TA[,] a, TB[,] b) {
+      var (h, w) = a.Size();
+      var matrix = new T[h, w];
+      for (var i = 0; i < h; i++)
+        for (var j = 0; j < w; j++)
+          matrix[i, j] = fn(i, j, a[i, j], b[i, j]);
+      return matrix;
+    }
+    public static T[,] Zipper<TA, TB, TC, T>(this Func<int, int, TA, TB, TC, T> fn, TA[,] a, TB[,] b, TC[,] c) {
+      var (h, w) = a.Size();
+      var matrix = new T[h, w];
+      for (var i = 0; i < h; i++)
+        for (var j = 0; j < w; j++)
+          matrix[i, j] = fn(i, j, a[i, j], b[i, j], c[i, j]);
+      return matrix;
+    }
+    public static T[,] Zipper<TA, TB, TC, TD, T>(this Func<int, int, TA, TB, TC, TD, T> fn, TA[,] a, TB[,] b, TC[,] c, TD[,] d) {
+      var (h, w) = a.Size();
+      var matrix = new T[h, w];
+      for (var i = 0; i < h; i++)
+        for (var j = 0; j < w; j++)
+          matrix[i, j] = fn(i, j, a[i, j], b[i, j], c[i, j], d[i, j]);
+      return matrix;
+    }
+    #endregion
   }
 }

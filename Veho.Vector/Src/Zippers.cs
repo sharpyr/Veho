@@ -8,7 +8,11 @@ namespace Veho.Vector {
       for (var i = 0; i < hi; i++) result[i] = fn(vector[i], other[i]);
       return result;
     }
-    public static TA[] Mutazip<TA, TB>(this TA[] vector, TB[] another, Func<TA, TB, TA> fn) {
+    public static void IterZip<TA, TB, T>(this TA[] vector, TB[] other, Action<TA, TB> action) {
+      var hi = vector.Length;
+      for (var i = 0; i < hi; i++) action(vector[i], other[i]);
+    }
+    public static TA[] MutaZip<TA, TB>(this TA[] vector, TB[] another, Func<TA, TB, TA> fn) {
       var hi = vector.Length;
       for (var i = 0; i < hi; i++) vector[i] = fn(vector[i], another[i]);
       return vector;
