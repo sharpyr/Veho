@@ -4,7 +4,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <PackageVersion>0.1.0</PackageVersion>
     <Title>Veho.Tuple</Title>
-    <Description>Tuple iterate tools</Description>
+    <Description>Tuple iterate tools, for 2-value tuples and 3-value tuples</Description>
     <Authors>Hoyeung Wong</Authors>
     <Company>Hoyeung Wong</Company>
     <Copyright>Copyright (c) Hoyeung Wong 2020-present</Copyright>
