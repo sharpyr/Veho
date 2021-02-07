@@ -13,9 +13,10 @@ namespace Veho.Matrix {
     public static void RestOf(this (int height, int width) size, (int x, int y) coordinate, Action<int, int> action) {
       var (h, w) = size;
       var (x, y) = coordinate;
-      for (++y; y < w; y++) { action(x, y); }
+      for (++y; y < w; y++) action(x, y);
       for (++x; x < h; x++)
-        for (y = 0; y < w; y++) { action(x, y); }
+        for (y = 0; y < w; y++)
+          action(x, y);
     }
   }
 }
