@@ -53,8 +53,5 @@ namespace Veho.Matrix {
       });
       return (keys, values);
     }
-
-
-
   }
 }

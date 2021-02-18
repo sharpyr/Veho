@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -14,9 +14,9 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Veho.Entries\Veho.Entries.csproj"/>
+    <ProjectReference Include="..\Veho.Entries\Veho.Entries.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Typen" Version="0.0.6"/>
+    <PackageReference Include="Typen" Version="0.0.6" />
   </ItemGroup>
 </Project>
