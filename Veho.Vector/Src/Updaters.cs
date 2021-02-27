@@ -4,9 +4,10 @@ namespace Veho.Vector {
   public static class Updaters {
     public static int Push<T>(this T[] vector, T element) {
       var hi = vector.Length;
-      Array.Resize(ref vector, hi + 1);
+      var len = hi + 1;
+      Array.Resize(ref vector, len);
       vector[hi] = element;
-      return vector.Length;
+      return len;
     }
   }
 }
