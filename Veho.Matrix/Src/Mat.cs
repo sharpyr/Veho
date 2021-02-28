@@ -1,14 +1,14 @@
 using System;
 
 namespace Veho.Matrix {
-  public static class Inits {
+  public static class Mat {
     public static T[,] Empty<T>() => new T[,] {{ }};
 
-    public static T[,] M1X1<T>(T element) => new T[,] {{element}};
+    public static T[,] M1X1<T>(this T element) => new T[,] {{element}};
 
-    public static T[,] Init<T>((int, int) size) => new T[size.Item1, size.Item2];
+    public static T[,] Init<T>(this (int, int) size) => new T[size.Item1, size.Item2];
 
-    public static T[,] Init<T>((int, int) size, Func<int, int, T> fn) {
+    public static T[,] Init<T>(this (int, int) size, Func<int, int, T> fn) {
       var (h, w) = size;
       var matrix = new T[h, w];
       for (var i = 0; i < h; i++)

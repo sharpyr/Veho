@@ -17,6 +17,7 @@ namespace Veho.Vector {
       for (var i = 0; i < hi; i++) vector[i] = fn(vector[i], another[i]);
       return vector;
     }
+
     public static T[] Zipper<TA, TB, T>(this Func<TA, TB, T> fn, TA[] a, TB[] b) {
       var hi = a.Length;
       var vec = new T[hi];

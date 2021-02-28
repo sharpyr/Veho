@@ -9,6 +9,7 @@ namespace Veho.Matrix {
       var h = matrix.Length;
       return (h, h == 0 ? 0 : matrix[0].Length);
     }
+
     public static T[] Flatten<T>(this T[][] matrix) {
       var (h, w) = matrix.Size();
       var target = new T[h * w];

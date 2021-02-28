@@ -9,5 +9,7 @@ namespace Veho.Vector {
       vector[hi] = element;
       return vector;
     }
+    
+
   }
 }
