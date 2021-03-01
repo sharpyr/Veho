@@ -17,6 +17,6 @@
     <ProjectReference Include="..\Veho.Entries\Veho.Entries.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Typen" Version="0.0.6" />
+    <PackageReference Include="Typen" Version="0.0.8" />
   </ItemGroup>
 </Project>
