@@ -1,8 +1,8 @@
 using System;
+using Typen;
 
 namespace Veho.Vector {
   public static class Mappers {
-    #region Mappers
     public static void Iterate<T>(this T[] vector, Action<T> fn) {
       var hi = vector.Length;
       for (var i = 0; i < hi; i++) fn(vector[i]);
@@ -34,6 +34,7 @@ namespace Veho.Vector {
       for (var i = 0; i < hi; i++) vector[i] = fn(i, vector[i]);
       return vector;
     }
-    #endregion
+    public static TO[] CastTo<T, TO>(this T[] vector) => vector.Map(Conv.Cast<T, TO>);
+    public static TO[] CastTo<T, TO>(this T[] vector, Converter<T, TO> converter) => vector.Map(x => converter(x));
   }
 }
