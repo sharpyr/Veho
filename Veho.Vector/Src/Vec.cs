@@ -8,6 +8,8 @@ namespace Veho.Vector {
       return vec;
     }
 
+    public static T[] From<T>(params T[] elements) => elements;
+
     public static T[] Iso<T>(int len, T value) {
       var vec = new T[len];
       for (var i = 0; i < len; i++) vec[i] = value;
