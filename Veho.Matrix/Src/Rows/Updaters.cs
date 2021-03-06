@@ -1,5 +1,13 @@
-﻿namespace Veho.Matrix.Rows {
+﻿using System;
+
+namespace Veho.Matrix.Rows {
   public static class Updaters {
+    public static T[,] ExpandRow<T>(this T[,] matrix, int delta) {
+      var (height, width) = matrix.Size();
+      var target = new T[(height += delta) > 0 ? height : 0, width];
+      Array.Copy(matrix, 0, target, 0, Math.Min(matrix.Length, target.Length));
+      return target;
+    }
     public static T[,] WriteRow<T>(this T[,] matrix, T[] vec, int x) {
       for (int j = 0, hi = vec.Length; j < hi; j++) matrix[x, j] = vec[j];
       return matrix;
@@ -17,6 +25,13 @@
       return matrix
         .ExpandRow(1)
         .WriteRow(vec, y);
+    }
+
+    public static T[,] UnshiftRow<T>(this T[,] matrix, T[] vec) {
+      var (height, width) = matrix.Size();
+      var target = new T[height + 1, width];
+      Array.Copy(matrix, 0, target, width, matrix.Length);
+      return target.WriteRow(vec, 0);
     }
   }
 }

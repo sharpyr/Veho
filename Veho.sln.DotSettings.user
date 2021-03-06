@@ -52,5 +52,8 @@
     &lt;TestId&gt;NUnit3x::84EF9D47-F861-4119-9EC5-80924C014F0B::.NETFramework,Version=v4.7.2::Veho.Test.Matrix.MatrixResizeTest.ResizeRowTest&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;NUnit3x::84EF9D47-F861-4119-9EC5-80924C014F0B::.NETFramework,Version=v4.7.2::Veho.Test.Matrix.MatrixPushRowColumnTests.MatrixPushRowTest&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;NUnit3x::84EF9D47-F861-4119-9EC5-80924C014F0B::.NETFramework,Version=v4.7.2::Veho.Test.Matrix.MatrixPushRowColumnTests.MatrixPushColumnTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::84EF9D47-F861-4119-9EC5-80924C014F0B::.NETFramework,Version=v4.7.2::Veho.Test.Matrix.MatrixUpdatersTests.MatrixUnshiftRowTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::84EF9D47-F861-4119-9EC5-80924C014F0B::.NETFramework,Version=v4.7.2::Veho.Test.Matrix.MatrixUpdatersTests.MatrixUnshiftColumnTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::84EF9D47-F861-4119-9EC5-80924C014F0B::.NETFramework,Version=v4.7.2::Veho.Test.Matrix.MatrixUpdatersTests&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
