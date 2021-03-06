@@ -10,6 +10,8 @@ namespace Veho.Vector {
       return vector;
     }
     
+    
+    
 
   }
 }

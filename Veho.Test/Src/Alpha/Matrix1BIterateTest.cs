@@ -36,7 +36,7 @@ namespace Veho.Test.Alpha {
         {100, 200, 300, 400, 500},
       };
       var eta = new Stopwatch();
-      var record = new Dictionary<String, long>();
+      var record = new Dictionary<string, long>();
       const double count = (int) 2E+6;
 
       eta.Start();
