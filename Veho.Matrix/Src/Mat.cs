@@ -1,4 +1,5 @@
 using System;
+using Veho.Matrix.Rows;
 
 namespace Veho.Matrix {
   public static class Mat {
@@ -7,6 +8,8 @@ namespace Veho.Matrix {
     public static T[,] M1X1<T>(this T element) => new T[,] {{element}};
 
     public static T[,] Init<T>(this (int, int) size) => new T[size.Item1, size.Item2];
+
+    public static T[,] From<T>(params T[][] rows) => rows.RowsToMatrix();
 
     public static T[,] Init<T>(this (int, int) size, Func<int, int, T> fn) {
       var (h, w) = size;
