@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
 using Spare.Deco;
 using Spare.Logger;
+using Veho.Matrix;
 using Veho.Matrix.Columns;
 using Veho.Matrix.Rows;
 using Veho.Vector;
@@ -10,23 +11,26 @@ namespace Veho.Test.Matrix {
   public class MatrixUpdatersTests {
     [Test]
     public void MatrixPushRowTest() {
-      var mat = new int[2, 3];
-      mat.PushRow(Vec.From(1, 2, 3)).Deco().Logger();
+      var mat = (2, 3).Init((i, j) => i + j);
+      mat.Deco().Logger();
+      mat.PushRow(Vec.From(10, 20, 30)).Deco().Logger();
     }
     [Test]
     public void MatrixPushColumnTest() {
-      var mat = new int[3, 2];
-      mat.PushColumn(Vec.From(1, 2, 3)).Deco().Logger();
+      var mat = (3, 2).Init((i, j) => i + j);
+      mat.Deco().Logger();
+      mat.PushColumn(Vec.From(10, 20, 30)).Deco().Logger();
     }
     [Test]
     public void MatrixUnshiftRowTest() {
-      var mat = new int[2, 3];
-      mat.UnshiftRow(Vec.From(1, 2, 3)).Deco().Logger();
+      var mat = (2, 3).Init((i, j) => i + j);
+      mat.Deco().Logger();
+      mat.UnshiftRow(Vec.From(10, 20, 30)).Deco().Logger();
     }
     [Test]
     public void MatrixUnshiftColumnTest() {
-      var mat = new int[3, 2];
-      mat.UnshiftColumn(Vec.From(1, 2, 3)).Deco().Logger();
+      var mat = (3, 2).Init((i, j) => i + j);
+      mat.UnshiftColumn(Vec.From(10, 20, 30)).Deco().Logger();
     }
   }
 }
