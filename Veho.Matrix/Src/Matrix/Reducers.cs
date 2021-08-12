@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Veho {
+namespace Veho.Matrix {
   public static partial class MatrixReducers {
     public static TO Fold<T, TO>(this T[,] matrix, Func<TO, T, TO> sequence, TO acc) {
       var (h, w) = matrix.Size();

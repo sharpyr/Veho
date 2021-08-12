@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
 using Spare.Deco;
 using Spare.Logger;
+using Veho.Vector;
 
 namespace Veho.Test.Vector {
   [TestFixture]

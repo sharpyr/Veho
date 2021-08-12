@@ -2,7 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using NUnit.Framework;
+using Veho.Matrix;
 using Veho.Rows;
+using Veho.Vector;
 
 
 namespace Veho.Test.Alpha {

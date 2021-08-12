@@ -1,7 +1,7 @@
 using System;
 using Typen;
 
-namespace Veho {
+namespace Veho.Vector {
   public static partial class Mappers {
     public static void Iterate<T>(this T[] vector, Action<T> fn) {
       var hi = vector.Length;

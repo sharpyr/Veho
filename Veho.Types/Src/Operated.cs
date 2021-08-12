@@ -1,4 +1,4 @@
-﻿namespace Veho {
+﻿namespace Veho.Types {
   public enum Operated {
     Pointwise,
     Rowwise,

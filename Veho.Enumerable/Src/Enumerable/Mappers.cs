@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Veho {
+namespace Veho.Enumerable {
   public static partial class Mappers {
     public static TO[] Map<T, TO>(this IEnumerable<T> iter, Func<T, TO> func) => iter.Select(func).ToArray();
 

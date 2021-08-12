@@ -2,6 +2,7 @@
 using System.Linq;
 using NUnit.Framework;
 using Veho.Columns;
+using Veho.Matrix;
 using Veho.Rows;
 using Veho.Test.Utils;
 

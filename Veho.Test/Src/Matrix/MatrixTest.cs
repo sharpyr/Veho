@@ -1,5 +1,6 @@
 ﻿using System;
 using NUnit.Framework;
+using Veho.Matrix;
 
 namespace Veho.Test.Matrix {
   [TestFixture]

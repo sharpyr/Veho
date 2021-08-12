@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Veho.Matrix;
 
 namespace Veho {
   public static partial class Utils {

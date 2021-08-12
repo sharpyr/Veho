@@ -1,6 +1,6 @@
 using System;
 
-namespace Veho {
+namespace Veho.Vector {
   public static partial class Reducers {
     public static TO Fold<T, TO>(this T[] vector, Func<TO, T, TO> sequence, TO accum) {
       var hi = vector.Length;

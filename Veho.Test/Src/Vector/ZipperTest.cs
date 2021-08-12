@@ -9,7 +9,7 @@ namespace Veho.Test.Vector {
       var a = new[] {1, 2, 3, 4, 5};
       var b = new[] {2, 2, 0, 3, 3};
       Func<int, int, int> fn = (x, y) => x * y;
-      var vec = fn.Zipper(a, b);
+      var vec = Veho.Vector.Zippers.Zipper(fn, a, b);
       Console.WriteLine(string.Join(", ", vec));
       Console.WriteLine();
     }

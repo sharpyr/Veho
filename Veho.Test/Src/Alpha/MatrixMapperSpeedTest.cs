@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using NUnit.Framework;
 using Spare.Logger;
+using Veho.Matrix;
 using Veho.Test.Utils;
 
 namespace Veho.Test.Alpha {

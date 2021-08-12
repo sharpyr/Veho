@@ -1,6 +1,8 @@
 using NUnit.Framework;
 using Spare.Deco;
 using Spare.Logger;
+using Veho.NestedVector;
+using Veho.Vector;
 
 namespace Veho.Test.Matrix {
   public static partial class NestedVectorExt {
