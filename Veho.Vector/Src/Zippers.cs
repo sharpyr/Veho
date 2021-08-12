@@ -1,14 +1,14 @@
 ﻿using System;
 
-namespace Veho.Vector {
-  public static class Zippers {
+namespace Veho {
+  public static partial class Zippers {
     public static T[] Zip<TA, TB, T>(this TA[] vector, TB[] other, Func<TA, TB, T> fn) {
       var hi = vector.Length;
       var result = new T[hi];
       for (var i = 0; i < hi; i++) result[i] = fn(vector[i], other[i]);
       return result;
     }
-    public static void IterZip<TA, TB, T>(this TA[] vector, TB[] other, Action<TA, TB> action) {
+    public static void IterZip<TA, TB>(this TA[] vector, TB[] other, Action<TA, TB> action) {
       var hi = vector.Length;
       for (var i = 0; i < hi; i++) action(vector[i], other[i]);
     }
@@ -22,7 +22,7 @@ namespace Veho.Vector {
       var hi = a.Length;
       var vec = new T[hi];
       for (var i = 0; i < hi; i++) vec[i] = fn(a[i], b[i]);
-      return vec; 
+      return vec;
     }
     public static T[] Zipper<TA, TB, TC, T>(this Func<TA, TB, TC, T> fn, TA[] a, TB[] b, TC[] c) {
       var hi = a.Length;

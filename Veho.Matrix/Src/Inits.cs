@@ -1,7 +1,7 @@
 using System;
 
 namespace Veho.Matrix {
-  public static class Inits {
+  public static partial class Inits {
     public static T[,] Empty<T>() => new T[,] {{ }};
 
     public static T[,] M1X1<T>(T element) => new T[,] {{element}};

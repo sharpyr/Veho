@@ -1,10 +1,8 @@
 ﻿using NUnit.Framework;
 using Spare.Deco;
 using Spare.Logger;
-using Veho.Matrix;
-using Veho.Matrix.Columns;
-using Veho.Matrix.Rows;
-using Veho.Vector;
+using Veho.Columns;
+using Veho.Rows;
 
 namespace Veho.Test.Matrix {
   [TestFixture]

@@ -1,7 +1,7 @@
 ﻿using System;
 
 namespace Veho.Vector {
-  public static class Inits {
+  public static partial class Inits {
     public static T[] Init<T>(int len, Func<int, T> func) {
       var vec = new T[len];
       for (var i = 0; i < len; i++) vec[i] = func(i);

@@ -1,8 +1,7 @@
 ﻿using System;
-using Veho.Matrix;
 
 namespace Veho.Test.Obsolete.Columns {
-  public static class Reducers {
+  public static partial class Reducers {
     public static TO FoldColumn<T, TO>(this T[,] matrix, int y, Func<TO, T, TO> sequence, TO accum) {
       for (var i = 0; i < matrix.Height(); i++) accum = sequence(accum, matrix[i, y]);
       return accum;

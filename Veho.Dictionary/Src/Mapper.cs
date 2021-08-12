@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
 
-namespace Veho.Dictionary {
-  public static class Mapper {
+namespace Veho {
+  public static partial class Mapper {
     public static P[] MapKeys<K, _, P>(this IDictionary<K, _> dict, Func<K, P> fn) {
       var vec = new P[dict.Count];
       var i = 0;

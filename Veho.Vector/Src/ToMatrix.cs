@@ -1,5 +1,5 @@
-﻿namespace Veho.Vector {
-  public static class ToMatrix {
+﻿namespace Veho {
+  public static partial class ToMatrix {
     public static T[,] ToRow<T>(this T[] vector) {
       var hi = vector.Length;
       var row = new T[1, hi];

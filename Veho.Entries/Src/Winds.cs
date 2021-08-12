@@ -1,5 +1,5 @@
-namespace Veho.Entries {
-  public static class Winds {
+namespace Veho {
+  public static partial class Entries {
     public static (TK, TV)[] Wind<TK, TV>(TK[] keys, TV[] values) {
       var hi = keys.Length;
       var entries = new (TK, TV)[hi];

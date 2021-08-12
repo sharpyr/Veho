@@ -1,7 +1,7 @@
 ﻿using System;
 
-namespace Veho.Matrix.Rows {
-  public static class Indexers {
+namespace Veho.Rows {
+  public static partial class Indexers {
     public static T[] Row<T>(this T[,] matrix, int x, int w = 0) {
       var row = new T[w == 0 ? w = matrix.Width() : w];
       for (var j = 0; j < w; j++) row[j] = matrix[x, j];

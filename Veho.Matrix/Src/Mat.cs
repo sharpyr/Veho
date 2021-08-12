@@ -1,8 +1,8 @@
 using System;
-using Veho.Matrix.Rows;
+using Veho.Rows;
 
-namespace Veho.Matrix {
-  public static class Mat {
+namespace Veho {
+  public static partial class Mat {
     public static T[,] Empty<T>() => new T[,] {{ }};
 
     public static T[,] M1X1<T>(this T element) => new T[,] {{element}};

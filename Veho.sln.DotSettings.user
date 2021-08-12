@@ -27,6 +27,7 @@
     &lt;TestId&gt;NUnit3x::84EF9D47-F861-4119-9EC5-80924C014F0B::.NETFramework,Version=v4.7.2::Veho.Test.Dictionary.DictTests.DictInitTest&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;NUnit3x::84EF9D47-F861-4119-9EC5-80924C014F0B::.NETFramework,Version=v4.7.2::Veho.Test.Matrix.MatrixResizeTest&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;NUnit3x::84EF9D47-F861-4119-9EC5-80924C014F0B::.NETFramework,Version=v4.7.2::Veho.Test.Matrix.MatrixUpdatersTests&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::84EF9D47-F861-4119-9EC5-80924C014F0B::.NETFramework,Version=v4.7.2::Veho.Test.Alpha.Matrix1BIterateTest&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=d0d35210_002D49d5_002D4e39_002D8e7c_002Dbda13eeacfce/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="Test #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;

@@ -1,7 +1,7 @@
 ﻿using System;
 
-namespace Veho.Matrix.Rows {
-  public static class Updaters {
+namespace Veho.Rows {
+  public static partial class Updaters {
     public static T[,] ExpandRow<T>(this T[,] matrix, int delta) {
       var (height, width) = matrix.Size();
       var target = new T[(height += delta) > 0 ? height : 0, width];
@@ -23,8 +23,8 @@ namespace Veho.Matrix.Rows {
     public static T[,] PushRow<T>(this T[,] matrix, T[] vec) {
       var y = matrix.Height();
       return matrix
-        .ExpandRow(1)
-        .WriteRow(vec, y);
+             .ExpandRow(1)
+             .WriteRow(vec, y);
     }
 
     public static T[,] UnshiftRow<T>(this T[,] matrix, T[] vec) {

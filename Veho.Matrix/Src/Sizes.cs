@@ -1,7 +1,7 @@
 ﻿using System;
 
-namespace Veho.Matrix {
-  public static class Sizes {
+namespace Veho {
+  public static partial class Sizes {
     public static bool Any(this (int height, int width) size) => size.height != 0 && size.width != 0;
 
     public static void Iter(this (int height, int width) size, Action<int, int> fn) {

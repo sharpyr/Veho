@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 
-namespace Veho.Dictionary {
-  public static class Winds {
+namespace Veho {
+  public static partial class Winds {
     public static Dictionary<K, V> Wind<K, V>(K[] keys, V[] values) {
       var hi = keys.Length;
       var dict = new Dictionary<K, V>();

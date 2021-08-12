@@ -6,7 +6,7 @@
 // using Veho.Test.Utils;
 //
 // namespace Veho.Test.Alpha {
-//   public static class Functions {
+//   public static partial class  Functions {
 //     public static T[] Row<T>(this T[,] matrix, int x, int w = 0) {
 //       var row = new T[w == 0 ? w = matrix.Width() : w];
 //       for (var j = 0; j < w; j++) row[j] = matrix[x, j];
@@ -33,3 +33,4 @@
 //     }
 //   }
 // }
+

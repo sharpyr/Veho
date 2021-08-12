@@ -1,6 +1,5 @@
 using System;
 using NUnit.Framework;
-using Veho.Vector;
 
 namespace Veho.Test.Vector {
   [TestFixture]
@@ -8,7 +7,7 @@ namespace Veho.Test.Vector {
     [Test]
     public void ReduceTest() {
       var some = default(string);
-      Assert.AreEqual(some ,null);
+      Assert.AreEqual(some, null);
 
       var vec = new[] {1, 4, 6, 3, 2};
       var max = vec.Reduce(Math.Max);

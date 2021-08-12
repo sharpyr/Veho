@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 
-namespace Veho.Dictionary {
-  public static class Dict {
+namespace Veho {
+  public static partial class Dict {
     public static Dictionary<TK, TV> From<TK, TV>(params (TK key, TV value)[] entries) => entries
       .ToDict();
     public static Dictionary<TK, TV> ToDict<TK, TV>(this (TK key, TV value)[] entries) {

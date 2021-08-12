@@ -1,11 +1,9 @@
 using NUnit.Framework;
 using Spare.Deco;
 using Spare.Logger;
-using Veho.Matrix;
-using Veho.Vector;
 
 namespace Veho.Test.Matrix {
-  public static class NestedVectorExt {
+  public static partial class NestedVectorExt {
     public static T[][] PushRow<T>(this T[][] matrix, T[] row) => matrix.Push(row);
 
     public static T[][] PushColumn<T>(this T[][] matrix, T[] column) =>

@@ -1,8 +1,8 @@
 ﻿using System;
 using Generic.Math;
 
-namespace Veho.Tuple {
-  public static class Mappers {
+namespace Veho {
+  public static partial class Mappers {
     public static (TO x, TO y) Map<T, TO>(this (T x, T y) t, Func<T, TO> f) => (f(t.x), f(t.y));
     public static (TO x, TO y, TO z) Map<T, TO>(this (T x, T y, T z) t, Func<T, TO> f) => (f(t.x), f(t.y), f(t.z));
     public static void Iterate<T, TO>(ref (T x, T y, T z) t, Action<T> f) {
@@ -12,7 +12,7 @@ namespace Veho.Tuple {
     }
   }
 
-  public static class Zippers {
+  public static partial class Zippers {
     public static (T x, T y) Zip<TA, TB, T>(this (TA x, TA y) a, (TB x, TB y) b, Func<TA, TB, T> f) =>
       (f(a.x, b.x), f(a.y, b.y));
     public static (T x, T y) Zip<TA, TB, T>(this (TA x, TA y) a, TB b, Func<TA, TB, T> f) =>

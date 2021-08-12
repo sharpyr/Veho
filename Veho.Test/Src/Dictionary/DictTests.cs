@@ -2,7 +2,6 @@
 using NUnit.Framework;
 using Spare.Deco;
 using Spare.Logger;
-using Veho.Dictionary;
 
 namespace Veho.Test.Dictionary {
   [TestFixture]

@@ -1,9 +1,8 @@
 using System;
 using Typen;
-using Veho.Matrix.Rows;
 
-namespace Veho.Matrix {
-  public static class NestedVector {
+namespace Veho {
+  public static partial class NestedVector {
     public static int Height<T>(this T[][] matrix) => matrix.Length;
     public static int Width<T>(this T[][] matrix) => matrix.Length == 0 ? 0 : matrix[0].Length;
     public static (int height, int width) Size<T>(this T[][] matrix) {

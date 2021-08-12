@@ -2,13 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using NUnit.Framework;
-using Veho.Matrix;
-using Veho.Matrix.Rows;
-using Veho.Vector;
-using Inits = Veho.Matrix.Inits;
+using Veho.Rows;
+
 
 namespace Veho.Test.Alpha {
-  public static class Matrix1BIterateFunctions {
+  public static partial class Matrix1BIterateFunctions {
     public static T[,] ZeroOutBeta<T>(this T[,] matrix) {
       var (h, w) = matrix.Size();
       var target = new T[h, w];
@@ -20,7 +18,7 @@ namespace Veho.Test.Alpha {
       const string CRLF = "\r\n", TAB = "  ";
       matrix = matrix.ZeroOut();
       var body = matrix
-                 .MapRows(row => TAB + "[" + row.Join(", ") + "],")
+                 .MapRows(row => TAB + "[" + row.Join<T>(", ") + "],")
                  .Join("\r\n");
       return "[" + CRLF + body + CRLF + "]";
     }
@@ -41,7 +39,7 @@ namespace Veho.Test.Alpha {
 
       eta.Start();
       for (var i = 0; i < count; i++) {
-        var mx = Inits.Init(4, 5, (x, y) => x + y);
+        var mx = Mat.Init(4, 5, (x, y) => x + y);
       }
       eta.Stop();
       record.Add("Init", eta.ElapsedMilliseconds);

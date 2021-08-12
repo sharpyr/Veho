@@ -1,4 +1,4 @@
-﻿namespace Veho.Types {
+﻿namespace Veho {
   public enum Directed {
     Up = 010,
     Down = 000,

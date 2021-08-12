@@ -1,7 +1,7 @@
 using System;
 
-namespace Veho.Vector {
-  public static class Updaters {
+namespace Veho {
+  public static partial class Updaters {
     public static T[] Push<T>(this T[] vector, T element) {
       int hi = vector.Length, len = hi + 1;
       Array.Resize(ref vector, len);

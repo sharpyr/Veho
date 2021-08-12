@@ -2,8 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Veho.Matrix {
-  public static class Utils {
+namespace Veho {
+  public static partial class Utils {
     public static IEnumerable<T> AsEnum<T>(this T[,] matrix) => matrix.OfType<T>();
 
     public static T[,] Transpose<T>(this T[,] matrix) {

@@ -1,6 +1,5 @@
 ﻿using System;
 using NUnit.Framework;
-using Veho.Vector;
 
 namespace Veho.Test.Vector {
   [TestFixture]
@@ -9,6 +8,7 @@ namespace Veho.Test.Vector {
     public void SwapTest() {
       int[] vector = {1, 2, 3, 4, 5};
       Console.WriteLine(vector.Swap(0, 4));
+      Console.WriteLine(vector.Reduce((a, b) => a + b));
     }
   }
 }

@@ -5,7 +5,7 @@ using System.Linq;
 using NUnit.Framework;
 
 namespace Veho.Test.Alpha {
-  public static class MatrixUtils {
+  public static partial class MatrixUtils {
     public static T[] LinqColumn<T>(this T[,] matrix, int columnNumber) {
       return System.Linq.Enumerable.Range(0, matrix.GetLength(0))
                    .Select(x => matrix[x, columnNumber])

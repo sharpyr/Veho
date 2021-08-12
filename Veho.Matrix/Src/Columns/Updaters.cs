@@ -1,7 +1,7 @@
 ﻿using System;
 
-namespace Veho.Matrix.Columns {
-  public static class Updaters {
+namespace Veho.Columns {
+  public static partial class Updaters {
     public static T[,] ExpandColumn<T>(this T[,] matrix, int delta) {
       var (height, width) = matrix.Size();
       var width2 = width + delta;
@@ -25,8 +25,8 @@ namespace Veho.Matrix.Columns {
     public static T[,] PushColumn<T>(this T[,] matrix, T[] vec) {
       var y = matrix.Width();
       return matrix
-        .ExpandColumn(1)
-        .WriteColumn(vec, y);
+             .ExpandColumn(1)
+             .WriteColumn(vec, y);
     }
 
     public static T[,] UnshiftColumn<T>(this T[,] matrix, T[] vec) {

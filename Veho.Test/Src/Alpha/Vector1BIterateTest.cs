@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using NUnit.Framework;
-using Veho.Vector;
 
 namespace Veho.Test.Alpha {
   [TestFixture]
@@ -20,7 +19,7 @@ namespace Veho.Test.Alpha {
 
       eta.Start();
       for (var i = 0; i < count; i++) {
-        var vec = Inits.Init(8, x => x);
+        var vec = Vec.Init(8, x => x);
       }
       eta.Stop();
       record.Add("Init", eta.ElapsedMilliseconds);
@@ -28,7 +27,7 @@ namespace Veho.Test.Alpha {
 
       eta.Restart();
       for (var i = 0; i < count; i++) {
-        var vec = Inits.V1B<int>(8);
+        var vec = Vec.V1B<int>(8);
       }
       eta.Stop();
       record.Add("V1B", eta.ElapsedMilliseconds);

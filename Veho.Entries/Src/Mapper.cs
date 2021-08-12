@@ -1,9 +1,7 @@
 using System;
-using System.Collections.Generic;
 
-namespace Veho.Entries {
-  public static class Mapper {
-
+namespace Veho {
+  public static partial class Entries {
     public static P[] MapKeys<K, _, P>(this (K, _)[] entries, Func<K, P> fn) {
       var vec = new P[entries.Length];
       var i = 0;

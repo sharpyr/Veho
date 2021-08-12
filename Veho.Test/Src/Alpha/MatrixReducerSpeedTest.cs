@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Linq;
 using NUnit.Framework;
-using Veho.Matrix;
-using Veho.Matrix.Columns;
-using Veho.Matrix.Rows;
+using Veho.Columns;
+using Veho.Rows;
 using Veho.Test.Utils;
 
 namespace Veho.Test.Alpha {
-  public static class MatrixReducersFunctions {
+  public static partial class MatrixReducersFunctions {
     public static void Rest<T>(this (int, int) size, T[,] matrix, (int, int) coordinate, Action<T> action) {
       var (h, w) = size;
       var (x, y) = coordinate;

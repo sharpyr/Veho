@@ -2,8 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using NUnit.Framework;
-using Veho.Matrix.Rows;
-using Veho.Vector;
+using Veho.Rows;
 
 namespace Veho.Test.Alpha {
   [TestFixture]

@@ -1,7 +1,7 @@
 ﻿using System;
 
-namespace Veho.Matrix.Columns {
-  public static class Mappers {
+namespace Veho.Columns {
+  public static partial class Mappers {
     public static TO[] MapColumns<T, TO>(this T[,] matrix, Func<T[], TO> colTo) {
       var (h, w) = matrix.Size();
       var horizon = new TO[w];
@@ -18,7 +18,7 @@ namespace Veho.Matrix.Columns {
 
 
     public static T[,] ColumnsToMatrix<T>(this T[][] columns) {
-      if (columns.Length == 0) return Inits.Empty<T>();
+      if (columns.Length == 0) return Mat.Empty<T>();
       var (h, w) = (columns[0].Length, columns.Length);
       var matrix = new T[h, w];
       for (var j = 0; j < w; j++) {

@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 
-
-namespace Veho.List {
-  public static class ListExt {
+namespace Veho {
+  public static partial class ListExt {
     //
     // IList(of T)
     //

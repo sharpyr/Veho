@@ -1,5 +1,5 @@
-namespace Veho.Entries {
-  public static class Unwinds {
+namespace Veho {
+  public static partial class Entries {
     public static (TK[], TV[]) Unwind<TK, TV>(this (TK, TV)[] entries) {
       var len = entries.Length;
       var keys = new TK[len];

@@ -1,7 +1,7 @@
 ﻿using System;
 
-namespace Veho.Entries {
-  public static class EntryMapper {
+namespace Veho {
+  public static partial class Entries {
     public static T[] ToVector<T>(this (T, T) entry) {
       var (x, y) = entry;
       return new[] {x, y};
