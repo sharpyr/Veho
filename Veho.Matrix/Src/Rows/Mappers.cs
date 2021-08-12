@@ -1,7 +1,8 @@
 ﻿using System;
+using Veho.Matrix;
 
 namespace Veho.Rows {
-  public static partial class Mappers {
+  public static class Mappers {
     public static TO[] MapRows<T, TO>(this T[,] matrix, Func<T[], TO> rowTo) {
       var (h, w) = matrix.Size();
       var vertica = new TO[h];

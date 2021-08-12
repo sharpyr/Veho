@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 
 namespace Veho.Dictionary {
-  public static partial class Mappers {
+  public static class Mappers {
     public static P[] MapKeys<K, _, P>(this IDictionary<K, _> dict, Func<K, P> fn) {
       var vec = new P[dict.Count];
       var i = 0;

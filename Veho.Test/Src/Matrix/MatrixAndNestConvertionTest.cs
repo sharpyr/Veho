@@ -3,7 +3,6 @@ using Spare.Deco;
 using Spare.Logger;
 using Veho.NestedVector;
 
-
 namespace Veho.Test.Matrix {
   [TestFixture]
   public class MatrixAndNestConvertionTest {

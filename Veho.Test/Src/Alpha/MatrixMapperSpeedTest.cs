@@ -1,12 +1,11 @@
 using System;
-using System.Linq;
 using NUnit.Framework;
 using Spare.Logger;
 using Veho.Matrix;
 using Veho.Test.Utils;
 
 namespace Veho.Test.Alpha {
-  public static partial class MatrixMapperFunctions {
+  public static class MatrixMapperFunctions {
     public static TO[,] Map2<T, TO>(this T[,] matrix, Func<T, TO> fn) {
       var (h, w) = matrix.Size();
       var target = new TO[h, w];

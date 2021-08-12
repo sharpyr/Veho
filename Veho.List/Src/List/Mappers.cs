@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 namespace Veho.List {
-  public static partial class Mappers {
+  public static class Mappers {
     //
     // IList(of T)
     //

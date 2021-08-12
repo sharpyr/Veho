@@ -1,7 +1,8 @@
 ﻿using System;
+using Veho.Matrix;
 
 namespace Veho.Columns {
-  public static partial class Indexers {
+  public static class Indexers {
     public static T[] Column<T>(this T[,] matrix, int y, int h = 0) {
       var col = new T[h == 0 ? h = matrix.Height() : h];
       for (var i = 0; i < h; i++) col[i] = matrix[i, y];

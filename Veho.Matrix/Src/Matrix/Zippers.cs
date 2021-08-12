@@ -1,7 +1,7 @@
 ﻿using System;
 
 namespace Veho.Matrix {
-  public static partial class Zippers {
+  public static class Zippers {
     public static T[,] Zip<TA, TB, T>(this TA[,] matrix, TB[,] another, Func<TA, TB, T> fn) {
       var (h, w) = matrix.Size();
       var result = new T[h, w];

@@ -7,7 +7,7 @@ using Veho.Rows;
 using Veho.Test.Utils;
 
 namespace Veho.Test.Alpha {
-  public static partial class MatrixReducersFunctions {
+  public static class MatrixReducersFunctions {
     public static void Rest<T>(this (int, int) size, T[,] matrix, (int, int) coordinate, Action<T> action) {
       var (h, w) = size;
       var (x, y) = coordinate;

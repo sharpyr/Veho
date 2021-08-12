@@ -3,7 +3,7 @@ using System.Collections.Generic;
 // using LM = System.Collections.Generic.IList<System.Collections.Generic.IList<T>>;
 
 namespace Veho.NestedList {
-  public static partial class Info {
+  public static class Info {
     public static int Height<T>(List<List<T>> matrix) => matrix.Count;
     public static int Width<T>(List<List<T>> matrix) => matrix.Count == 0 ? 0 : matrix[0].Count;
     public static (int height, int width) Size<T>(List<List<T>> matrix) {

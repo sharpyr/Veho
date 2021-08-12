@@ -1,5 +1,6 @@
 ﻿using System;
 using NUnit.Framework;
+using Veho.Vector;
 
 namespace Veho.Test.Vector {
   [TestFixture]
@@ -9,7 +10,7 @@ namespace Veho.Test.Vector {
       var a = new[] {1, 2, 3, 4, 5};
       var b = new[] {2, 2, 0, 3, 3};
       Func<int, int, int> fn = (x, y) => x * y;
-      var vec = Veho.Vector.Zippers.Zipper(fn, a, b);
+      var vec = Zippers.Zipper(fn, a, b);
       Console.WriteLine(string.Join(", ", vec));
       Console.WriteLine();
     }

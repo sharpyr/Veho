@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using NUnit.Framework;
 using Veho.Matrix;
+using Veho.PanBase;
 using Veho.Rows;
 using Veho.Vector;
 
-
 namespace Veho.Test.Alpha {
-  public static partial class Matrix1BIterateFunctions {
+  public static class Matrix1BIterateFunctions {
     public static T[,] ZeroOutBeta<T>(this T[,] matrix) {
       var (h, w) = matrix.Size();
       var target = new T[h, w];
@@ -20,7 +20,7 @@ namespace Veho.Test.Alpha {
       const string CRLF = "\r\n", TAB = "  ";
       matrix = matrix.ZeroOut();
       var body = matrix
-                 .MapRows(row => TAB + "[" + row.Join<T>(", ") + "],")
+                 .MapRows(row => TAB + "[" + row.Join() + "],")
                  .Join("\r\n");
       return "[" + CRLF + body + CRLF + "]";
     }

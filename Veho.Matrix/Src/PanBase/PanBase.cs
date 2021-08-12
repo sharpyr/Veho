@@ -1,7 +1,8 @@
 ﻿using System;
+using Veho.Matrix;
 
-namespace Veho {
-  public static partial class PanBase {
+namespace Veho.PanBase {
+  public static class PanBase {
     public static readonly int[] DoubleOne = {1, 1};
     public static T[,] M1B<T>(this (int, int) size) =>
       (T[,]) Array.CreateInstance(typeof(T), size.ToVector(), DoubleOne);

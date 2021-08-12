@@ -1,7 +1,7 @@
 ﻿using System;
 
 namespace Veho.Vector {
-  public static partial class Zippers {
+  public static class Zippers {
     public static T[] Zip<TA, TB, T>(this TA[] vector, TB[] other, Func<TA, TB, T> fn) {
       var hi = vector.Length;
       var result = new T[hi];

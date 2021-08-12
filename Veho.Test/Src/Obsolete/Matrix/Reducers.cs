@@ -1,7 +1,8 @@
 ﻿using System;
+using Veho.Matrix;
 
 namespace Veho.Test.Obsolete.Matrix {
-  public static partial class MatrixReducers {
+  public static class MatrixReducers {
     public static TO Fold<T, TO>(this T[,] matrix, Func<TO, T, TO> sequence, TO accum) {
       var (h, w) = matrix.Size();
       for (var i = 0; i < h; i++)

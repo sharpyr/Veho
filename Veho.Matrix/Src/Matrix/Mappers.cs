@@ -2,7 +2,7 @@ using System;
 using Typen;
 
 namespace Veho.Matrix {
-  public static partial class Mappers {
+  public static class Mappers {
     public static void Iterate<T>(this T[,] matrix, Action<T> fn) {
       var (h, w) = matrix.Size();
       for (var i = 0; i < h; i++)

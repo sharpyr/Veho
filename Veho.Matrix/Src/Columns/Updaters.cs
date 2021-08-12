@@ -1,7 +1,8 @@
 ﻿using System;
+using Veho.Matrix;
 
 namespace Veho.Columns {
-  public static partial class Updaters {
+  public static class Updaters {
     public static T[,] ExpandColumn<T>(this T[,] matrix, int delta) {
       var (height, width) = matrix.Size();
       var width2 = width + delta;

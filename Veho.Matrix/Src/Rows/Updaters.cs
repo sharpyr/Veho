@@ -1,7 +1,8 @@
 ﻿using System;
+using Veho.Matrix;
 
 namespace Veho.Rows {
-  public static partial class Updaters {
+  public static class Updaters {
     public static T[,] ExpandRow<T>(this T[,] matrix, int delta) {
       var (height, width) = matrix.Size();
       var target = new T[(height += delta) > 0 ? height : 0, width];

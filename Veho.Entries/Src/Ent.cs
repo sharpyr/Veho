@@ -1,5 +1,5 @@
 ﻿namespace Veho {
-  public static partial class Entries {
+  public static class Ent {
     public static T[] ToVector<T>(this (T, T) entry) {
       var (x, y) = entry;
       return new[] {x, y};

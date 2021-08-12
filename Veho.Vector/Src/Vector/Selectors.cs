@@ -1,7 +1,7 @@
 ﻿using System;
 
-namespace Veho {
-  public static partial class Selectors {
+namespace Veho.Vector {
+  public static class Selectors {
     public static int IndexOf<T>(this T[] arr, T value) => Array.IndexOf(arr, value);
     public static int IndexOf<T>(this T[] arr, Predicate<T> match) => Array.FindIndex(arr, match);
     public static int LastIndexOf<T>(this T[] arr, T value) => Array.LastIndexOf(arr, value);

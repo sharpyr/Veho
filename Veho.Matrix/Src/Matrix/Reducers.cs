@@ -1,7 +1,7 @@
 ﻿using System;
 
 namespace Veho.Matrix {
-  public static partial class MatrixReducers {
+  public static class Reducers {
     public static TO Fold<T, TO>(this T[,] matrix, Func<TO, T, TO> sequence, TO acc) {
       var (h, w) = matrix.Size();
       for (var i = 0; i < h; i++)

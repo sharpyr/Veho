@@ -1,10 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Veho.Matrix;
 
-namespace Veho {
-  public static partial class Utils {
+namespace Veho.Matrix {
+  public static class Utils {
     public static IEnumerable<T> AsEnum<T>(this T[,] matrix) => matrix.OfType<T>();
 
     public static T[,] Transpose<T>(this T[,] matrix) {
@@ -42,17 +41,6 @@ namespace Veho {
       for (var i = 0; i < matrix.Height(); i++)
         for (var j = 0; j < wd; j++)
           target[xlb + i, ylb + j] = matrix[i, j];
-    }
-
-    public static (TK[,], TV[,]) Unwind<TK, TV>(this (TK key, TV item)[,] entryMatrix) {
-      var (h, w) = entryMatrix.Size();
-      var keys = new TK[h, w];
-      var values = new TV[h, w];
-      entryMatrix.Iterate((i, j, entry) => {
-        keys[i, j] = entry.key;
-        values[i, j] = entry.item;
-      });
-      return (keys, values);
     }
   }
 }

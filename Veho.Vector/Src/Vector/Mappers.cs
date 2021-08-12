@@ -2,7 +2,7 @@ using System;
 using Typen;
 
 namespace Veho.Vector {
-  public static partial class Mappers {
+  public static class Mappers {
     public static void Iterate<T>(this T[] vector, Action<T> fn) {
       var hi = vector.Length;
       for (var i = 0; i < hi; i++) fn(vector[i]);

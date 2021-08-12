@@ -4,7 +4,7 @@ using System.Diagnostics;
 using Typen;
 
 namespace Veho.Test.Utils {
-  public static partial class FlyBack {
+  public static class FlyBack {
     public static FlyBack<object> Build(int n) => new FlyBack<object> {
       Loop = n, Records = new Dictionary<string, (object, long)>()
     };

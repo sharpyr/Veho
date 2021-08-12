@@ -2,10 +2,10 @@ using System;
 using Veho.Rows;
 
 namespace Veho {
-  public static partial class Mat {
+  public static class Mat {
     public static T[,] Empty<T>() => new T[,] {{ }};
 
-    public static T[,] M1X1<T>(this T element) => new T[,] {{element}};
+    public static T[,] M1X1<T>(this T element) => new[,] {{element}};
 
     public static T[,] Init<T>(this (int, int) size) => new T[size.Item1, size.Item2];
 
