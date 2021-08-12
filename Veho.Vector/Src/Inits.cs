@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Veho.Vector {
+namespace Veho {
   public static partial class Inits {
     public static T[] Init<T>(int len, Func<int, T> func) {
       var vec = new T[len];

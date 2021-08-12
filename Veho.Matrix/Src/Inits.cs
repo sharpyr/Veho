@@ -1,6 +1,6 @@
 using System;
 
-namespace Veho.Matrix {
+namespace Veho {
   public static partial class Inits {
     public static T[,] Empty<T>() => new T[,] {{ }};
 
