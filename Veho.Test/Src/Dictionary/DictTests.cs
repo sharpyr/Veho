@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 using NUnit.Framework;
-using Spare.Deco;
+using Spare;
 using Spare.Logger;
 
 namespace Veho.Test.Dictionary {
