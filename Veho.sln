@@ -20,6 +20,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Veho.Types", "Veho.Types\Ve
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Veho.Tuple", "Veho.Tuple\Veho.Tuple.csproj", "{5877703D-B32E-433B-A06A-940AA0763390}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Veho.Mutable.Matrix", "Veho.Mutable.Matrix\Veho.Mutable.Matrix.csproj", "{C14BB44E-EA6D-4022-BCA1-5E6EE943990F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -66,5 +68,9 @@ Global
 		{5877703D-B32E-433B-A06A-940AA0763390}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5877703D-B32E-433B-A06A-940AA0763390}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5877703D-B32E-433B-A06A-940AA0763390}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C14BB44E-EA6D-4022-BCA1-5E6EE943990F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C14BB44E-EA6D-4022-BCA1-5E6EE943990F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C14BB44E-EA6D-4022-BCA1-5E6EE943990F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C14BB44E-EA6D-4022-BCA1-5E6EE943990F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
