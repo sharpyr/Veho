@@ -1,6 +1,5 @@
 ﻿using NUnit.Framework;
 using Spare;
-using Spare.Logger;
 using Veho.Vector;
 
 namespace Veho.Test.Vector {

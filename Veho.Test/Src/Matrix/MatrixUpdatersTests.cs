@@ -1,6 +1,5 @@
 ﻿using NUnit.Framework;
 using Spare;
-using Spare.Logger;
 using Veho.Columns;
 using Veho.Rows;
 

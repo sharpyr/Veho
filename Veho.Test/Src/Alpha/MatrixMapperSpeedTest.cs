@@ -1,6 +1,6 @@
 using System;
 using NUnit.Framework;
-using Spare.Logger;
+using Spare;
 using Veho.Matrix;
 using Veho.Test.Utils;
 

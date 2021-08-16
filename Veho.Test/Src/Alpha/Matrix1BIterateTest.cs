@@ -5,6 +5,8 @@ using NUnit.Framework;
 using Veho.Matrix;
 using Veho.PanBase;
 using Veho.Rows;
+using Texting.Joiner;
+using Typen;
 using Veho.Vector;
 
 namespace Veho.Test.Alpha {
@@ -20,7 +22,7 @@ namespace Veho.Test.Alpha {
       const string CRLF = "\r\n", TAB = "  ";
       matrix = matrix.ZeroOut();
       var body = matrix
-                 .MapRows(row => TAB + "[" + row.Join() + "],")
+                 .MapRows(row => TAB + "[" + row.Join(Conv.ToStr) + "],")
                  .Join("\r\n");
       return "[" + CRLF + body + CRLF + "]";
     }

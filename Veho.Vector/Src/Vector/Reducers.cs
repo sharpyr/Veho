@@ -55,10 +55,7 @@ namespace Veho.Vector {
       for (var i = 1; i < hi; i++) accum = sequence(i, accum, indicator(vector[i]));
       return accum;
     }
-
-    public static string Join(this string[] vector, string de = ", ") =>
-      vector.Reduce((acc, cu) => acc + de + cu) ?? "";
-    public static string Join<T>(this T[] vector, string de = ", ") =>
-      vector.Reduce((acc, cu) => acc + de + cu, x => x.ToString()) ?? "";
+    public static string Join<T>(this T[] vector, Func<T, string> toStr, string de = ", ") =>
+      vector.Reduce((acc, cu) => acc + de + cu, toStr) ?? "";
   }
 }
