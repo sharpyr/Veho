@@ -15,12 +15,12 @@ namespace Veho.List {
     }
     public static List<TOut> Map<T, TOut>(this List<T> list, Func<T, TOut> func) {
       var tar = new List<TOut>(list.Count);
-      for (int i = 0, hi = list.Count; i < hi; i++) tar[i] = func(list[i]);
+      for (int i = 0, hi = list.Count; i < hi; i++) tar.Add(func(list[i]));
       return tar;
     }
     public static List<TOut> Map<T, TOut>(this List<T> list, Func<int, T, TOut> fn) {
       var tar = new List<TOut>(list.Count);
-      for (int i = 0, hi = list.Count; i < hi; i++) tar[i] = fn(i, list[i]);
+      for (int i = 0, hi = list.Count; i < hi; i++) tar.Add(fn(i, list[i]));
       return tar;
     }
     public static void Iterate<T>(this IList<T> list, Action<T> func) {
