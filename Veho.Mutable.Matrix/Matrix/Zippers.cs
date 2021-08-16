@@ -9,9 +9,9 @@ namespace Veho.Mutable.Matrix {
       for (int i = 0, h = rowsA.Count; i < h; i++) {
         var rowA = rowsA[i];
         var rowB = rowsB[i];
-        target[i] = rowT = new List<T>(h);
+        target.Add(rowT = new List<T>(h));
         for (int j = 0, w = rowA.Count; j < w; j++)
-          rowT[j] = fn(rowA[j], rowB[j]);
+          rowT.Add(fn(rowA[j], rowB[j]));
       }
       return target;
     }
@@ -40,9 +40,9 @@ namespace Veho.Mutable.Matrix {
       for (int i = 0, h = rowsA.Count; i < h; i++) {
         var rowA = rowsA[i];
         var rowB = rowsB[i];
-        target[i] = rowT = new List<T>(h);
+        target.Add(rowT = new List<T>(h));
         for (int j = 0, w = rowA.Count; j < w; j++)
-          rowT[j] = fn(i, j, rowA[j], rowB[j]);
+          rowT.Add(fn(i, j, rowA[j], rowB[j]));
       }
       return target;
     }
