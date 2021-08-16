@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using G = System.Collections.Generic;
 
 namespace Veho {
@@ -13,5 +14,6 @@ namespace Veho {
       for (var i = 0; i < len; i++) list.Add(func(i));
       return list;
     }
+    public static G::List<T> From<T>(params T[] elements) => elements.ToList();
   }
 }
