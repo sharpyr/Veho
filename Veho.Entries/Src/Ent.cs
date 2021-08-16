@@ -1,13 +1,13 @@
 ﻿namespace Veho {
   public static class Ent {
-    public static T[] ToVector<T>(this (T, T) entry) {
-      var (x, y) = entry;
-      return new[] {x, y};
-    }
-    public static T[] ToVector<T>(this (T, T, T) entry) {
-      var (x, y, z) = entry;
-      return new[] {x, y, z};
-    }
+    // public static T[] ToVector<T>(this (T, T) entry) {
+    //   var (x, y) = entry;
+    //   return new[] {x, y};
+    // }
+    // public static T[] ToVector<T>(this (T, T, T) entry) {
+    //   var (x, y, z) = entry;
+    //   return new[] {x, y, z};
+    // }
     // public static (TO, TO) Map<T, TO>(this (T, T) entry, Func<T, TO> f) {
     //   var (x, y) = entry;
     //   return (f(x), f(y));
