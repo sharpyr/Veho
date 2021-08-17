@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Typen;
-using Veho.List;
+using Veho.Sequence;
 
 namespace Veho.Mutable.Matrix {
   public static partial class Mappers {

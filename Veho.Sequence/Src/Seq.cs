@@ -3,7 +3,7 @@ using System.Linq;
 using G = System.Collections.Generic;
 
 namespace Veho {
-  public static class Li {
+  public static class Seq {
     public static G::List<T> Iso<T>(int len, T element) {
       var list = new G::List<T>(len);
       for (var i = 0; i < len; i++) list.Add(element);

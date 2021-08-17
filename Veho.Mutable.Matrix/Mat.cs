@@ -14,15 +14,15 @@ namespace Veho.Mutable {
     }
 
     public static List<List<T>> Init<T>(this (int h, int w) size, Func<int, int, T> fn) {
-      return Li.Init(size.h, x => Li.Init(size.w, y => fn(x, y)));
+      return Seq.Init(size.h, x => Seq.Init(size.w, y => fn(x, y)));
     }
 
     public static List<List<T>> Init<T>(int h, int w, Func<int, int, T> fn) {
-      return Li.Init(h, x => Li.Init(w, y => fn(x, y)));
+      return Seq.Init(h, x => Seq.Init(w, y => fn(x, y)));
     }
 
     public static List<List<T>> Iso<T>(int h, int w, T value) {
-      return Li.Init(h, x => Li.Iso(w, value));
+      return Seq.Init(h, x => Seq.Iso(w, value));
     }
   }
 }

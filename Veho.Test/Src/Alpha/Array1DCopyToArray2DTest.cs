@@ -10,7 +10,7 @@ using Veho.Types;
 namespace Veho.Test.Alpha {
   [TestFixture]
   public class Array1DCopyToArray2DTest {
-    public int[,] MatrixAlpha = new[,] {
+    public int[,] MatrixAlpha = {
       {0, 1, 2},
       {10, 11, 12},
       {20, 21, 22},
@@ -29,11 +29,11 @@ namespace Veho.Test.Alpha {
     public void CopyStrategies() {
       var (elapsed, result) = Valjoux.Strategies.Run(
         (int) 1E+6,
-        Li.From<(string, Func<int[], int[,]>)>(
+        Seq.From<(string, Func<int[], int[,]>)>(
           ("NaiveCopier", vec => MatrixAlpha.ReplaceRowNaive(1, vec)),
           ("BufferCopier", vec => MatrixAlpha.ReplaceRow(1, vec))
         ),
-        Li.From(
+        Seq.From(
           ("alpha", new[] {4, 5, 6}),
           ("beta", new[] {95, 96, 97})
         )

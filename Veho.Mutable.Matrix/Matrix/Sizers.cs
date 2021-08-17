@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Veho.List;
+using Veho.Sequence;
 
 namespace Veho.Mutable.Matrix {
   public static class Sizers {

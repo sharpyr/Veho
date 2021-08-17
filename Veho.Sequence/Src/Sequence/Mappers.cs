@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Veho.List {
+namespace Veho.Sequence {
   public static class Mappers {
     //
     // IList(of T)
@@ -33,8 +33,6 @@ namespace Veho.List {
       for (var i = list.Hi(); i >= 0; i--) func(list[i]);
     }
 
-    #region "info"
     public static int Hi<T>(this IList<T> list) => list.Count - 1;
-    #endregion
   }
 }

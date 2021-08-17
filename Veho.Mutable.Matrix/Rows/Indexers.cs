@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Veho.List;
+using Veho.Sequence;
 
 namespace Veho.Mutable.Rows {
   public static class Indexers {

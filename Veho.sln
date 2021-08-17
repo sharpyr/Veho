@@ -14,7 +14,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Veho.Entries", "Veho.Entrie
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Veho.Enumerable", "Veho.Enumerable\Veho.Enumerable.csproj", "{AB61D056-F6A7-4DEA-A1E4-6B4DECF73C9E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Veho.List", "Veho.List\Veho.List.csproj", "{06C0B26C-0537-4FE6-8080-527D6CD71218}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Veho.Sequence", "Veho.Sequence\Veho.Sequence.csproj", "{06C0B26C-0537-4FE6-8080-527D6CD71218}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Veho.Types", "Veho.Types\Veho.Types.csproj", "{BD9AB80D-4733-4881-9FB7-962E0EF4F28B}"
 EndProject

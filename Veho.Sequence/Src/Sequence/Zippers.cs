@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Veho.List {
+namespace Veho.Sequence {
   public static class Zippers {
     public static List<T> Zip<TA, TB, T>(this List<TA> a, List<TB> b, Func<TA, TB, T> fn) {
       var hi = a.Count;

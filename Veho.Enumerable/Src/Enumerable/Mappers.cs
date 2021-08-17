@@ -8,6 +8,7 @@ namespace Veho.Enumerable {
     public static TO[] Map<T, TO>(this IEnumerable<T> iter, Func<T, TO> func) => iter.Select(func).ToArray();
 
     public static TO[] Map<T, TO>(this IEnumerable<T> iter, Func<int, T, TO> func) => iter.Select((x, i) => func(i, x)).ToArray();
+
     public static void Iterate<T>(this IEnumerable<T> iter, Action<T> func) {
       foreach (var x in iter) func(x);
     }

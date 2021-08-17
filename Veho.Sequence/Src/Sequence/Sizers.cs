@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using static System.Linq.Enumerable;
 
-namespace Veho.List {
+namespace Veho.Sequence {
   public static class Sizers {
     public static List<T> Resize<T>(this List<T> list, int hi, T c) {
       var curr = list.Count;

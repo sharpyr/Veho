@@ -14,7 +14,6 @@ namespace Veho {
       var (a, b, c, d) = entry;
       return new[] {a, b, c, d};
     }
-
     public static List<T> ToList<T>(this (T, T) entry) {
       var (x, y) = entry;
       return new List<T> {x, y};
