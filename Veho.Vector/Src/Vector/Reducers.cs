@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 
 namespace Veho.Vector {
   public static class Reducers {
