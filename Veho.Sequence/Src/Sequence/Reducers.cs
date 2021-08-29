@@ -3,6 +3,29 @@ using System.Collections.Generic;
 
 namespace Veho.Sequence {
   public static class Reducers {
+    public static T MaxBy<T, TO>(this IReadOnlyList<T> list, Func<T, TO> indicator) where TO : IComparable {
+      var hi = list.Count;
+      if (hi == 0) return default;
+      var curr = list.Indicator(0, indicator);
+      for (var i = 1; i < hi; i++) {
+        var next = list.Indicator(i, indicator);
+        if (curr.indicator.CompareTo(next.indicator) < 0) curr = next;
+      }
+      return curr.element;
+    }
+    public static T MinBy<T, TO>(this IReadOnlyList<T> list, Func<T, TO> indicator) where TO : IComparable {
+      var hi = list.Count;
+      if (hi == 0) return default;
+      var curr = list.Indicator(0, indicator);
+      for (var i = 1; i < hi; i++) {
+        var next = list.Indicator(i, indicator);
+        if (curr.indicator.CompareTo(next.indicator) > 0) curr = next;
+      }
+      return curr.element;
+    }
+    // public static T MinBy<T, TO>(this List<T> list, Func<T, TO> selector) where TO : IComparable {
+    //   return list.Reduce((a, b) => selector(a).CompareTo(selector(b)) < 0 ? a : b);
+    // }
     public static TO Fold<T, TO>(this List<T> list, Func<TO, T, TO> sequence, TO accum) {
       var hi = list.Count;
       for (var i = 0; i < hi; i++) accum = sequence(accum, list[i]);
