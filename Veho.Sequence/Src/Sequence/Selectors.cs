@@ -8,8 +8,8 @@ namespace Veho.Sequence {
       var selected = indicator(element);
       return (element, selected);
     }
-    public static (T, T) T2<T>(this List<T> list) => (list[0], list[1]);
-    public static (T, T, T) T3<T>(this List<T> list) => (list[0], list[1], list[2]);
-    public static (T, T, T, T) T4<T>(this List<T> list) => (list[0], list[1], list[2], list[4]);
+    public static (T a, T b) T2<T>(this IReadOnlyList<T> list) => (list[0], list[1]);
+    public static (T a, T b, T c) T3<T>(this IReadOnlyList<T> list) => (list[0], list[1], list[2]);
+    public static (T a, T b, T c, T d) T4<T>(this IReadOnlyList<T> list) => (list[0], list[1], list[2], list[4]);
   }
 }
