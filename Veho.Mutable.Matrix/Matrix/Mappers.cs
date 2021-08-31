@@ -29,7 +29,7 @@ namespace Veho.Mutable.Matrix {
     public static List<List<TO>> Map<T, TO>(this IReadOnlyList<IReadOnlyList<T>> rows, Func<int, int, T, TO> fn) {
       return rows.Map((i, row) => row.Map((j, cell) => fn(i, j, cell)));
     }
-    public static IList<IList<T>> Mutate<T>(this IList<IList<T>> rows, Func<T, T> fn) {
+    public static List<List<T>> Mutate<T>(this List<List<T>> rows, Func<T, T> fn) {
       foreach (var row in rows) {
         for (int j = 0, w = row.Count; j < w; j++) {
           row[j] = fn(row[j]);
@@ -37,7 +37,7 @@ namespace Veho.Mutable.Matrix {
       }
       return rows;
     }
-    public static IList<IList<T>> Mutate<T>(this IList<IList<T>> rows, Func<int, int, T, T> fn) {
+    public static List<List<T>> Mutate<T>(this List<List<T>> rows, Func<int, int, T, T> fn) {
       for (int i = 0, h = rows.Count; i < h; i++) {
         var row = rows[i];
         for (int j = 0, w = row.Count; j < w; j++)
