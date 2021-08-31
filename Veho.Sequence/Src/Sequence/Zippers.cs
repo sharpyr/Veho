@@ -39,13 +39,13 @@ namespace Veho.Sequence {
       for (var i = 0; i < hi; i++) tar.Add(fn(a[i], b[i]));
       return tar;
     }
-    public static List<T> Zipper<TA, TB, TC, T>(this Func<TA, TB, TC, T> fn, IReadOnlyList<TA> a, IReadOnlyList<TB> b, TC[] c) {
+    public static List<T> Zipper<TA, TB, TC, T>(this Func<TA, TB, TC, T> fn, IReadOnlyList<TA> a, IReadOnlyList<TB> b, IReadOnlyList<TC> c) {
       var hi = a.Count;
       var tar =new List<T>(hi);
       for (var i = 0; i < hi; i++) tar.Add(fn(a[i], b[i], c[i]));
       return tar;
     }
-    public static List<T> Zipper<TA, TB, TC, TD, T>(this Func<TA, TB, TC, TD, T> fn, IReadOnlyList<TA> a, IReadOnlyList<TB> b, TC[] c, TD[] d) {
+    public static List<T> Zipper<TA, TB, TC, TD, T>(this Func<TA, TB, TC, TD, T> fn, IReadOnlyList<TA> a, IReadOnlyList<TB> b, IReadOnlyList<TC> c, IReadOnlyList<TD> d) {
       var hi = a.Count;
       var tar =new List<T>(hi);
       for (var i = 0; i < hi; i++) tar.Add(fn(a[i], b[i], c[i], d[i]));
