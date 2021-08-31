@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Veho.Mutable.Matrix {
   public static class Convert {
-    public static T[,] ToMatrix<T>(this List<List<T>> rows) {
+    public static T[,] ToMatrix<T>(this IReadOnlyList<IReadOnlyList<T>> rows) {
       var (height, width) = rows.Size();
       var target = new T[height, width];
       for (var i = 0; i < height; i++) {
@@ -12,7 +12,7 @@ namespace Veho.Mutable.Matrix {
       }
       return target;
     }
-    public static TO[,] ToMatrix<T, TO>(this List<List<T>> rows, Func<T, TO> func) {
+    public static TO[,] ToMatrix<T, TO>(this IReadOnlyList<IReadOnlyList<T>> rows, Func<T, TO> func) {
       var (height, width) = rows.Size();
       var target = new TO[height, width];
       for (var i = 0; i < height; i++) {
@@ -21,7 +21,7 @@ namespace Veho.Mutable.Matrix {
       }
       return target;
     }
-    public static TO[,] ToMatrix<T, TO>(this List<List<T>> rows, Func<int, int, T, TO> func) {
+    public static TO[,] ToMatrix<T, TO>(this IReadOnlyList<IReadOnlyList<T>> rows, Func<int, int, T, TO> func) {
       var (height, width) = rows.Size();
       var target = new TO[height, width];
       for (var i = 0; i < height; i++) {
