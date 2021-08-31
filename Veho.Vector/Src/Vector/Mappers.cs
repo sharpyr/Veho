@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Typen;
 
 namespace Veho.Vector {
@@ -12,14 +13,14 @@ namespace Veho.Vector {
       var hi = vector.Length;
       for (var i = 0; i < hi; i++) fn(i, vector[i]);
     }
-    public static TO[] Map<T, TO>(this T[] vector, Func<T, TO> fn) {
-      var hi = vector.Length;
+    public static TO[] Map<T, TO>(this IReadOnlyList<T> vector, Func<T, TO> fn) {
+      var hi = vector.Count;
       var result = new TO[hi];
       for (var i = 0; i < hi; i++) result[i] = fn(vector[i]);
       return result;
     }
-    public static TO[] Map<T, TO>(this T[] vector, Func<int, T, TO> fn) {
-      var hi = vector.Length;
+    public static TO[] Map<T, TO>(this IReadOnlyList<T> vector, Func<int, T, TO> fn) {
+      var hi = vector.Count;
       var result = new TO[hi];
       for (var i = 0; i < hi; i++) result[i] = fn(i, vector[i]);
       return result; // return vector.Select(fn).ToArray();
@@ -34,7 +35,7 @@ namespace Veho.Vector {
       for (var i = 0; i < hi; i++) vector[i] = fn(i, vector[i]);
       return vector;
     }
-    public static TO[] CastTo<T, TO>(this T[] vector) => vector.Map(Conv.Cast<T, TO>);
-    public static TO[] CastTo<T, TO>(this T[] vector, Converter<T, TO> converter) => vector.Map(x => converter(x));
+    public static TO[] CastTo<T, TO>(this IReadOnlyList<T> vector) => vector.Map(Conv.Cast<T, TO>);
+    public static TO[] CastTo<T, TO>(this IReadOnlyList<T> vector, Converter<T, TO> converter) => vector.Map(x => converter(x));
   }
 }
