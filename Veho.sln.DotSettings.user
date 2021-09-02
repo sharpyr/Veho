@@ -80,6 +80,7 @@
     &lt;TestId&gt;NUnit3x::84EF9D47-F861-4119-9EC5-80924C014F0B::.NETFramework,Version=v4.7.2::Veho.Test.Entries.EntriesTests&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;NUnit3x::84EF9D47-F861-4119-9EC5-80924C014F0B::.NETFramework,Version=v4.7.2::Veho.Test.Sequence.SelectorsTests.TestAlpha&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;NUnit3x::84EF9D47-F861-4119-9EC5-80924C014F0B::.NETFramework,Version=v4.7.2::Veho.Test.Vector.SelectorsTests.TestAlpha&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::84EF9D47-F861-4119-9EC5-80924C014F0B::.NETFramework,Version=v4.7.2::Veho.Test.Mutable.Matrix.SelectorsTests.SelectByColumnIndicesTest&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	<s:Boolean x:Key="/Default/UnloadedProject/UnloadedProjects/=44939bfa_002Dab08_002D4509_002D88df_002Db1e335c9698f_0023Veho_002ECore/@EntryIndexedValue">True</s:Boolean></wpf:ResourceDictionary>
