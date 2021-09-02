@@ -22,9 +22,11 @@ namespace Veho.Sequence {
     }
     public static List<T> SelectBy<T>(this IReadOnlyList<T> list, IReadOnlyList<int> indices) {
       var target = new List<T>(indices.Count);
-      var i = 0;
-      foreach (var index in indices) target[i++] = list[index];
+      foreach (var index in indices) target.Add(list[index]);
       return target;
+    }
+    public static List<T> SelectOf<T>(this IReadOnlyList<T> list, params int[] indices) {
+      return list.SelectBy(indices);
     }
 
     public static (T a, T b) T2<T>(this IReadOnlyList<T> list) => (list[0], list[1]);

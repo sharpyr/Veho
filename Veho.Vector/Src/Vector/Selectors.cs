@@ -14,6 +14,9 @@ namespace Veho.Vector {
       foreach (var index in indices) target[i++] = arr[index];
       return target;
     }
+    public static T[] SelectOf<T>(this IReadOnlyList<T> arr, params int[] indices) {
+      return arr.SelectBy(indices);
+    }
     public static T[] Sort<T>(this T[] arr, Comparison<T> comparer) {
       Array.Sort(arr, comparer);
       return arr;
