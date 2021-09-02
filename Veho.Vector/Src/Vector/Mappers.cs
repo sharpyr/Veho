@@ -4,6 +4,9 @@ using Typen;
 
 namespace Veho.Vector {
   public static class Mappers {
+    public static T[] Slice<T>(this IReadOnlyList<T> list) {
+      return list.Map(x => x);
+    }
     public static void Iterate<T>(this T[] vector, Action<T> fn) {
       var hi = vector.Length;
       for (var i = 0; i < hi; i++) fn(vector[i]);
