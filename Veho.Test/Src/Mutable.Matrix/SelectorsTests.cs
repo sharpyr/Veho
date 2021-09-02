@@ -13,7 +13,9 @@ namespace Veho.Test.Mutable.Matrix {
       var rows = MU::Mat.Init(5, 5, (i, j) => i * j);
       rows.ToMatrix().Deco().Says("rows");
       rows.SelectByColumnIndices(Seq.From(1, 2, 4)).ToMatrix().Deco().Says("selected");
-      SymmetricMatrix.SelectBy(rows,Seq.From(1, 2, 4)).ToMatrix().Deco().Says("symmetric selected");
+      SymmetricMatrix.SelectBy(rows, Seq.From(1, 2, 4)).ToMatrix().Deco().Says("symmetric selected");
+      SymmetricMatrix.LowerTriangular(rows).ToMatrix().Deco().Says("lower triangular");
+      SymmetricMatrix.UpperTriangular(rows).ToMatrix().Deco().Says("upper triangular");
     }
   }
 }
