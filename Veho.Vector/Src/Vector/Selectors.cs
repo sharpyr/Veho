@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Veho.Vector {
   public static class Selectors {
@@ -7,6 +8,12 @@ namespace Veho.Vector {
     public static int LastIndexOf<T>(this T[] arr, T value) => Array.LastIndexOf(arr, value);
     public static int LastIndexOf<T>(this T[] arr, Predicate<T> match) => Array.FindLastIndex(arr, match);
     public static T[] Filter<T>(this T[] arr, Predicate<T> predicate) => Array.FindAll(arr, predicate);
+    public static T[] SelectBy<T>(this IReadOnlyList<T> arr, IReadOnlyList<int> indices) {
+      var target = new T[indices.Count];
+      var i = 0;
+      foreach (var index in indices) target[i++] = arr[index];
+      return target;
+    }
     public static T[] Sort<T>(this T[] arr, Comparison<T> comparer) {
       Array.Sort(arr, comparer);
       return arr;
