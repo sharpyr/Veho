@@ -26,6 +26,14 @@ namespace Veho.Sequence {
     // public static T MinBy<T, TO>(this IReadOnlyList<T> list, Func<T, TO> selector) where TO : IComparable {
     //   return list.Reduce((a, b) => selector(a).CompareTo(selector(b)) < 0 ? a : b);
     // }
+    public static TO Fold<T, TO>(this IReadOnlyList<T> list, Action<TO, T> sequence, TO accum) {
+      for (int i = 0, hi = list.Count; i < hi; ++i) sequence(accum, list[i]);
+      return accum;
+    }
+    public static TO Fold<T, TO>(this IReadOnlyList<T> list, Action<int, TO, T> sequence, TO accum) {
+      for (int i = 0, hi = list.Count; i < hi; ++i) sequence(i, accum, list[i]);
+      return accum;
+    }
     public static TO Fold<T, TO>(this IReadOnlyList<T> list, Func<TO, T, TO> sequence, TO accum) {
       var hi = list.Count;
       for (var i = 0; i < hi; i++) accum = sequence(accum, list[i]);
