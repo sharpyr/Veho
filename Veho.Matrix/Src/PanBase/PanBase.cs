@@ -1,11 +1,12 @@
 ﻿using System;
 using Veho.Matrix;
+using static System.Convert;
 
 namespace Veho.PanBase {
   public static class PanBase {
-    public static readonly int[] DoubleOne = {1, 1};
+    public static readonly int[] DoubleOne = { 1, 1 };
     public static T[,] M1B<T>(this (int, int) size) =>
-      (T[,]) Array.CreateInstance(typeof(T), size.ToVector(), DoubleOne);
+      (T[,])Array.CreateInstance(typeof(T), size.ToVector(), DoubleOne);
     public static T[,] M1B<T>(this (int, int) size, Func<int, int, T> func) {
       var m1B = size.M1B<T>();
       var (h, w) = size;
@@ -28,7 +29,7 @@ namespace Veho.PanBase {
     }
 
     public static TO[,] ZeroOut<T, TO>(this T[,] matrix) {
-      TO Cast(T v) => (TO) Convert.ChangeType(v, typeof(TO));
+      TO Cast(T v) => (TO)ChangeType(v, typeof(TO));
       var ((xlo, h), (ylo, w)) = (matrix.XLeap(), matrix.YLeap());
       var target = new TO[h, w];
       for (var i = 0; i < h; i++)
