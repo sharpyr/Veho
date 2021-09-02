@@ -20,5 +20,16 @@ namespace Veho.Mutable.LinearAlgebra {
       }
       return indices;
     }
+
+    public static IEnumerable<HashSet<int>> IntersectionalIndices<T>(this IReadOnlyList<IReadOnlyList<T>> rows,
+                                                                     T signal) where T : IEquatable<T> {
+      var rowSkipper = Skipper<IReadOnlyList<T>>.Build(rows);
+      foreach (var index in rowSkipper.IntoIndexIter()) {
+        var intersectionalIndices = rows.FindIntersectional(index, signal);
+        rowSkipper.AcquireIndices(intersectionalIndices);
+        if (intersectionalIndices.Count <= 1) continue;
+        yield return intersectionalIndices;
+      }
+    }
   }
 }
