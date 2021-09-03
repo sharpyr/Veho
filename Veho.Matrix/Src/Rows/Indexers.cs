@@ -21,7 +21,7 @@ namespace Veho.Rows {
       return vec;
     }
 
-    #region Indexed
+
     public static TO[] Row<T, TO>(this T[,] matrix, int x, Func<int, T, TO> fn, int w = 0) {
       var row = new TO[w == 0 ? w = matrix.Width() : w];
       for (var j = 0; j < w; j++) row[j] = fn(j, matrix[x, j]);
@@ -33,6 +33,6 @@ namespace Veho.Rows {
       for (var j = 0; j < w; j++) vec[0, j] = fn(j, matrix[x, j]);
       return vec;
     }
-    #endregion
+ 
   }
 }
