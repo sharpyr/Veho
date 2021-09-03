@@ -11,5 +11,15 @@ namespace Veho.Enumerable {
         }
       }
     }
+    public static List<int> FilterIndices<T>(this IEnumerable<T> list, Predicate<T> criteria) {
+      return list.Fold((i, indexes, x) => {
+        if (criteria(x)) indexes.Add(i);
+      }, new List<int>());
+    }
+    public static List<int> FilterIndices<T>(this IEnumerable<T> list, Func<int, T, bool> criteria) {
+      return list.Fold((i, indexes, x) => {
+        if (criteria(i, x)) indexes.Add(i);
+      }, new List<int>());
+    }
   }
 }
