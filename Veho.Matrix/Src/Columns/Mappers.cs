@@ -1,8 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
 using Veho.Matrix;
 
 namespace Veho.Columns {
   public static class Mappers {
+    public static IEnumerable<T> ColumnIntoIter<T>(this T[,] matrix, int y) {
+      for (int i = 0, h = matrix.Height(); i < h; i++) yield return matrix[i, y];
+    }
+
     public static TO[] MapColumns<T, TO>(this T[,] matrix, Func<T[], TO> colTo) {
       var (h, w) = matrix.Size();
       var horizon = new TO[w];
