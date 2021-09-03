@@ -25,8 +25,7 @@ namespace Veho.Rows {
       for (var j = 1; j < matrix.Width(); j++) accum = sequence(accum, indicator(matrix[x, j]));
       return accum;
     }
-
-    #region Indexed
+    
     public static TO FoldRow<T, TO>(this T[,] matrix, int x, Func<int, TO, T, TO> sequence, TO accum) {
       for (var j = 1; j < matrix.Width(); j++) accum = sequence(j, accum, matrix[x, j]);
       return accum;
@@ -49,6 +48,5 @@ namespace Veho.Rows {
       for (var j = 1; j < matrix.Width(); j++) accum = sequence(j, accum, indicator(matrix[x, j]));
       return accum;
     }
-    #endregion
   }
 }
