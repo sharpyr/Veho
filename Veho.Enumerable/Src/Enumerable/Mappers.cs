@@ -9,12 +9,12 @@ namespace Veho.Enumerable {
 
     public static TO[] Map<T, TO>(this IEnumerable<T> iter, Func<int, T, TO> func) => iter.Select((x, i) => func(i, x)).ToArray();
 
-    public static void Iterate<T>(this IEnumerable<T> iter, Action<T> func) {
-      foreach (var x in iter) func(x);
+    public static void Iterate<T>(this IEnumerable<T> iter, Action<T> action) {
+      foreach (var x in iter) action(x);
     }
-    public static void Iterate<T>(this IEnumerable<T> iter, Action<int, T> func) {
+    public static void Iterate<T>(this IEnumerable<T> iter, Action<int, T> action) {
       var i = 0;
-      foreach (var x in iter) func(i++, x);
+      foreach (var x in iter) action(i++, x);
     }
     public static int Hi<T>(this IEnumerable<T> iter) => iter.Count() - 1;
   }
@@ -23,12 +23,12 @@ namespace Veho.Enumerable {
     public static TO[] Map<T, TO>(this IEnumerable iter, Func<T, TO> func) => iter.Cast<T>().Select(o => func(o)).ToArray();
 
     public static TO[] Map<T, TO>(this IEnumerable iter, Func<int, T, TO> func) => iter.Cast<T>().Select((o, i) => func(i, o)).ToArray();
-    public static void Iterate<T>(this IEnumerable iter, Action<T> func) {
-      foreach (T x in iter) func(x);
+    public static void Iterate<T>(this IEnumerable iter, Action<T> action) {
+      foreach (T x in iter) action(x);
     }
-    public static void Iterate<T>(this IEnumerable iter, Action<int, T> func) {
+    public static void Iterate<T>(this IEnumerable iter, Action<int, T> action) {
       var i = 0;
-      foreach (T x in iter) func(i++, x);
+      foreach (T x in iter) action(i++, x);
     }
   }
 }
