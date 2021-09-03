@@ -1,8 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using Veho.Matrix;
 
 namespace Veho.Rows {
   public static class Mappers {
+    public static IEnumerable<T> RowIntoIter<T>(this T[,] matrix, int x) {
+      for (int j = 0, w = matrix.Width(); j < w; j++) yield return matrix[x, j];
+    }
     public static TO[] MapRows<T, TO>(this T[,] matrix, Func<T[], TO> rowTo) {
       var (h, w) = matrix.Size();
       var vertica = new TO[h];
