@@ -25,8 +25,7 @@ namespace Veho.Columns {
       for (var i = 1; i < matrix.Height(); i++) accum = sequence(accum, indicator(matrix[i, y]));
       return accum;
     }
-
-    #region Indexed
+    
     public static TO FoldColumn<T, TO>(this T[,] matrix, int y, Func<int, TO, T, TO> sequence, TO accum) {
       for (var i = 1; i < matrix.Height(); i++) accum = sequence(i, accum, matrix[i, y]);
       return accum;
@@ -49,6 +48,5 @@ namespace Veho.Columns {
       for (var i = 1; i < matrix.Height(); i++) accum = sequence(i, accum, indicator(matrix[i, y]));
       return accum;
     }
-    #endregion
   }
 }
