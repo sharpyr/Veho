@@ -1,7 +1,6 @@
 ﻿using NUnit.Framework;
 using Spare;
 using Veho.Mutable.Columns;
-using Veho.Mutable.LinearAlgebra;
 using Veho.Mutable.Matrix;
 using MU = Veho.Mutable;
 
