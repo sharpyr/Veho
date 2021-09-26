@@ -26,6 +26,8 @@ namespace Veho.Vector {
 
     public static (T, T) T2<T>(this T[] arr) => (arr[0], arr[1]);
     public static (T, T, T) T3<T>(this T[] arr) => (arr[0], arr[1], arr[2]);
-    public static (T, T, T, T) T4<T>(this T[] arr) => (arr[0], arr[1], arr[2], arr[4]);
+    public static (T, T, T, T) T4<T>(this T[] arr) => (arr[0], arr[1], arr[2], arr[3]);
+    public static (T, T, T, T, T) T5<T>(this T[] arr) => (arr[0], arr[1], arr[2], arr[3], arr[4]);
+    public static (T, T, T, T, T, T) T6<T>(this T[] arr) => (arr[0], arr[1], arr[2], arr[3], arr[4], arr[5]);
   }
 }
