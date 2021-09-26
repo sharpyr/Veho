@@ -29,8 +29,10 @@ namespace Veho.Sequence {
       return list.SelectBy(indices);
     }
 
-    public static (T a, T b) T2<T>(this IReadOnlyList<T> list) => (list[0], list[1]);
-    public static (T a, T b, T c) T3<T>(this IReadOnlyList<T> list) => (list[0], list[1], list[2]);
-    public static (T a, T b, T c, T d) T4<T>(this IReadOnlyList<T> list) => (list[0], list[1], list[2], list[4]);
+    public static (T, T) T2<T>(this IReadOnlyList<T> ve) => (ve[0], ve[1]);
+    public static (T, T, T) T3<T>(this IReadOnlyList<T> ve) => (ve[0], ve[1], ve[2]);
+    public static (T, T, T, T) T4<T>(this IReadOnlyList<T> ve) => (ve[0], ve[1], ve[2], ve[3]);
+    public static (T, T, T, T, T) T5<T>(this IReadOnlyList<T> ve) => (ve[0], ve[1], ve[2], ve[3], ve[4]);
+    public static (T, T, T, T, T, T) T6<T>(this IReadOnlyList<T> ve) => (ve[0], ve[1], ve[2], ve[3], ve[4], ve[5]);
   }
 }
