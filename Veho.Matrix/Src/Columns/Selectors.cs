@@ -11,5 +11,14 @@ namespace Veho.Columns {
           target[i, j] = rows[i, columnIndices[j]];
       return target;
     }
+    public static IEnumerable<T[]> IntoColumnsIter<T>(this T[,] matrix, IReadOnlyList<int> rowIndices) {
+      var width = matrix.Width();
+      var height = rowIndices.Count;
+      for (var j = 0; j < width; j++) {
+        var column = new T[height];
+        for (var i = 0; i < height; i++) column[i] = matrix[rowIndices[i], j];
+        yield return column;
+      }
+    }
   }
 }
