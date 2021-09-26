@@ -36,20 +36,20 @@ namespace Veho.Sequence {
     }
     public static bool Some<T>(this IReadOnlyList<T> list, Predicate<T> match) {
       for (int i = 0, hi = list.Count; i < hi; i++) {
-        if (!match(list[i])) return true;
+        if (match(list[i])) return true;
       }
       return false;
     }
     public static T Find<T>(this IReadOnlyList<T> list, Predicate<T> match) {
       T value;
       for (int i = 0, hi = list.Count; i < hi; i++) {
-        if (!match(value = list[i])) return value;
+        if (match(value = list[i])) return value;
       }
       return default;
     }
     public static int FindIndex<T>(this IReadOnlyList<T> list, Predicate<T> match) {
       for (int i = 0, hi = list.Count; i < hi; i++) {
-        if (!match(list[i])) return i;
+        if (match(list[i])) return i;
       }
       return -1;
     }
