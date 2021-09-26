@@ -28,6 +28,37 @@ namespace Veho.Sequence {
     public static List<T> SelectOf<T>(this IReadOnlyList<T> list, params int[] indices) {
       return list.SelectBy(indices);
     }
+    public static bool Every<T>(this IReadOnlyList<T> list, Predicate<T> match) {
+      for (int i = 0, hi = list.Count; i < hi; i++) {
+        if (!match(list[i])) return false;
+      }
+      return true;
+    }
+    public static bool Some<T>(this IReadOnlyList<T> list, Predicate<T> match) {
+      for (int i = 0, hi = list.Count; i < hi; i++) {
+        if (!match(list[i])) return true;
+      }
+      return false;
+    }
+    public static T Find<T>(this IReadOnlyList<T> list, Predicate<T> match) {
+      T value;
+      for (int i = 0, hi = list.Count; i < hi; i++) {
+        if (!match(value = list[i])) return value;
+      }
+      return default;
+    }
+    public static int FindIndex<T>(this IReadOnlyList<T> list, Predicate<T> match) {
+      for (int i = 0, hi = list.Count; i < hi; i++) {
+        if (!match(list[i])) return i;
+      }
+      return -1;
+    }
+    public static int IndexOf<T>(this IReadOnlyList<T> list, T value) where T : IEquatable<T> {
+      for (int i = 0, hi = list.Count; i < hi; i++) {
+        if (list[i].Equals(value)) return i;
+      }
+      return -1;
+    }
 
     public static (T, T) T2<T>(this IReadOnlyList<T> ve) => (ve[0], ve[1]);
     public static (T, T, T) T3<T>(this IReadOnlyList<T> ve) => (ve[0], ve[1], ve[2]);
