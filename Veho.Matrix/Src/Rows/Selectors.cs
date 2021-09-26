@@ -7,8 +7,9 @@ namespace Veho.Rows {
       int h = rowIndices.Count, w = rows.Width();
       var target = new T[h, w];
       for (var i = 0; i < h; i++)
-        for (var j = 0; j < w; j++)
-          target[i, j] = rows[rowIndices[i], j];
+        for (int j = 0, rowIndex; j < w; j++) {
+          target[i, j] = (rowIndex = rowIndices[i]) < 0 ? default : rows[rowIndex, j];
+        }
       return target;
     }
 
@@ -17,21 +18,21 @@ namespace Veho.Rows {
       var width = columnIndices.Count;
       for (var i = 0; i < height; i++) {
         var row = new T[width];
-        for (var j = 0; j < width; j++) row[j] = matrix[i, columnIndices[j]];
+        for (int j = 0, colIndex; j < width; j++) {
+          row[j] = (colIndex = columnIndices[j]) < 0 ? default : matrix[i, colIndex];
+        }
         yield return row;
       }
     }
-    // public static List<int> FilterRowIndices<T>(this T[,] matrix, Predicate<IEnumerable<T>> criteria) {
-    //   var hi = matrix.Count;
-    //   return matrix.Fold((i, indexes, x) => {
-    //     if (criteria(x)) indexes.Add(i);
-    //   }, new List<int>(hi));
-    // }
-    // public static List<int> FilterRowIndices<T>(this T[,] matrix, Func<int, IEnumerable<T>, bool> criteria) {
-    //   var hi = matrix.Count;
-    //   return matrix.Fold((i, indexes, x) => {
-    //     if (criteria(i, x)) indexes.Add(i);
-    //   }, new List<int>(hi));
+
+    // public static IEnumerable<T[]> IntoRowsIter2<T>(this T[,] matrix, IReadOnlyList<int> columnIndices) {
+    //   var height = matrix.Height();
+    //   var width = columnIndices.Count;
+    //   for (var i = 0; i < height; i++) {
+    //     var row = new T[width];
+    //     for (var j = 0; j < width; j++) row[j] = null;
+    //     yield return row;
+    //   }
     // }
   }
 }

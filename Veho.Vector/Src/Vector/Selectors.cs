@@ -11,7 +11,7 @@ namespace Veho.Vector {
     public static T[] SelectBy<T>(this IReadOnlyList<T> arr, IReadOnlyList<int> indices) {
       var target = new T[indices.Count];
       var i = 0;
-      foreach (var index in indices) target[i++] = arr[index];
+      foreach (var index in indices) target[i++] = index < 0 ? default : arr[index];
       return target;
     }
     public static T[] SelectOf<T>(this IReadOnlyList<T> arr, params int[] indices) {

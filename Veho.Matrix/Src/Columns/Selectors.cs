@@ -7,8 +7,8 @@ namespace Veho.Columns {
       int h = rows.Height(), w = columnIndices.Count;
       var target = new T[h, w];
       for (var i = 0; i < h; i++)
-        for (var j = 0; j < w; j++)
-          target[i, j] = rows[i, columnIndices[j]];
+        for (int j = 0, colIndex; j < w; j++)
+          target[i, j] = (colIndex = columnIndices[j]) < 0 ? default : rows[i, colIndex];
       return target;
     }
     public static IEnumerable<T[]> IntoColumnsIter<T>(this T[,] matrix, IReadOnlyList<int> rowIndices) {
@@ -16,7 +16,8 @@ namespace Veho.Columns {
       var height = rowIndices.Count;
       for (var j = 0; j < width; j++) {
         var column = new T[height];
-        for (var i = 0; i < height; i++) column[i] = matrix[rowIndices[i], j];
+        for (int i = 0, rowIndex; i < height; i++)
+          column[i] = (rowIndex = rowIndices[i]) < 0 ? default : matrix[rowIndex, j];
         yield return column;
       }
     }
