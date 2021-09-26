@@ -21,5 +21,17 @@ namespace Veho.Enumerable {
         if (criteria(i, x)) indexes.Add(i);
       }, new List<int>());
     }
+    public static bool Every<T>(this IEnumerable<T> list, Predicate<T> match) {
+      foreach (var x in list)
+        if (!match(x))
+          return false;
+      return true;
+    }
+    public static bool Some<T>(this IEnumerable<T> list, Predicate<T> match) {
+      foreach (var x in list)
+        if (match(x))
+          return true;
+      return false;
+    }
   }
 }
