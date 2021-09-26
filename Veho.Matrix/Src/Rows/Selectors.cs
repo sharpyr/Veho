@@ -11,6 +11,16 @@ namespace Veho.Rows {
           target[i, j] = rows[rowIndices[i], j];
       return target;
     }
+
+    public static IEnumerable<T[]> IntoRowsIter<T>(this T[,] matrix, IReadOnlyList<int> columnIndices) {
+      var height = matrix.Height();
+      var width = columnIndices.Count;
+      for (var i = 0; i < height; i++) {
+        var row = new T[width];
+        for (var j = 0; j < width; j++) row[j] = matrix[i, columnIndices[j]];
+        yield return row;
+      }
+    }
     // public static List<int> FilterRowIndices<T>(this T[,] matrix, Predicate<IEnumerable<T>> criteria) {
     //   var hi = matrix.Count;
     //   return matrix.Fold((i, indexes, x) => {
