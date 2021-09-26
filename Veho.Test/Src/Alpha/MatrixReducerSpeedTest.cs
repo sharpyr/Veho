@@ -64,6 +64,7 @@ namespace Veho.Test.Alpha {
   [TestFixture]
   public class MatrixReducerSpeedTest {
     [Test]
+    [Ignore("Ignore a strategy")]
     public void Test() {
       var matrix = (3, 5).Init((_, y) => y);
       var eta = FlyBack<int>.Build((int) 1E+6);

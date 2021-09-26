@@ -6,6 +6,8 @@ using Veho.Core.Vector;
 namespace Veho.Test.FS {
   [TestFixture]
   public class SimpleTest {
+    [Test]
+    [Ignore("Ignore a strategy")]
     public void TestAlpha() {
       var list = new List<int>();
       Mappers.Utils.Abc(list).Logger();

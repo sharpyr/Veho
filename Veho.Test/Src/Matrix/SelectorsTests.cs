@@ -2,6 +2,7 @@
 using NUnit.Framework;
 using Spare;
 using Veho.Columns;
+using Veho.List;
 using Veho.Matrix;
 using Veho.Rows;
 
@@ -35,6 +36,14 @@ namespace Veho.Test.Matrix {
         indices.ToList().Deco().Says("diagonal block");
         SymmetricMatrix.SelectBy(Matrix, indices.ToList()).Deco().Says("diagonal block");
       }
+    }
+    [Test]
+    public void IntoRowsIterTest() {
+      Matrix.IntoRowsIter(Seq.From(2, 4, 6)).ToList().DecoMutableMatrix().Says("IntoRowsIterTest");
+    }
+    [Test]
+    public void IntoColumnsIterTest() {
+      Matrix.IntoRowsIter(Seq.From(2, 4, 6)).ToList().DecoMutableMatrix().Says("IntoColumnsIterTest");
     }
   }
 }

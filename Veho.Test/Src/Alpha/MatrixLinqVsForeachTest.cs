@@ -36,6 +36,7 @@ namespace Veho.Test.Alpha {
   [TestFixture]
   public class MatrixLinqVsForeachTest {
     [Test]
+    [Ignore("Ignore a strategy")]
     public void Test() {
       var samples = new[,] {
         {1, 2, 3, 4, 5},

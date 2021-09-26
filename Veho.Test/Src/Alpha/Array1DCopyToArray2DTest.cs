@@ -26,6 +26,7 @@ namespace Veho.Test.Alpha {
       MatrixAlpha.Deco().Logger();
     }
     [Test]
+    [Ignore("Ignore a strategy")]
     public void CopyStrategies() {
       var (elapsed, result) = Valjoux.Strategies.Run(
         (int) 1E+6,
