@@ -34,20 +34,22 @@ namespace Veho.Enumerable {
     //   return accum;
     // }
 
-    // public static T Reduce<T>(this IEnumerable<T> list, Func<T, T, T> sequence) {
-    //   var hi = list.Count;
-    //   if (hi == 0) return default; //throw new IndexOutOfRangeException();
-    //   var accum = list[0];
-    //   for (var i = 1; i < hi; i++) accum = sequence(accum, list[i]);
-    //   return accum;
-    // }
-    // public static TO Reduce<T, TO>(this IEnumerable<T> list, Func<TO, TO, TO> sequence, Func<T, TO> indicator) {
-    //   var hi = list.Count;
-    //   if (hi == 0) return default;
-    //   var accum = indicator(list[0]);
-    //   for (var i = 1; i < hi; i++) accum = sequence(accum, indicator(list[i]));
-    //   return accum;
-    // }
+    public static T Reduce<T>(this IEnumerable<T> enumerable, Func<T, T, T> sequence) {
+      T accum = default;
+      using (var iter = enumerable.GetEnumerator()) {
+        if (iter.MoveNext()) accum = iter.Current;
+        while (iter.MoveNext()) accum = sequence(accum, iter.Current);
+      }
+      return accum;
+    }
+    public static TO Reduce<T, TO>(this IEnumerable<T> enumerable, Func<TO, TO, TO> sequence, Func<T, TO> indicator) {
+      TO accum = default;
+      using (var iter = enumerable.GetEnumerator()) {
+        if (iter.MoveNext()) accum = indicator(iter.Current);
+        while (iter.MoveNext()) accum = sequence(accum, indicator(iter.Current));
+      }
+      return accum;
+    }
     //
     //
     // public static T Reduce<T>(this IEnumerable<T> list, Func<int, T, T, T> sequence) {
