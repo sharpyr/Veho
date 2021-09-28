@@ -4,6 +4,16 @@ using Veho.Matrix;
 
 namespace Veho.Columns {
   public static class Mappers {
+    public static IEnumerable<T[]> ColumnsIter<T>(this T[,] matrix) {
+      var (height, width) = matrix.Size();
+      for (var j = 0; j < width; j++) {
+        var column = new T[height];
+        for (var i = 0; i < height; i++) column[i] = matrix[i, j];
+        yield return column;
+      }
+    }
+
+    // [Obsolete("ColumnIntoIter is deprecated, please use ColumnIter instead")]
     public static IEnumerable<T> ColumnIntoIter<T>(this T[,] matrix, int y) {
       for (int i = 0, h = matrix.Height(); i < h; i++) yield return matrix[i, y];
     }
@@ -21,7 +31,6 @@ namespace Veho.Columns {
       for (var j = 0; j < w; j++) horizon[j] = colTo(j, matrix.Column(j, h));
       return horizon;
     }
-
 
     public static T[,] ColumnsToMatrix<T>(this T[][] columns) {
       if (columns.Length == 0) return Mat.Empty<T>();

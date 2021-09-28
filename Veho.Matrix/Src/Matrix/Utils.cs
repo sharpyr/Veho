@@ -26,9 +26,9 @@ namespace Veho.Matrix {
       return vec; // matrix.OfType<T>().ToArray();
     }
 
-    public static P[] Flatten<T, P>(this T[,] matrix, Func<T, P> fn) {
+    public static TP[] Flatten<T, TP>(this T[,] matrix, Func<T, TP> fn) {
       var (h, w) = matrix.Size();
-      var vec = new P[matrix.Length];
+      var vec = new TP[matrix.Length];
       var label = 0;
       for (var i = 0; i < h; i++)
         for (var j = 0; j < w; j++)
