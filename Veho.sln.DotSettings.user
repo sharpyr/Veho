@@ -7,16 +7,41 @@
     &lt;TestId&gt;NUnit3x::84EF9D47-F861-4119-9EC5-80924C014F0B::.NETFramework,Version=v4.7.2::Veho.Test.Alpha.Array1DCopyToArray2DTest.CopyTest&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=12f4874c_002Dda29_002D4f7a_002Db4d8_002D37fe4d68a48e/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="LinearOperatorsTest #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::84EF9D47-F861-4119-9EC5-80924C014F0B::.NETFramework,Version=v4.7.2::Veho.Test.Matrix.LinearOperatorsTest&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=2ba2a638_002D62e0_002D466a_002D823a_002Dade7682a27e9/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="SelectorsTests #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::84EF9D47-F861-4119-9EC5-80924C014F0B::.NETFramework,Version=v4.7.2::Veho.Test.Sequence.SelectorsTests&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::84EF9D47-F861-4119-9EC5-80924C014F0B::.NETFramework,Version=v4.7.2::Veho.Test.Matrix.LinearOperatorsTest&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=37d5f778_002D21c5_002D48b0_002Db8bb_002D9acd68729042/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="LinearOperatorsTest" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::84EF9D47-F861-4119-9EC5-80924C014F0B::.NETFramework,Version=v4.7.2::Veho.Test.Matrix.LinearOperatorsTest&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=4f1cbdfe_002D2475_002D4870_002Da303_002D2952c12e233f/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="Test" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;TestAncestor&gt;&#xD;
     &lt;TestId&gt;NUnit3x::84EF9D47-F861-4119-9EC5-80924C014F0B::.NETFramework,Version=v4.7.2::Veho.Test.Matrix.MatrixResizeTest&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;NUnit3x::84EF9D47-F861-4119-9EC5-80924C014F0B::.NETFramework,Version=v4.7.2::Veho.Test.Matrix.MatrixAndNestConvertionTest.Test&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=750bf905_002Dbf37_002D4c3b_002D973d_002D6bc3fb00b38d/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="DefaultTestAlpha" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=750bf905_002Dbf37_002D4c3b_002D973d_002D6bc3fb00b38d/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="DefaultTestAlpha" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;TestAncestor&gt;&#xD;
     &lt;TestId&gt;NUnit3x::84EF9D47-F861-4119-9EC5-80924C014F0B::.NETFramework,Version=v4.7.2::Veho.Test.Alpha.DefaultTests.DefaultTestAlpha&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;NUnit3x::84EF9D47-F861-4119-9EC5-80924C014F0B::.NETFramework,Version=v4.7.2::Veho.Test.Sequence.SelectorsTests.TestBeta&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::84EF9D47-F861-4119-9EC5-80924C014F0B::.NETFramework,Version=v4.7.2::Veho.Test.Enumerable.ZipperTest.DuoZipperTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::84EF9D47-F861-4119-9EC5-80924C014F0B::.NETFramework,Version=v4.7.2::Veho.Test.Matrix.LinearOperatorsTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::84EF9D47-F861-4119-9EC5-80924C014F0B::.NETFramework,Version=v4.7.2::Veho.Test.Alpha.ConcurrentTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::84EF9D47-F861-4119-9EC5-80924C014F0B::.NETFramework,Version=v4.7.2::Veho.Test.Alpha.Parallelism.MultiplyMatrices&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=9b8f5bd4_002D1c42_002D471a_002D82a8_002Df29d0c039ac5/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="LargeInterimStrategies" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::84EF9D47-F861-4119-9EC5-80924C014F0B::.NETFramework,Version=v4.7.2::Veho.Test.Matrix.LinearOperatorsTest.LargeInterimStrategies&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=a6888daf_002D5cfc_002D4bea_002D9954_002Da70eb8987c31/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="SomeTest" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
@@ -49,6 +74,19 @@
     &lt;TestId&gt;NUnit3x::84EF9D47-F861-4119-9EC5-80924C014F0B::.NETFramework,Version=v4.7.2::Veho.Test.Mutable.Matrix.SelectorsTests.SelectByColumnIndicesTest&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;NUnit3x::84EF9D47-F861-4119-9EC5-80924C014F0B::.NETFramework,Version=v4.7.2::Veho.Test.Matrix.SelectorsTests.IntersectionalBlocksTest&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;NUnit3x::84EF9D47-F861-4119-9EC5-80924C014F0B::.NETFramework,Version=v4.7.2::Veho.Test.Matrix.SelectorsTests.IntoRowsIterTest&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=b2c1c1b6_002D47ac_002D4aa7_002Da043_002D987d97ab4620/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="LinearOperatorsTest #3" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::84EF9D47-F861-4119-9EC5-80924C014F0B::.NETFramework,Version=v4.7.2::Veho.Test.Matrix.LinearOperatorsTest&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=cb3e808c_002Dc196_002D40e5_002D998c_002D133b056b0aff/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="DefaultTestAlpha #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::84EF9D47-F861-4119-9EC5-80924C014F0B::.NETFramework,Version=v4.7.2::Veho.Test.Alpha.DefaultTests.DefaultTestAlpha&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::84EF9D47-F861-4119-9EC5-80924C014F0B::.NETFramework,Version=v4.7.2::Veho.Test.Sequence.SelectorsTests.TestBeta&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::84EF9D47-F861-4119-9EC5-80924C014F0B::.NETFramework,Version=v4.7.2::Veho.Test.Enumerable.ZipperTest.DuoZipperTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::84EF9D47-F861-4119-9EC5-80924C014F0B::.NETFramework,Version=v4.7.2::Veho.Test.Matrix.LinearOperatorsTest&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=d0d35210_002D49d5_002D4e39_002D8e7c_002Dbda13eeacfce/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="Test #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
@@ -99,6 +137,21 @@
     &lt;TestId&gt;NUnit3x::84EF9D47-F861-4119-9EC5-80924C014F0B::.NETFramework,Version=v4.7.2::Veho.Test.Mutable.Matrix.SelectorsTests&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;NUnit3x::84EF9D47-F861-4119-9EC5-80924C014F0B::.NETFramework,Version=v4.7.2::Veho.Test.Alpha.DefaultTests.DefaultTestAlpha&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;NUnit3x::84EF9D47-F861-4119-9EC5-80924C014F0B::.NETFramework,Version=v4.7.2::Veho.Test.Sequence.SelectorsTests.TestBeta&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::84EF9D47-F861-4119-9EC5-80924C014F0B::.NETFramework,Version=v4.7.2::Veho.Test.Enumerable.ZipperTest.DuoZipperTest&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=dc4b5022_002D37c6_002D4cff_002Db30a_002De408be2f648e/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="SelectorsTests" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::84EF9D47-F861-4119-9EC5-80924C014F0B::.NETFramework,Version=v4.7.2::Veho.Test.Sequence.SelectorsTests&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::84EF9D47-F861-4119-9EC5-80924C014F0B::.NETFramework,Version=v4.7.2::Veho.Test.Matrix.LinearOperatorsTest&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=dc5d4305_002D08ec_002D493e_002Db72f_002D1ccb07ca61fd/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="DefaultTestAlpha #3" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::84EF9D47-F861-4119-9EC5-80924C014F0B::.NETFramework,Version=v4.7.2::Veho.Test.Alpha.DefaultTests.DefaultTestAlpha&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::84EF9D47-F861-4119-9EC5-80924C014F0B::.NETFramework,Version=v4.7.2::Veho.Test.Sequence.SelectorsTests.TestBeta&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::84EF9D47-F861-4119-9EC5-80924C014F0B::.NETFramework,Version=v4.7.2::Veho.Test.Enumerable.ZipperTest.DuoZipperTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::84EF9D47-F861-4119-9EC5-80924C014F0B::.NETFramework,Version=v4.7.2::Veho.Test.Matrix.LinearOperatorsTest&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	<s:Boolean x:Key="/Default/UnloadedProject/UnloadedProjects/=44939bfa_002Dab08_002D4509_002D88df_002Db1e335c9698f_0023Veho_002ECore/@EntryIndexedValue">True</s:Boolean></wpf:ResourceDictionary>
