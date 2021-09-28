@@ -1,10 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using Veho.Matrix;
 
 namespace Veho.Rows {
   public static class Mappers {
+    public static IEnumerable<T[]> RowsIter<T>(this T[,] matrix) {
+      var (height, width) = matrix.Size();
+      for (var i = 0; i < height; i++) {
+        var row = new T[width];
+        for (var j = 0; j < width; j++) row[j] = matrix[i, j];
+        yield return row;
+      }
+    }
     public static IEnumerable<T> RowIntoIter<T>(this T[,] matrix, int x) {
       for (int j = 0, w = matrix.Width(); j < w; j++) yield return matrix[x, j];
     }
