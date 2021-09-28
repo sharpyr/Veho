@@ -2,11 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using NUnit.Framework;
+using Typen;
 using Veho.Matrix;
 using Veho.PanBase;
 using Veho.Rows;
-using Texting.Joiner;
-using Typen;
 using Veho.Vector;
 
 namespace Veho.Test.Alpha {
@@ -19,12 +18,12 @@ namespace Veho.Test.Alpha {
     }
 
     public static string Deco<T>(this T[,] matrix) {
-      const string CRLF = "\r\n", TAB = "  ";
+      const string crlf = "\r\n", tab = "  ";
       matrix = matrix.ZeroOut();
       var body = matrix
-                 .MapRows(row => TAB + "[" + row.Join(Conv.ToStr) + "],")
-                 .Join("\r\n");
-      return "[" + CRLF + body + CRLF + "]";
+                 .MapRows(row => tab + "[" + row.Join(Conv.ToStr) + "],")
+                 .Join(x=>x.ToString(),"\n");
+      return "[" + crlf + body + crlf + "]";
     }
   }
 
