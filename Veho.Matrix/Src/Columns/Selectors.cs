@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Veho.Matrix;
+using Veho.Rows;
 
 namespace Veho.Columns {
   public static class Selectors {
@@ -11,9 +13,14 @@ namespace Veho.Columns {
           target[i, j] = (colIndex = columnIndices[j]) < 0 ? default : rows[i, colIndex];
       return target;
     }
+
+    [Obsolete("use SelectColumnsIntoIter instead")]
     public static IEnumerable<T[]> IntoColumnsIter<T>(this T[,] matrix, IReadOnlyList<int> rowIndices) {
-      var width = matrix.Width();
-      var height = rowIndices.Count;
+      return matrix.SelectRowsIntoIter(rowIndices);
+    }
+
+    public static IEnumerable<T[]> SelectColumnsIntoIter<T>(this T[,] matrix, IReadOnlyList<int> rowIndices) {
+      int height = rowIndices.Count, width = matrix.Width();
       for (var j = 0; j < width; j++) {
         var column = new T[height];
         for (int i = 0, rowIndex; i < height; i++)
