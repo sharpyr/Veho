@@ -34,16 +34,35 @@ namespace Veho.Sequence {
       }
       return true;
     }
+    public static bool Every<T>(this IReadOnlyList<T> list, Func<int, T, bool> match) {
+      for (int i = 0, hi = list.Count; i < hi; i++) {
+        if (!match(i, list[i])) return false;
+      }
+      return true;
+    }
     public static bool Some<T>(this IReadOnlyList<T> list, Predicate<T> match) {
       for (int i = 0, hi = list.Count; i < hi; i++) {
         if (match(list[i])) return true;
       }
       return false;
     }
-    public static T Find<T>(this IReadOnlyList<T> list, Predicate<T> match) {
-      T value;
+    public static bool Some<T>(this IReadOnlyList<T> list, Func<int, T, bool> match) {
       for (int i = 0, hi = list.Count; i < hi; i++) {
-        if (match(value = list[i])) return value;
+        if (match(i, list[i])) return true;
+      }
+      return false;
+    }
+    public static T Find<T>(this IReadOnlyList<T> list, Predicate<T> match) {
+      for (int i = 0, hi = list.Count; i < hi; i++) {
+        var value = list[i];
+        if (match(value)) return value;
+      }
+      return default;
+    }
+    public static T Find<T>(this IReadOnlyList<T> list, Func<int, T, bool> match) {
+      for (int i = 0, hi = list.Count; i < hi; i++) {
+        var value = list[i];
+        if (match(i, value)) return value;
       }
       return default;
     }
