@@ -7,6 +7,20 @@ namespace Veho.Vector {
     public static T[] Slice<T>(this IReadOnlyList<T> list) {
       return list.Map(x => x);
     }
+    public static T[] Slice<T>(this T[] list, int lo) {
+      var hi = list.Length;
+      var len = hi - lo;
+      var target = new T[len];
+      Array.Copy(list, lo, target, 0, len);
+      return target;
+    }
+    public static T[] Slice<T>(this T[] list, int lo, int hi) {
+      if (hi < 0) hi = list.Length + hi;
+      var len = hi - lo;
+      var target = new T[len];
+      Array.Copy(list, lo, target, 0, len);
+      return target;
+    }
     public static void Iterate<T>(this T[] vector, Action<T> fn) {
       var hi = vector.Length;
       for (var i = 0; i < hi; i++) fn(vector[i]);
