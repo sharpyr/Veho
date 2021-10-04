@@ -3,10 +3,10 @@ using System.Diagnostics;
 using Spare;
 
 namespace Veho.Test.Utils {
-  public abstract class IPgs {
-    public delegate void rfs(float val, string msg);
+  public abstract class Pgs {
+    public delegate void Rfs(float val, string msg);
 
-    public abstract rfs regPgs { set; }
+    public abstract Rfs RegPgs { set; }
   }
 
   //public class rolex : elPrimero
@@ -48,26 +48,26 @@ namespace Veho.Test.Utils {
     private DateTime _curr;
     private DateTime _next;
 
-    public string iniMsg => $"[   starts] ({_curr:hh:mm:ss} {_curr.Millisecond:D3})";
-    public string lagMsg {
+    public string IniMsg => $"[   starts] ({_curr:hh:mm:ss} {_curr.Millisecond:D3})";
+    public string LagMsg {
       get {
         long tLag = this.ElapsedMilliseconds;
         string tTag = tLag > 1000 ? $"{this.Elapsed.TotalSeconds:N} s" : $"{tLag:D3} ms";
         return $"[  process] ({_next:hh:mm:ss} {_next.Millisecond:D3}) [Lag] ({tTag})";
       }
     }
-    public string endMsg {
+    public string EndMsg {
       get {
         TimeSpan span = _next - _curr;
         string spanText = $"{span.Seconds}.{span.Milliseconds} s";
         return $"[terminate] ({_next:hh:mm:ss} {_next.Millisecond:D3}) ({spanText})";
       }
     }
-    public string elapseMsg => this.ElapsedMilliseconds.ToString("##,##0");
+    public string ElapseMsg => this.ElapsedMilliseconds.ToString("##,##0");
 
-    public void iniTmr(string adtMsg = "") {
+    public void IniTmr(string adtMsg = "") {
       _curr = DateTime.Now;
-      string msg = iniMsg;
+      string msg = IniMsg;
       if (!string.IsNullOrEmpty(adtMsg)) msg += $"\t{adtMsg}";
       msg.Logger();
       if (this.IsRunning)
@@ -75,16 +75,16 @@ namespace Veho.Test.Utils {
       else
         this.Start();
     }
-    public void lapTmr(string adtMsg = "") {
+    public void LapTmr(string adtMsg = "") {
       _next = DateTime.Now;
-      string msg = lagMsg;
+      string msg = LagMsg;
       if (!string.IsNullOrEmpty(adtMsg)) msg += $"\t{adtMsg}";
       msg.Logger();
       this.Restart();
     }
-    public void endTmr(string adtMsg = "") {
+    public void EndTmr(string adtMsg = "") {
       _next = DateTime.Now;
-      string msg = endMsg;
+      string msg = EndMsg;
       if (this.IsRunning) this.Stop();
       if (!string.IsNullOrEmpty(adtMsg)) msg += $"\t{adtMsg}";
       string txtSplit = " ".PadRight(msg.Length).Replace(" ", "-");

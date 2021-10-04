@@ -38,11 +38,11 @@ namespace Veho.Test.Matrix {
     }
     [Test]
     public void IntoRowsIterTest() {
-      Matrix.IntoRowsIter(Seq.From(2, 4, 6)).ToList().DecoMutableMatrix().Says("IntoRowsIterTest");
+      Matrix.SelectRowsIntoIter(Seq.From(2, 4, 6)).ToList().DecoMutableMatrix().Says("IntoRowsIterTest");
     }
     [Test]
     public void IntoColumnsIterTest() {
-      Matrix.IntoRowsIter(Seq.From(2, 4, 6)).ToList().DecoMutableMatrix().Says("IntoColumnsIterTest");
+      Matrix.SelectRowsIntoIter(Seq.From(2, 4, 6)).ToList().DecoMutableMatrix().Says("IntoColumnsIterTest");
     }
   }
 }

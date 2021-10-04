@@ -151,6 +151,7 @@ namespace Veho.Test.Matrix {
     }
   }
 
+  [Ignore("ingore LinearOperatorsTest")]
   [TestFixture]
   public class LinearOperatorsTest {
     [Test]

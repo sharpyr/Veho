@@ -2,13 +2,14 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using NUnit.Framework;
+using Texting.Enums;
 using Typen;
 using Veho.Matrix;
-using Veho.PanBase;
 using Veho.Rows;
 using Veho.Vector;
+using Veho.PanBase.Matrix;
 
-namespace Veho.Test.Alpha {
+namespace Veho.Test.PanBase {
   public static class Matrix1BIterateFunctions {
     public static T[,] ZeroOutBeta<T>(this T[,] matrix) {
       var (h, w) = matrix.Size();
@@ -18,12 +19,11 @@ namespace Veho.Test.Alpha {
     }
 
     public static string Deco<T>(this T[,] matrix) {
-      const string crlf = "\r\n", tab = "  ";
       matrix = matrix.ZeroOut();
       var body = matrix
-                 .MapRows(row => tab + "[" + row.Join(Conv.ToStr) + "],")
-                 .Join(x=>x.ToString(),"\n");
-      return "[" + crlf + body + crlf + "]";
+                 .MapRows(row => Chars.SP + "[" + row.Join(Conv.ToStr) + "],")
+                 .Join(x => x.ToString(), "\n");
+      return "[" + Chars.LF + body + Chars.LF + "]";
     }
   }
 
@@ -33,13 +33,13 @@ namespace Veho.Test.Alpha {
     [Ignore("Ignore a strategy")]
     public void Test() {
       var samples = new[,] {
-        {1, 2, 3, 4, 5},
-        {10, 20, 30, 40, 50},
-        {100, 200, 300, 400, 500},
-      };
+                             { 1, 2, 3, 4, 5 },
+                             { 10, 20, 30, 40, 50 },
+                             { 100, 200, 300, 400, 500 },
+                           };
       var eta = new Stopwatch();
       var record = new Dictionary<string, long>();
-      const double count = (int) 2E+6;
+      const double count = (int)2E+6;
 
       eta.Start();
       for (var i = 0; i < count; i++) {

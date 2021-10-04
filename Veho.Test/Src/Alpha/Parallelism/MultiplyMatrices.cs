@@ -5,6 +5,7 @@ using NUnit.Framework;
 using Veho.Matrix;
 
 namespace Veho.Test.Alpha.Parallelism {
+  [Ignore("ignore multiply matrices")]
   [TestFixture]
   public class MultiplyMatrices {
     static void MultiplyMatricesSequential(double[,] matA, double[,] matB,
@@ -18,7 +19,7 @@ namespace Veho.Test.Alpha.Parallelism {
         }
       }
     }
- 
+
     static void MultiplyMatricesParallel(double[,] matA, double[,] matB, double[,] result) {
       int height = matA.Height(), interim = matA.Width(), width = matB.Width();
       // A basic matrix multiplication.
@@ -31,7 +32,7 @@ namespace Veho.Test.Alpha.Parallelism {
         }
       }); // Parallel.For
     }
- 
+
 
     #region Main
     [Test]

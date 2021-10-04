@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using NUnit.Framework;
 
-namespace Veho.Test.Alpha {
+namespace Veho.Test.PanBase {
   [TestFixture]
   public class Vector1BIterateTest {
     [Test]

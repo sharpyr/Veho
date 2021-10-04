@@ -2,6 +2,7 @@ using System;
 using NUnit.Framework;
 using Spare;
 using Veho.Matrix;
+using Veho.Test.PanBase;
 using Veho.Test.Utils;
 
 namespace Veho.Test.Alpha {
