@@ -11,9 +11,9 @@ namespace Veho {
     public static T[] And<T>(this IReadOnlyList<T> aV, IReadOnlyList<T> bV) => VectorZipperOperators.op_BitwiseAnd(aV, bV);
     public static T[] Or<T>(this IReadOnlyList<T> aV, IReadOnlyList<T> bV) => VectorZipperOperators.op_BitwiseOr(aV, bV);
     public static T[] Add<T>(this IReadOnlyList<T> aV, IReadOnlyList<T> bV) => VectorZipperOperators.op_Addition(aV, bV);
-    public static T[] Minus<T>(this IReadOnlyList<T> aV, IReadOnlyList<T> bV) => VectorZipperOperators.op_Subtraction(aV, bV);
+    public static T[] Subtract<T>(this IReadOnlyList<T> aV, IReadOnlyList<T> bV) => VectorZipperOperators.op_Subtraction(aV, bV);
     public static T[] Multiply<T>(this IReadOnlyList<T> aV, IReadOnlyList<T> bV) => VectorZipperOperators.op_Multiply(aV, bV);
-    public static T[] Divided<T>(this IReadOnlyList<T> aV, IReadOnlyList<T> bV) => VectorZipperOperators.op_Division(aV, bV);
+    public static T[] Divide<T>(this IReadOnlyList<T> aV, IReadOnlyList<T> bV) => VectorZipperOperators.op_Division(aV, bV);
     public static T[] Concat<T>(this IReadOnlyList<T> aV, IReadOnlyList<T> bV) => VectorZipperOperators.op_Concatenate(aV, bV);
     #endregion
 
@@ -21,9 +21,9 @@ namespace Veho {
     public static T[] And<T>(this IReadOnlyList<T> aV, T bN) => VectorToValueOperators.op_BitwiseAnd(aV, bN);
     public static T[] Or<T>(this IReadOnlyList<T> aV, T bN) => VectorToValueOperators.op_BitwiseOr(aV, bN);
     public static T[] Add<T>(this IReadOnlyList<T> aV, T bN) => VectorToValueOperators.op_Addition(aV, bN);
-    public static T[] Minus<T>(this IReadOnlyList<T> aV, T bN) => VectorToValueOperators.op_Subtraction(aV, bN);
+    public static T[] Subtract<T>(this IReadOnlyList<T> aV, T bN) => VectorToValueOperators.op_Subtraction(aV, bN);
     public static T[] Multiply<T>(this IReadOnlyList<T> aV, T bN) => VectorToValueOperators.op_Multiply(aV, bN);
-    public static T[] Divided<T>(this IReadOnlyList<T> aV, T bN) => VectorToValueOperators.op_Division(aV, bN);
+    public static T[] Divide<T>(this IReadOnlyList<T> aV, T bN) => VectorToValueOperators.op_Division(aV, bN);
     public static T[] Concat<T>(this IReadOnlyList<T> aV, T bN) => VectorToValueOperators.op_Concatenate(aV, bN);
     #endregion
 
@@ -37,13 +37,13 @@ namespace Veho {
     public static T[,] Add<T>(this T[,] aX, T[,] bX) => aX.Width() == 1 && bX.Height() == 1
       ? MatrixLinearOperators.op_Addition(aX, bX)
       : MatrixZipperOperators.op_Addition(aX, bX);
-    public static T[,] Minus<T>(this T[,] aX, T[,] bX) => aX.Width() == 1 && bX.Height() == 1
+    public static T[,] Subtract<T>(this T[,] aX, T[,] bX) => aX.Width() == 1 && bX.Height() == 1
       ? MatrixLinearOperators.op_Subtraction(aX, bX)
       : MatrixZipperOperators.op_Subtraction(aX, bX);
     public static T[,] Multiply<T>(this T[,] aX, T[,] bX) => aX.Width() == 1 && bX.Height() == 1
       ? MatrixLinearOperators.op_Multiply(aX, bX)
       : MatrixZipperOperators.op_Multiply(aX, bX);
-    public static T[,] Divided<T>(this T[,] aX, T[,] bX) => aX.Width() == 1 && bX.Height() == 1
+    public static T[,] Divide<T>(this T[,] aX, T[,] bX) => aX.Width() == 1 && bX.Height() == 1
       ? MatrixLinearOperators.op_Division(aX, bX)
       : MatrixZipperOperators.op_Division(aX, bX);
     public static T[,] Concat<T>(this T[,] aX, T[,] bX) => aX.Width() == 1 && bX.Height() == 1
@@ -55,9 +55,9 @@ namespace Veho {
     public static T[,] And<T>(this T[,] aX, T bN) => MatrixToValueOperators.op_BitwiseAnd(aX, bN);
     public static T[,] Or<T>(this T[,] aX, T bN) => MatrixToValueOperators.op_BitwiseOr(aX, bN);
     public static T[,] Add<T>(this T[,] aX, T bN) => MatrixToValueOperators.op_Addition(aX, bN);
-    public static T[,] Minus<T>(this T[,] aX, T bN) => MatrixToValueOperators.op_Subtraction(aX, bN);
+    public static T[,] Subtract<T>(this T[,] aX, T bN) => MatrixToValueOperators.op_Subtraction(aX, bN);
     public static T[,] Multiply<T>(this T[,] aX, T bN) => MatrixToValueOperators.op_Multiply(aX, bN);
-    public static T[,] DividedBy<T>(this T[,] aX, T bN) => MatrixToValueOperators.op_Division(aX, bN);
+    public static T[,] DivideBy<T>(this T[,] aX, T bN) => MatrixToValueOperators.op_Division(aX, bN);
     public static T[,] Concat<T>(this T[,] aX, T bN) => MatrixToValueOperators.op_Concatenate(aX, bN);
     #endregion
   }
@@ -98,9 +98,9 @@ namespace Veho {
   }
 
   internal static class VectorToValueOperators {
-    private static T[] Op<T>(IReadOnlyList<T> aV, T bN, Func<T, T, T> tfunc, MethodBase method) {
-      if (typeof(T).IsArray) tfunc = (a, b) => DimensionalShiftOperators.ZipAsVector(a, b, method.Name);
-      return aV.Map(it => tfunc(it, bN));
+    private static T[] Op<T>(IReadOnlyList<T> aV, T bN, Func<T, T, T> @operator, MethodBase method) {
+      if (typeof(T).IsArray) @operator = (a, b) => DimensionalShiftOperators.ZipAsVector(a, b, method.Name);
+      return aV.Map(it => @operator(it, bN));
     }
     public static T[] op_BitwiseAnd<T>(IReadOnlyList<T> aV, T bN) => Op(aV, bN, GenericMath.And, MethodBase.GetCurrentMethod());
     public static T[] op_BitwiseOr<T>(IReadOnlyList<T> aV, T bN) => Op(aV, bN, GenericMath.Or, MethodBase.GetCurrentMethod());
@@ -119,9 +119,9 @@ namespace Veho {
   }
 
   internal static class MatrixZipperOperators {
-    private static T[,] Op<T>(T[,] aX, T[,] bX, Func<T, T, T> func, MethodBase method) {
-      if (typeof(T).IsArray) func = (a, b) => DimensionalShiftOperators.ZipAsVector(a, b, method.Name);
-      return func.Zipper(aX, bX);
+    private static T[,] Op<T>(T[,] aX, T[,] bX, Func<T, T, T> @operator, MethodBase method) {
+      if (typeof(T).IsArray) @operator = (a, b) => DimensionalShiftOperators.ZipAsVector(a, b, method.Name);
+      return @operator.Zipper(aX, bX);
     }
     public static T[,] op_BitwiseAnd<T>(T[,] aX, T[,] bX) => Op(aX, bX, GenericMath.And, MethodBase.GetCurrentMethod());
     public static T[,] op_BitwiseOr<T>(T[,] aX, T[,] bX) => Op(aX, bX, GenericMath.Or, MethodBase.GetCurrentMethod());
