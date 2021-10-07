@@ -23,12 +23,12 @@ namespace Veho.Test.Mutable.Matrix {
 
     [Test]
     public void IntoRowsIterTest() {
-      Rows.IntoRowsIter(Seq.From(0, 2, 4)).ToList().DecoMutableMatrix().Says("IntoRowsIterTest");
+      Rows.SelectRowsIntoIter(Seq.From(0, 2, 4)).ToList().DecoMutableMatrix().Says("IntoRowsIterTest");
     }
 
     [Test]
     public void IntoColumnsIterTest() {
-      Rows.IntoColumnsIter(Seq.From(0, 2, 4)).ToList().DecoMutableMatrix().Says("IntoColumnsIterTest");
+      Rows.SelectColumnsIntoIter(Seq.From(0, 2, 4)).ToList().DecoMutableMatrix().Says("IntoColumnsIterTest");
     }
   }
 }
