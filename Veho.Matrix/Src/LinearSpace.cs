@@ -57,7 +57,7 @@ namespace Veho {
     public static T[,] Add<T>(this T[,] aX, T bN) => MatrixToValueOperators.op_Addition(aX, bN);
     public static T[,] Subtract<T>(this T[,] aX, T bN) => MatrixToValueOperators.op_Subtraction(aX, bN);
     public static T[,] Multiply<T>(this T[,] aX, T bN) => MatrixToValueOperators.op_Multiply(aX, bN);
-    public static T[,] DivideBy<T>(this T[,] aX, T bN) => MatrixToValueOperators.op_Division(aX, bN);
+    public static T[,] Divide<T>(this T[,] aX, T bN) => MatrixToValueOperators.op_Division(aX, bN);
     public static T[,] Concat<T>(this T[,] aX, T bN) => MatrixToValueOperators.op_Concatenate(aX, bN);
     #endregion
   }
