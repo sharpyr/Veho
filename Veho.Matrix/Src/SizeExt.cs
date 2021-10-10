@@ -4,6 +4,8 @@ namespace Veho {
   public static class Through {
     public static bool Any(this (int height, int width) size) => size.height != 0 && size.width != 0;
 
+    public static bool IsUnit(this (int height, int width) size) => size.height == 1 && size.width == 1;
+
     public static void Iter(this (int height, int width) size, Action<int, int> fn) {
       var (h, w) = size;
       for (var i = 0; i < h; i++)
@@ -18,7 +20,5 @@ namespace Veho {
         for (y = 0; y < w; y++)
           action(x, y);
     }
-
-
   }
 }
