@@ -26,7 +26,7 @@
 //     [Test]
 //     public void Test() {
 //       var matrix = (3, 5).Init((x, y) => x + y);
-//       var eta = FlyBack<int[]>.Build((int) 1E+5);
+//       var eta = FlyBack<int[]>.Unary((int) 1E+5);
 //       eta.Run("Plain", () => matrix.Row(0));
 //       eta.Run("Array.Copy", () => matrix.RowBeta(0));
 //       eta.Log(x => x.Deco());

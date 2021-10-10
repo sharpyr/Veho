@@ -8,6 +8,8 @@
 
 Veho, a .NET Standard array and enumerable extension library.
 
+Veho is an extension library for iterable including array, 2d-array and dictionary, designed based on functional programming paradigm. Veho is currently availabe on npm.js for node.js, nuget.org as .NET standard package, crates.io for rust and pypi.org for python 3.
+
 ### SAMPLES
 
     Please see the Project Veho.Test in the solution.

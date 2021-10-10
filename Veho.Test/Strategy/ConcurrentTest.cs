@@ -9,7 +9,7 @@ using Spare;
 using Valjoux;
 using Veho.Vector;
 
-namespace Veho.Test.Alpha {
+namespace Veho.Test.Strategy {
   public static class Concurrents {
     public static TO[] ParaMapArc<T, TO>(this IReadOnlyList<T> vec, Func<T, TO> mapper) {
       var hi = vec.Count;

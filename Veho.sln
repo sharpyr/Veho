@@ -26,6 +26,8 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Veho.Core", "..\Veho.Core\V
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Veho.PanBase.Matrix", "Veho.PanBase.Matrix\Veho.PanBase.Matrix.csproj", "{290DC884-A89F-42E7-8960-6D9163864ADC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Veho.Linear", "Veho.Linear\Veho.Linear.csproj", "{2A7A7EF3-8D10-4981-B6DC-A8B6415C09A1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -84,5 +86,9 @@ Global
 		{290DC884-A89F-42E7-8960-6D9163864ADC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{290DC884-A89F-42E7-8960-6D9163864ADC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{290DC884-A89F-42E7-8960-6D9163864ADC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A7A7EF3-8D10-4981-B6DC-A8B6415C09A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A7A7EF3-8D10-4981-B6DC-A8B6415C09A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A7A7EF3-8D10-4981-B6DC-A8B6415C09A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A7A7EF3-8D10-4981-B6DC-A8B6415C09A1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -15,7 +15,7 @@ using Veho.Test.Utils;
 using Veho.Types;
 using Veho.Vector;
 
-namespace Veho.Test.Alpha.Conversion {
+namespace Veho.Test.Strategy {
   public static class StrategyFactory {
     public static void CopyStrategies<T>(int count, IReadOnlyList<T[,]> matrices) {
       var parameters = Veho.Sequence.Zippers.Zip<T[,], string, (string, T[,])>(matrices, GreekAlphabets.Alphabets, (matrix, alpha) => (alpha, matrix));

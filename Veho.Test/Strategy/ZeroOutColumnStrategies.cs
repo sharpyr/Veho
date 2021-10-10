@@ -8,8 +8,9 @@ using Veho.Columns;
 using Veho.Matrix;
 using Veho.PanBase.Matrix;
 using Veho.Rows;
+using Veho.Test.PanBase;
 
-namespace Veho.Test.PanBase {
+namespace Veho.Test.Strategy {
   public static partial class ZeroizeMethods {
     // public static T[] ZeroizeFlatArch<T>(this T[,] matrix) {
     //   var count = matrix.Length;

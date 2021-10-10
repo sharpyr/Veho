@@ -4,7 +4,6 @@ using Analys;
 using NUnit.Framework;
 using Palett;
 using Spare;
-using Valjoux;
 using Veho.Columns;
 using Veho.Enumerable;
 using Veho.Matrix;
@@ -15,7 +14,7 @@ using VecZippers = Veho.Vector.Zippers;
 using VecReducers = Veho.Vector.Reducers;
 using Zippers = Veho.Sequence.Zippers;
 
-namespace Veho.Test.Matrix {
+namespace Veho.Test.Strategy {
   public static class LinearClassic {
     public static TO[,] Cross<T, TO>(T[,] aX, T[,] bX, Func<T, T, TO> zipper, Func<TO, TO, TO> reducer) {
       int height = aX.Height(), interim = aX.Width(), width = bX.Width();
@@ -121,7 +120,7 @@ namespace Veho.Test.Matrix {
   public static class LinearStrategy {
     public static void TestParams<T>(int loop, params (T[,], T[,])[] matrixPairs) {
       var parameters = Zippers.Zip(matrixPairs, GreekAlphabets.Alphabets, (pair, key) => (key, pair));
-      var (elapsed, result) = Strategies.Run(
+      var (elapsed, result) = Valjoux.Strategies.Run(
         loop,
         Seq.From<(string, Func<(T[,] a, T[,] b), T[,]>)>(
           ("classic", x => LinearClassic.Multiply(x.a, x.b)),

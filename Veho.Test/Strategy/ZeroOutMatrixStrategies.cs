@@ -8,7 +8,7 @@ using Veho.Matrix;
 using static System.Convert;
 
 
-namespace Veho.Test.PanBase {
+namespace Veho.Test.Strategy {
   public static partial class ZeroOutMethods {
     public static T[,] ZeroOutArch<T>(this T[,] matrix) {
       var (h, w) = matrix.Size();
