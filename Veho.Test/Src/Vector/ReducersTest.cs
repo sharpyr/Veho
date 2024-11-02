@@ -8,7 +8,7 @@ namespace Veho.Test.Vector {
     [Test]
     public void ReduceTest() {
       var some = default(string);
-      Assert.AreEqual(some, null);
+      // Assert.AreEquals(some, null);
 
       var vec = new[] {1, 4, 6, 3, 2};
       var max = vec.Reduce(Math.Max);

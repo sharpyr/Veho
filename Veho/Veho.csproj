@@ -2,16 +2,18 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <PackageVersion>0.5.10</PackageVersion>
+    <PackageVersion>0.5.11</PackageVersion>
     <Title>Veho</Title>
     <Description>iterate tools</Description>
     <Authors>Hoyeung Wong</Authors>
     <Company>Hoyeung Wong</Company>
     <Copyright>Copyright (c) Hoyeung Wong 2020-present</Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <AssemblyVersion>0.5.10</AssemblyVersion>
-    <FileVersion>0.5.10</FileVersion>
+    <AssemblyVersion>0.5.11</AssemblyVersion>
+    <FileVersion>0.5.11</FileVersion>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageIcon>veho-avatar.png</PackageIcon>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\Veho.Dictionary\Veho.Dictionary.csproj"/>
@@ -27,5 +29,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Src"/>
+    <None Include="..\media\veho-avatar.png" Pack="true" PackagePath=""/>
+    <None Include="..\README.md" Pack="true" PackagePath=""/>
   </ItemGroup>
 </Project>
