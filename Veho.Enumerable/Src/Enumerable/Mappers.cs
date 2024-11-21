@@ -17,6 +17,14 @@ namespace Veho.Enumerable {
       foreach (var x in iter) action(i++, x);
     }
     public static int Hi<T>(this IEnumerable<T> iter) => iter.Count() - 1;
+    public static IEnumerable<TO> Iter<T, TO>(this IEnumerable<T> items, Func<T, TO> func) {
+      foreach (T item in items) yield return func(item);
+    }
+    public static IEnumerable<TO> Iter<T, TO>(this IEnumerable<T> items, Func<T, int, TO> func) {
+      var i = 0;
+      foreach (T item in items) yield return func(item, i++);
+    }
+    
   }
 
   public static partial class Mappers {
@@ -29,6 +37,13 @@ namespace Veho.Enumerable {
     public static void Iterate<T>(this IEnumerable iter, Action<int, T> action) {
       var i = 0;
       foreach (T x in iter) action(i++, x);
+    }
+    public static IEnumerable<TO> Iter<T, TO>(this IEnumerable items, Func<T, TO> func) {
+      foreach (T item in items) yield return func(item);
+    }
+    public static IEnumerable<TO> Iter<T, TO>(this IEnumerable items, Func<T, int, TO> func) {
+      var i = 0;
+      foreach (T item in items) yield return func(item, i++);
     }
   }
 }
