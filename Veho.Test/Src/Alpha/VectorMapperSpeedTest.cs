@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using NUnit.Framework;
+using Veho.Enumerable;
 using Veho.Rows;
 using Veho.Vector;
 

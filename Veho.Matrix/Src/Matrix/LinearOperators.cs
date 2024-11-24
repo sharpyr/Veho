@@ -2,7 +2,6 @@
 using System.Threading.Tasks;
 using Generic.Math;
 using ZP = Veho.Vector.Zippers;
-using RD = Veho.Vector.Reducers;
 
 // ReSharper disable All
 

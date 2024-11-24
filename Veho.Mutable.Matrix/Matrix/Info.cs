@@ -11,7 +11,7 @@ namespace Veho.Mutable.Matrix {
     public static int Width<T>(this IReadOnlyList<IReadOnlyList<T>> rows) => rows.Count == 0 ? 0 : rows[0].Count;
     public static int TotalCount<T>(this IReadOnlyList<IReadOnlyList<T>> rows) {
       var total = 0;
-      Sequence.Mappers.Iterate(rows, row => total += row.Count);
+      Sequence.Mapper.Iterate(rows, row => total += row.Count);
       return total;
     }
   }

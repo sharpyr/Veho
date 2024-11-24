@@ -3,7 +3,7 @@
 // using Spare.Deco;
 // using Veho.Matrix;
 // using Veho.Matrix.Rows;
-// using Veho.Test.Utils;
+// using Veho.Test.Util;
 //
 // namespace Veho.Test.Alpha {
 //   public static partial class  Functions {

@@ -10,7 +10,7 @@
 //     [Ignore("Ignore a strategy")]
 //     public void TestAlpha() {
 //       var list = new List<int>();
-//       Mappers.Utils.Abc(list).Logger();
+//       Mapper.Util.Abc(list).Logger();
 //       // var hasAny = list.HasAny;
 //       // var text = "foo-bar";
 //       // var textOut = text.Right(3);

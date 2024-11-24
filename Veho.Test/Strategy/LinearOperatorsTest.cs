@@ -10,8 +10,8 @@ using Veho.Matrix;
 using Veho.Rows;
 using Veho.Test.Utils;
 using Gn = Generic.Math.GenericMath;
+using Reducer = Veho.Vector.Reducer;
 using VecZippers = Veho.Vector.Zippers;
-using VecReducers = Veho.Vector.Reducers;
 using Zippers = Veho.Sequence.Zippers;
 
 namespace Veho.Test.Strategy {
@@ -55,7 +55,7 @@ namespace Veho.Test.Strategy {
         for (var j = 0; j < width; j++) {
           var column = bX.Column(j);
           var zipped = VecZippers.Zip(row, column, zipper);
-          var reduced = VecReducers.Reduce(zipped, reducer);
+          var reduced = Reducer.Reduce(zipped, reducer);
           matrix[i, j] = reduced;
         }
       }
@@ -75,7 +75,7 @@ namespace Veho.Test.Strategy {
       rows.Iterate((i, row) => {
         columns.Iterate((j, column) => {
           var zipped = VecZippers.Zip(row, column, zipper);
-          var reduced = VecReducers.Reduce(zipped, reducer);
+          var reduced = Reducer.Reduce(zipped, reducer);
           matrix[i, j] = reduced;
         });
       });
