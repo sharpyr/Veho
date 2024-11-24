@@ -24,7 +24,8 @@ Veho is an extension lib for iterable e.g. array, 2d-array and dictionary.
 | `Veho.Linear`         | Perform basic linear algebra for matrix           |
 | `Veho.Matrix`         | Extend T[,]                                       |
 | `Veho.Mutable.Matrix` | Extend IReadOnlyList<IReadOnlyList<T>>            |
-| `Veho.PanBase.Matrix` | Extend T[,]                                       |
+| `Veho.OneBase`        | Extend 1-based (offset) array T[,]                |
+| `Veho.PanBase`        | Extend general (offset) array T[,]                |
 | `Veho.Sequence`       | Extend IReadOnlyList<T> to List<T>                |
 | `Veho.Tuple`          | Extend (T, T), (T, T, T), (T, T, T, T)            |
 | `Veho.Types`          | Base types in Veho series                         |

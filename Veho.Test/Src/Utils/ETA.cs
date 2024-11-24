@@ -5,15 +5,15 @@ using Typen;
 
 namespace Veho.Test.Utils {
   public static class FlyBack {
-    public static FlyBack<object> Build(int n) => new FlyBack<object> {
+    public static ETA<object> Build(int n) => new ETA<object> {
       Loop = n, Records = new Dictionary<string, (object, long)>()
     };
   }
 
-  public class FlyBack<T> : Stopwatch {
+  public class ETA<T> : Stopwatch {
     public Dictionary<string, (T value, long elapsed)> Records;
     public int Loop { get; set; }
-    public static FlyBack<T> Build(int n) => new FlyBack<T> {
+    public static ETA<T> Build(int n) => new ETA<T> {
       Loop = n, Records = new Dictionary<string, (T, long)>()
     };
 
