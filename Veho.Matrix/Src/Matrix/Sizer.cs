@@ -1,7 +1,7 @@
 ﻿using System;
 
 namespace Veho.Matrix {
-  public static class Sizers {
+  public static class Sizer {
     public static T[,] Resize<T>(this T[,] matrix, int height, int width) {
       var target = new T[height, width];
       var width0 = matrix.Width();
