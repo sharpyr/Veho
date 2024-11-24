@@ -31,20 +31,20 @@ namespace Veho.Rows {
       }
     }
 
-    public static IEnumerable<T> RowTo<T>(this T[,] matrix, int x) {
+    public static IEnumerable<T> RowInto<T>(this T[,] matrix, int x) {
       for (int j = 0, w = matrix.Width(); j < w; j++) yield return matrix[x, j];
     }
 
 
-    public static IEnumerable<TO> RowTo<T, TO>(this T[,] matrix, int x, Func<T, TO> func) {
+    public static IEnumerable<TO> RowInto<T, TO>(this T[,] matrix, int x, Func<T, TO> func) {
       for (int j = 0, w = matrix.Width(); j < w; j++) yield return func(matrix[x, j]);
     }
 
-    public static IEnumerable<TO> RowTo<T, TO>(this T[,] matrix, int x, Func<int, T, TO> func) {
+    public static IEnumerable<TO> RowInto<T, TO>(this T[,] matrix, int x, Func<int, T, TO> func) {
       for (int j = 0, w = matrix.Width(); j < w; j++) yield return func(j, matrix[x, j]);
     }
 
     public static IEnumerable<T[]> RowsIter<T>(this T[,] matrix) => matrix.Rows();
-    public static IEnumerable<T> RowIntoIter<T>(this T[,] matrix, int x) => matrix.RowTo(x);
+    public static IEnumerable<T> RowIntoIter<T>(this T[,] matrix, int x) => matrix.RowInto(x);
   }
 }

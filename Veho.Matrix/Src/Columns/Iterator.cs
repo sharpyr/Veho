@@ -31,21 +31,21 @@ namespace Veho.Columns {
       }
     }
 
-    public static IEnumerable<T> ColumnTo<T>(this T[,] matrix, int y) {
+    public static IEnumerable<T> ColumnInto<T>(this T[,] matrix, int y) {
       for (int i = 0, h = matrix.Height(); i < h; i++) yield return matrix[i, y];
     }
 
-    public static IEnumerable<TO> ColumnTo<T, TO>(this T[,] matrix, int y, Func<T, TO> func) {
+    public static IEnumerable<TO> ColumnInto<T, TO>(this T[,] matrix, int y, Func<T, TO> func) {
       for (int i = 0, h = matrix.Height(); i < h; i++) yield return func(matrix[i, y]);
     }
 
-    public static IEnumerable<TO> ColumnTo<T, TO>(this T[,] matrix, int y, Func<int, T, TO> func) {
+    public static IEnumerable<TO> ColumnInto<T, TO>(this T[,] matrix, int y, Func<int, T, TO> func) {
       for (int i = 0, h = matrix.Height(); i < h; i++) yield return func(i, matrix[i, y]);
     }
 
 
     public static IEnumerable<T[]> ColumnsIter<T>(this T[,] matrix) => matrix.Columns();
 
-    public static IEnumerable<T> ColumnIntoIter<T>(this T[,] matrix, int y) => matrix.ColumnTo(y);
+    public static IEnumerable<T> ColumnIntoIter<T>(this T[,] matrix, int y) => matrix.ColumnInto(y);
   }
 }
