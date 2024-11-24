@@ -9,7 +9,7 @@ using Typen;
 
 namespace Veho.Test.Enumerable {
   [TestFixture]
-  public class IntoIterTest {
+  public class IteratorTest {
     private static string[] List = {
                                      "R2C1",
                                      "R2C163834",
