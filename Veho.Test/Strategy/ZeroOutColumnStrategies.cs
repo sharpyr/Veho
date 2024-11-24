@@ -11,8 +11,8 @@ using Veho.Rows;
 using Veho.Test.PanBase;
 
 namespace Veho.Test.Strategy {
-  public static partial class ZeroizeMethods {
-    // public static T[] ZeroizeFlatArch<T>(this T[,] matrix) {
+  public static partial class RebaseMethods {
+    // public static T[] RebaseFlatArch<T>(this T[,] matrix) {
     //   var count = matrix.Length;
     //   var vector = new T[count];
     //   Buffer.BlockCopy(matrix, matrix.XLo(), vector, 0, count * Marshal.SizeOf(default(T)));
@@ -20,7 +20,7 @@ namespace Veho.Test.Strategy {
     //   return vector;
     // }
 
-    public static T[] ZeroizeRowPrim<T>(this T[,] matrix, int x, int width = -1) {
+    public static T[] RebaseRowPrim<T>(this T[,] matrix, int x, int width = -1) {
       if (width < 0) width = matrix.Width();
       var row = new T[width];
       x++;
@@ -28,7 +28,7 @@ namespace Veho.Test.Strategy {
       return row;
     }
 
-    public static T[] ZeroizeColumnPrim<T>(this T[,] matrix, int y, int height = -1) {
+    public static T[] RebaseColumnPrim<T>(this T[,] matrix, int y, int height = -1) {
       if (height < 0) height = matrix.Height();
       var column = new T[height];
       y++;
@@ -36,7 +36,7 @@ namespace Veho.Test.Strategy {
       return column;
     }
 
-    public static T[] ZeroizeRowGran<T>(this T[,] matrix, int x, int width = -1, int xLo = -1, int yLo = -1) {
+    public static T[] RebaseRowGran<T>(this T[,] matrix, int x, int width = -1, int xLo = -1, int yLo = -1) {
       if (xLo < 0) xLo = matrix.XLo();
       if (yLo < 0) yLo = matrix.YLo();
       if (width < 0) width = matrix.Width();
@@ -46,7 +46,7 @@ namespace Veho.Test.Strategy {
       return row;
     }
 
-    public static T[] ZeroizeColumnGran<T>(this T[,] matrix, int y, int height = -1, int xLo = -1, int yLo = -1) {
+    public static T[] RebaseColumnGran<T>(this T[,] matrix, int y, int height = -1, int xLo = -1, int yLo = -1) {
       if (xLo < 0) xLo = matrix.XLo();
       if (yLo < 0) yLo = matrix.YLo();
       if (height < 0) height = matrix.Height();
@@ -58,13 +58,13 @@ namespace Veho.Test.Strategy {
   }
 
   [TestFixture]
-  public partial class ZeroizeStrategies {
+  public partial class RebaseStrategies {
     [Test]
-    public void ZeroizeRowTest() {
+    public void RebaseRowTest() {
       var methods = Seq.From<(string, Func<int[,], int[]>)>(
-        ("arch", matrix => matrix.ZeroOut().Row(1)),
-        ("prim", matrix => matrix.ZeroizeRowPrim(1)),
-        ("gran", matrix => matrix.ZeroizeRowGran(1))
+        ("arch", matrix => matrix.Rebase().Row(1)),
+        ("prim", matrix => matrix.RebaseRowPrim(1)),
+        ("gran", matrix => matrix.RebaseRowGran(1))
       );
       var parameters = Seq.From(
         ("alpha", (3, 4).M1B((i, j) => i)),
@@ -89,11 +89,11 @@ namespace Veho.Test.Strategy {
     }
 
     [Test]
-    public void ZeroizeColumnTest() {
+    public void RebaseColumnTest() {
       var methods = Seq.From<(string, Func<int[,], int[]>)>(
-        ("arch", matrix => matrix.ZeroOut().Column(2)),
-        ("prim", matrix => matrix.ZeroizeColumnPrim(2)),
-        ("gran", matrix => matrix.ZeroizeColumnGran(2))
+        ("arch", matrix => matrix.Rebase().Column(2)),
+        ("prim", matrix => matrix.RebaseColumnPrim(2)),
+        ("gran", matrix => matrix.RebaseColumnGran(2))
       );
       var parameters = Seq.From(
         ("alpha", (3, 4).M1B((i, j) => i)),

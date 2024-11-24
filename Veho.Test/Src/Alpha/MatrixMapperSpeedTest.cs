@@ -23,7 +23,7 @@ namespace Veho.Test.Alpha {
     [Ignore("Ignore a strategy")]
     public void Test() {
       var matrix = (3, 5).Init((_, y) => y);
-      var eta = FlyBack<int[,]>.Build((int) 1E+6);
+      var eta = ETA<int[,]>.Build((int) 1E+6);
 
       var a = eta.Run("Map", () => matrix.Map(x => x + 1));
       a.Deco().Logger();

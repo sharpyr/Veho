@@ -19,7 +19,7 @@ namespace Veho.Test.PanBase {
     }
 
     public static string Deco<T>(this T[,] matrix) {
-      matrix = matrix.ZeroOut();
+      matrix = matrix.Rebase();
       var body = matrix
                  .MapRows(row => Chars.SP + "[" + row.Join(Conv.ToStr) + "],")
                  .Join(x => x.ToString(), "\n");
@@ -64,11 +64,11 @@ namespace Veho.Test.PanBase {
 
       eta.Restart();
       for (var i = 0; i < count; i++) {
-        var mx = matrix1B.ZeroOut();
+        var mx = matrix1B.Rebase();
       }
       eta.Stop();
-      record.Add("ZeroOut", eta.ElapsedMilliseconds);
-      Console.WriteLine($"ZeroOut {matrix1B.ZeroOut().Deco()}");
+      record.Add("Rebase", eta.ElapsedMilliseconds);
+      Console.WriteLine($"Rebase {matrix1B.Rebase().Deco()}");
 
       eta.Restart();
       for (var i = 0; i < count; i++) {
@@ -80,19 +80,19 @@ namespace Veho.Test.PanBase {
 
       eta.Restart();
       for (var i = 0; i < count; i++) {
-        var mx = matrix1B.ZeroOut(x => x);
+        var mx = matrix1B.Rebase(x => x);
       }
       eta.Stop();
-      record.Add("ZeroOut(Mapped)", eta.ElapsedMilliseconds);
-      Console.WriteLine($"ZeroOut {matrix1B.ZeroOut(x => x).Deco()}");
+      record.Add("Rebase(Mapped)", eta.ElapsedMilliseconds);
+      Console.WriteLine($"Rebase {matrix1B.Rebase(x => x).Deco()}");
 
       eta.Restart();
       for (var i = 0; i < count; i++) {
-        var mx = matrix1B.ZeroOut().Map(x => x);
+        var mx = matrix1B.Rebase().Map(x => x);
       }
       eta.Stop();
-      record.Add("ZeroOut + Map", eta.ElapsedMilliseconds);
-      Console.WriteLine($"ZeroOut + Map {matrix1B.ZeroOut(x => x).Deco()}");
+      record.Add("Rebase + Map", eta.ElapsedMilliseconds);
+      Console.WriteLine($"Rebase + Map {matrix1B.Rebase(x => x).Deco()}");
 
       foreach (var entry in record) {
         Console.WriteLine($"[{entry.Key}] ({entry.Value})");
