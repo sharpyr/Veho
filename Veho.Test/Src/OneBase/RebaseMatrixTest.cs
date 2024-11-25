@@ -31,15 +31,15 @@ namespace Veho.Test.OneBase {
     [Test]
     public void RebaseColumnTest() {
       var parameters = Seq.From(
-        ("alpha", (3, 4).Init((1, 1), (i, j) => i)),
-        ("beta", (3, 4).Init((1, 1), (i, j) => j)),
-        ("gamma", (3, 4).Init((1, 1), (i, j) => i * j))
+        ("alpha", OneBased.Init((3, 4), (i, j) => i)),
+        ("beta", OneBased.Init((3, 4), (i, j) => j)),
+        ("gamma", OneBased.Init((3, 4), (i, j) => i * j))
       );
       foreach (var (key, matrix) in parameters) {
         Console.WriteLine($">> [{key}] {matrix.Rebase().Deco()}");
-        var mx1 = matrix.RebaseColumn(1);
+        var mx1 = matrix.RebaseColumn();
         Console.WriteLine($">> [mx1] {mx1.Deco()}");
-        var mx2 = matrix.RebaseColumn(1, x => x * 10);
+        var mx2 = matrix.RebaseColumn(x => x * 10, 1);
         Console.WriteLine($">> [mx2] {mx2.Deco()}");
         // var mx3 = matrix.RebaseColumn(1, (i, x) => x * 10 + i);
         // Console.WriteLine($">> [mx3] {mx3.Deco()}");
@@ -51,15 +51,15 @@ namespace Veho.Test.OneBase {
     [Test]
     public void RebaseRowTest() {
       var parameters = Seq.From(
-        ("alpha", (3, 4).M1B((i, j) => i)),
-        ("beta", (3, 4).M1B((i, j) => j)),
-        ("gamma", (3, 4).M1B((i, j) => i * j))
+        ("alpha", OneBased.Init((3, 4), (i, j) => i)),
+        ("beta", OneBased.Init((3, 4), (i, j) => j)),
+        ("gamma", OneBased.Init((3, 4), (i, j) => i * j))
       );
       foreach (var (key, matrix) in parameters) {
         Console.WriteLine($">> [{key}] {matrix.Rebase().Deco()}");
-        var mx1 = matrix.RebaseRow(1);
+        var mx1 = matrix.RebaseRow();
         Console.WriteLine($">> [mx1] {mx1.Deco()}");
-        var mx2 = matrix.RebaseRow(1, x => x * 10);
+        var mx2 = matrix.RebaseRow(x => x * 10);
         Console.WriteLine($">> [mx2] {mx2.Deco()}");
         // var mx3 = matrix.RebaseRow(1, (j, x) => x * 10 + j);
         // Console.WriteLine($">> [mx3] {mx3.Deco()}");

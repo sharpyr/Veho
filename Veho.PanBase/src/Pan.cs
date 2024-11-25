@@ -2,6 +2,10 @@
 
 namespace Veho {
   public static class Pan {
+    private static readonly int[] S1 = { 1, 1 };
+
+    public static T[,] Boot<T>((int, int) bases) => (T[,])Array
+      .CreateInstance(typeof(T), Pan.S1, bases.ToVector());
     public static T[,] Init<T>(this (int, int) sizes, (int, int) bases) => (T[,])Array
       .CreateInstance(typeof(T), sizes.ToVector(), bases.ToVector());
 

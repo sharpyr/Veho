@@ -57,6 +57,7 @@
       &lt;TestId&gt;NUnit3x::84EF9D47-F861-4119-9EC5-80924C014F0B::.NETFramework,Version=v4.7.2::Veho.Test.OneBase.RebasePrimTest&lt;/TestId&gt;&#xD;
       &lt;TestId&gt;NUnit3x::84EF9D47-F861-4119-9EC5-80924C014F0B::.NETFramework,Version=v4.7.2::Veho.Test.OneBase.RebaseIterTest.TestAlpha&lt;/TestId&gt;&#xD;
       &lt;TestId&gt;NUnit3x::84EF9D47-F861-4119-9EC5-80924C014F0B::.NETFramework,Version=v4.7.2::Veho.Test.OneBase.RebaseIterTest&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;NUnit3x::84EF9D47-F861-4119-9EC5-80924C014F0B::.NETFramework,Version=v4.7.2::Veho.Test.Enumerable.IteratorTest&lt;/TestId&gt;&#xD;
     &lt;/TestAncestor&gt;&#xD;
     &lt;ProjectFile&gt;84EF9D47-F861-4119-9EC5-80924C014F0B/d:Strategy/f:LinearOperatorsTest.cs&lt;/ProjectFile&gt;&#xD;
   &lt;/Or&gt;&#xD;

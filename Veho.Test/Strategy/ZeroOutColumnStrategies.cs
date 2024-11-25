@@ -67,9 +67,9 @@ namespace Veho.Test.Strategy {
         ("gran", matrix => matrix.RebaseRowGran(1))
       );
       var parameters = Seq.From(
-        ("alpha", (3, 4).M1B((i, j) => i)),
-        ("beta", (3, 4).M1B((i, j) => j)),
-        ("gamma", (3, 4).M1B((i, j) => i * j))
+        ("alpha", OneBased.Init((3,4),(i, j) => i)),
+        ("beta", OneBased.Init((3,4),(i, j) => j)),
+        ("gamma", OneBased.Init((3,4),(i, j) => i * j))
       );
       var (elapsed, result) = Strategies.Run(
         (int)1E+6,
@@ -96,9 +96,9 @@ namespace Veho.Test.Strategy {
         ("gran", matrix => matrix.RebaseColumnGran(2))
       );
       var parameters = Seq.From(
-        ("alpha", (3, 4).M1B((i, j) => i)),
-        ("beta", (3, 4).M1B((i, j) => j)),
-        ("gamma", (3, 4).M1B((i, j) => i * j))
+        ("alpha", OneBased.Init((3,4),(i, j) => i)),
+        ("beta", OneBased.Init((3,4),(i, j) => j)),
+        ("gamma", OneBased.Init((3,4),(i, j) => i * j))
       );
       var (elapsed, result) = Strategies.Run(
         (int)1E+5,

@@ -60,9 +60,9 @@ namespace Veho.Test.Strategy {
           ("vari", x => ZeroOutMethods.ZeroOutVari<int, int>(x))
         ),
         Seq.From(
-          ("alpha", (3, 4).M1B((i, j) => i)),
-          ("beta", (3, 4).M1B((i, j) => j)),
-          ("gamma", (3, 4).M1B((i, j) => i * j))
+          ("alpha", OneBased.Init((3,4),(i, j) => i)),
+          ("beta", OneBased.Init((3,4),(i, j) => j)),
+          ("gamma", OneBased.Init((3,4),(i, j) => i * j))
         )
       );
       elapsed.Deco(presets: (Presets.Subtle, Presets.Fresh)).Says("Elapsed");

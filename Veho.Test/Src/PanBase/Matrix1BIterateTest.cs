@@ -51,12 +51,12 @@ namespace Veho.Test.PanBase {
       eta.Restart();
       var size = (4, 5);
       for (var i = 0; i < count; i++) {
-        var mx = size.M1B<int>();
+        var mx = size.Init<int>();
       }
       eta.Stop();
       record.Add("M1B", eta.ElapsedMilliseconds);
 
-      var matrix1B = (4, 5).M1B<int>();
+      var matrix1B = (4, 5).Init<int>();
       var ((xlo, xhi), (ylo, yhi)) = (matrix1B.XBound(), matrix1B.YBound());
       for (var i = xlo; i <= xhi; i++)
         for (var j = ylo; j <= yhi; j++)
