@@ -32,22 +32,16 @@ namespace Veho.OneBase.Rows {
       }
     }
 
-    public static IEnumerable<T> OffsetRowInto<T>(this T[,] matrix, int x) {
-      var wd = matrix.Width();
-      x++;
-      for (var j = 0; j < wd;) yield return matrix[x, ++j];
+    public static IEnumerable<T> OffsetRowInto<T>(this T[,] matrix, int x = 1) {
+      for (int j = 0, wd = matrix.Width(); j < wd;) yield return matrix[x, ++j];
     }
 
-    public static IEnumerable<TO> OffsetIterRow<T, TO>(this T[,] matrix, int x, Func<T, TO> func) {
-      var wd = matrix.Width();
-      x++;
-      for (var j = 0; j < wd;) yield return func(matrix[x, ++j]);
+    public static IEnumerable<TO> OffsetIterRow<T, TO>(this T[,] matrix, Func<T, TO> func, int x = 1) {
+      for (int j = 0, wd = matrix.Width(); j < wd;) yield return func(matrix[x, ++j]);
     }
 
-    public static IEnumerable<TO> OffsetIterRow<T, TO>(this T[,] matrix, int x, Func<int, T, TO> func) {
-      var wd = matrix.Width();
-      x++;
-      for (var j = 0; j < wd;) yield return func(++j, matrix[x, j]);
+    public static IEnumerable<TO> OffsetIterRow<T, TO>(this T[,] matrix, Func<int, T, TO> func, int x = 1) {
+      for (int j = 0, wd = matrix.Width(); j < wd;) yield return func(++j, matrix[x, j]);
     }
   }
 }

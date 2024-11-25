@@ -31,19 +31,19 @@ namespace Veho.PanBase.Rows {
       }
     }
 
-    public static IEnumerable<T> OffsetRowInto<T>(this T[,] matrix, int x) {
-      var (xlo, xhi, ylo, yhi) = matrix.Bounds();
-      for (int j = ylo, xa = xlo + x; j <= yhi; j++) yield return matrix[xa, j];
+    public static IEnumerable<T> OffsetRowInto<T>(this T[,] matrix, int x = 1) {
+      var (ylo, yhi) = matrix.YBound();
+      for (var j = ylo; j <= yhi; j++) yield return matrix[x, j];
     }
 
-    public static IEnumerable<TO> OffsetRowInto<T, TO>(this T[,] matrix, int x, Func<T, TO> func) {
-      var (xlo, xhi, ylo, yhi) = matrix.Bounds();
-      for (int j = ylo, xa = xlo + x; j <= yhi; j++) yield return func(matrix[xa, j]);
+    public static IEnumerable<TO> OffsetRowInto<T, TO>(this T[,] matrix, Func<T, TO> func, int x = 1) {
+      var (ylo, yhi) = matrix.YBound();
+      for (var j = ylo; j <= yhi; j++) yield return func(matrix[x, j]);
     }
 
-    public static IEnumerable<TO> OffsetRowInto<T, TO>(this T[,] matrix, int x, Func<int, T, TO> func) {
-      var (xlo, xhi, ylo, yhi) = matrix.Bounds();
-      for (int j = ylo, xa = xlo + x; j <= yhi; j++) yield return func(j, matrix[xa, j]);
+    public static IEnumerable<TO> OffsetRowInto<T, TO>(this T[,] matrix, Func<int, T, TO> func, int x = 1) {
+      var (ylo, yhi) = matrix.YBound();
+      for (var j = ylo; j <= yhi; j++) yield return func(j, matrix[x, j]);
     }
   }
 }

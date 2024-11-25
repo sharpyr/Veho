@@ -31,19 +31,19 @@ namespace Veho.PanBase.Columns {
       }
     }
 
-    public static IEnumerable<T> OffsetColumnInto<T>(this T[,] matrix, int y) {
-      var (xlo, xhi, ylo, yhi) = matrix.Bounds();
-      for (int i = xlo, ya = ylo + y; i <= xhi; i++) yield return matrix[i, ylo + ya];
+    public static IEnumerable<T> OffsetColumnInto<T>(this T[,] matrix, int y = 1) {
+      var (xlo, xhi) = matrix.XBound();
+      for (var i = xlo; i <= xhi; i++) yield return matrix[i, y];
     }
 
-    public static IEnumerable<TO> OffsetColumnInto<T, TO>(this T[,] matrix, int y, Func<T, TO> func) {
-      var (xlo, xhi, ylo, yhi) = matrix.Bounds();
-      for (int i = xlo, ya = ylo + y; i <= xhi; i++) yield return func(matrix[i, ya]);
+    public static IEnumerable<TO> OffsetColumnInto<T, TO>(this T[,] matrix, Func<T, TO> func, int y = 1) {
+      var (xlo, xhi) = matrix.XBound();
+      for (var i = xlo; i <= xhi; i++) yield return func(matrix[i, y]);
     }
 
-    public static IEnumerable<TO> OffsetColumnInto<T, TO>(this T[,] matrix, int y, Func<int, T, TO> func) {
-      var (xlo, xhi, ylo, yhi) = matrix.Bounds();
-      for (int i = xlo, ya = ylo + y; i <= xhi; i++) yield return func(i, matrix[i, ya]);
+    public static IEnumerable<TO> OffsetColumnInto<T, TO>(this T[,] matrix, Func<int, T, TO> func, int y = 1) {
+      var (xlo, xhi) = matrix.XBound();
+      for (var i = xlo; i <= xhi; i++) yield return func(i, matrix[i, y]);
     }
   }
 }

@@ -33,22 +33,16 @@ namespace Veho.OneBase.Columns {
       }
     }
 
-    public static IEnumerable<T> OffsetColumnInto<T>(this T[,] matrix, int y) {
-      var ht = matrix.Height();
-      y++;
-      for (var i = 0; i < ht;) yield return matrix[++i, y];
+    public static IEnumerable<T> OffsetColumnInto<T>(this T[,] matrix, int y = 1) {
+      for (int i = 0, ht = matrix.Height(); i < ht;) yield return matrix[++i, y];
     }
 
-    public static IEnumerable<TO> OffsetColumnInto<T, TO>(this T[,] matrix, int y, Func<T, TO> func) {
-      var ht = matrix.Height();
-      y++;
-      for (var i = 0; i < ht;) yield return func(matrix[++i, y]);
+    public static IEnumerable<TO> OffsetColumnInto<T, TO>(this T[,] matrix, Func<T, TO> func, int y = 1) {
+      for (int i = 0, ht = matrix.Height(); i < ht;) yield return func(matrix[++i, y]);
     }
 
-    public static IEnumerable<TO> OffsetColumnInto<T, TO>(this T[,] matrix, int y, Func<int, T, TO> func) {
-      var ht = matrix.Height();
-      y++;
-      for (var i = 0; i < ht;) yield return func(++i, matrix[i, y]);
+    public static IEnumerable<TO> OffsetColumnInto<T, TO>(this T[,] matrix, Func<int, T, TO> func, int y = 1) {
+      for (int i = 0, ht = matrix.Height(); i < ht;) yield return func(++i, matrix[i, y]);
     }
   }
 }
