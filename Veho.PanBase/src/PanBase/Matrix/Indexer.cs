@@ -21,5 +21,14 @@ namespace Veho.PanBase.Matrix {
           target[i, j] = func(matrix[xlo + i, ylo + j]);
       return target;
     }
+
+    public static TO[,] Rebase<T, TO>(this T[,] matrix, Func<int, int, T, TO> func) {
+      var (xlo, ht, ylo, wd) = matrix.Leaps();
+      var target = new TO[ht, wd];
+      for (var i = 0; i < ht; i++)
+        for (var j = 0; j < wd; j++)
+          target[i, j] = func(xlo + i, ylo + j, matrix[xlo + i, ylo + j]);
+      return target;
+    }
   }
 }
