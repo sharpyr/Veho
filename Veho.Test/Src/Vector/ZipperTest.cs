@@ -9,8 +9,8 @@ namespace Veho.Test.Vector {
     public void DuoZipperTest() {
       var a = new[] {1, 2, 3, 4, 5};
       var b = new[] {2, 2, 0, 3, 3};
-      Func<int, int, int> fn = (x, y) => x * y;
-      var vec = fn.Zipper(a, b);
+      Func<int, int, int> func = (x, y) => x * y;
+      var vec = func.Zipper(a, b);
       Console.WriteLine(string.Join(", ", vec));
       Console.WriteLine();
     }

@@ -3,38 +3,38 @@ using System.Collections.Generic;
 
 namespace Veho.Vector {
   public static class Zippers {
-    public static T[] Zip<TA, TB, T>(this IReadOnlyList<TA> vector, IReadOnlyList<TB> other, Func<TA, TB, T> fn) {
-      var hi = vector.Count;
+    public static T[] Zip<TA, TB, T>(this IReadOnlyList<TA> vec, IReadOnlyList<TB> other, Func<TA, TB, T> func) {
+      var hi = vec.Count;
       var result = new T[hi];
-      for (var i = 0; i < hi; i++) result[i] = fn(vector[i], other[i]);
+      for (var i = 0; i < hi; i++) result[i] = func(vec[i], other[i]);
       return result;
     }
-    public static void IterZip<TA, TB>(this IReadOnlyList<TA> vector, IReadOnlyList<TB> other, Action<TA, TB> action) {
-      var hi = vector.Count;
-      for (var i = 0; i < hi; i++) action(vector[i], other[i]);
+    public static void IterZip<TA, TB>(this IReadOnlyList<TA> vec, IReadOnlyList<TB> other, Action<TA, TB> action) {
+      var hi = vec.Count;
+      for (var i = 0; i < hi; i++) action(vec[i], other[i]);
     }
-    public static TA[] MutaZip<TA, TB>(this TA[] vector, TB[] another, Func<TA, TB, TA> fn) {
-      var hi = vector.Length;
-      for (var i = 0; i < hi; i++) vector[i] = fn(vector[i], another[i]);
-      return vector;
+    public static TA[] MutaZip<TA, TB>(this TA[] vec, TB[] arr, Func<TA, TB, TA> func) {
+      var hi = vec.Length;
+      for (var i = 0; i < hi; i++) vec[i] = func(vec[i], arr[i]);
+      return vec;
     }
 
-    public static T[] Zipper<TA, TB, T>(this Func<TA, TB, T> fn, IReadOnlyList<TA> a, IReadOnlyList<TB> b) {
+    public static T[] Zipper<TA, TB, T>(this Func<TA, TB, T> func, IReadOnlyList<TA> a, IReadOnlyList<TB> b) {
       var hi = a.Count;
       var vec = new T[hi];
-      for (var i = 0; i < hi; i++) vec[i] = fn(a[i], b[i]);
+      for (var i = 0; i < hi; i++) vec[i] = func(a[i], b[i]);
       return vec;
     }
-    public static T[] Zipper<TA, TB, TC, T>(this Func<TA, TB, TC, T> fn, IReadOnlyList<TA> a, IReadOnlyList<TB> b, IReadOnlyList<TC> c) {
+    public static T[] Zipper<TA, TB, TC, T>(this Func<TA, TB, TC, T> func, IReadOnlyList<TA> a, IReadOnlyList<TB> b, IReadOnlyList<TC> c) {
       var hi = a.Count;
       var vec = new T[hi];
-      for (var i = 0; i < hi; i++) vec[i] = fn(a[i], b[i], c[i]);
+      for (var i = 0; i < hi; i++) vec[i] = func(a[i], b[i], c[i]);
       return vec;
     }
-    public static T[] Zipper<TA, TB, TC, TD, T>(this Func<TA, TB, TC, TD, T> fn, IReadOnlyList<TA> a, IReadOnlyList<TB> b, IReadOnlyList<TC> c, IReadOnlyList<TD> d) {
+    public static T[] Zipper<TA, TB, TC, TD, T>(this Func<TA, TB, TC, TD, T> func, IReadOnlyList<TA> a, IReadOnlyList<TB> b, IReadOnlyList<TC> c, IReadOnlyList<TD> d) {
       var hi = a.Count;
       var vec = new T[hi];
-      for (var i = 0; i < hi; i++) vec[i] = fn(a[i], b[i], c[i], d[i]);
+      for (var i = 0; i < hi; i++) vec[i] = func(a[i], b[i], c[i], d[i]);
       return vec;
     }
   }

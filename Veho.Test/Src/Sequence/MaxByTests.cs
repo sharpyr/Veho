@@ -1,6 +1,6 @@
 ﻿using System;
-using NUnit.Framework;
 using System.Collections.Generic;
+using NUnit.Framework;
 using Veho.Sequence;
 
 namespace Veho.Test.Sequence {
@@ -16,9 +16,9 @@ namespace Veho.Test.Sequence {
         ("boa", 4),
         ("dee", 2)
       );
-      var max = list.MaxBy(x => x.value);
+      var max = list.MaxOfListBy(x => x.value);
       Console.WriteLine($">> [MaxBy Value] {max}");
-      var min = list.MinBy(x => x.value);
+      var min = list.MinOfListBy(x => x.value);
       Console.WriteLine($">> [MinBy Value] {min}");
     }
   }

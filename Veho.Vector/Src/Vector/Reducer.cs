@@ -1,88 +1,94 @@
 using System;
-using Veho.Sequence;
+using System.Collections.Generic;
 
 namespace Veho.Vector {
   public static class Reducer {
-    public static T MaxBy<T, TO>(this T[] list, Func<T, TO> indicator) where TO : IComparable {
-      var hi = list.Length;
+    public static T MaxBy<T, TO>(this IReadOnlyList<T> vec, Func<T, TO> to) where TO : IComparable {
+      var hi = vec.Count;
       if (hi == 0) return default;
-      var curr = list.Indicator(0, indicator);
+      var c = vec.Morph(0, to);
       for (var i = 1; i < hi; i++) {
-        var next = list.Indicator(i, indicator);
-        if (curr.indicator.CompareTo(next.indicator) < 0) curr = next;
+        var next = vec.Morph(i, to);
+        if (c.to.CompareTo(next.to) < 0) c = next;
       }
-      return curr.element;
+      return c.el;
     }
-    public static T MinBy<T, TO>(this T[] list, Func<T, TO> indicator) where TO : IComparable {
-      var hi = list.Length;
+    public static T MinBy<T, TO>(this IReadOnlyList<T> vec, Func<T, TO> to) where TO : IComparable {
+      var hi = vec.Count;
       if (hi == 0) return default;
-      var curr = list.Indicator(0, indicator);
+      var curr = vec.Morph(0, to);
       for (var i = 1; i < hi; i++) {
-        var next = list.Indicator(i, indicator);
-        if (curr.indicator.CompareTo(next.indicator) > 0) curr = next;
+        var next = vec.Morph(i, to);
+        if (curr.to.CompareTo(next.to) > 0) curr = next;
       }
-      return curr.element;
+      return curr.el;
     }
-    // public static T MaxBy<T, TO>(this T[] list, Func<T, TO> selector) where TO : IComparable {
-    //   return list.Reduce((a, b) => selector(a).CompareTo(selector(b)) > 0 ? a : b);
+    // public static T MinBy<T, TO>(this IReadOnlyList<T> vec, Func<T, TO> selector) where TO : IComparable {
+    //   return vec.Reduce((a, b) => selector(a).CompareTo(selector(b)) < 0 ? a : b);
     // }
-    // public static T MinBy<T, TO>(this T[] list, Func<T, TO> selector) where TO : IComparable {
-    //   return list.Reduce((a, b) => selector(a).CompareTo(selector(b)) < 0 ? a : b);
-    // }
-    public static TO Fold<T, TO>(this T[] vector, Func<TO, T, TO> sequence, TO accum) {
-      var hi = vector.Length;
-      for (var i = 0; i < hi; i++) accum = sequence(accum, vector[i]);
-      return accum;
+    public static TO Fold<T, TO>(this IReadOnlyList<T> vec, Action<TO, T> fold, TO init) {
+      for (int i = 0, hi = vec.Count; i < hi; ++i) fold(init, vec[i]);
+      return init;
     }
-    public static TO Fold<T, TO>(this T[] vector, Func<TO, T, TO> sequence, Func<T, TO> indicator) {
-      var hi = vector.Length;
+    public static TO Fold<T, TO>(this IReadOnlyList<T> vec, Action<int, TO, T> fold, TO init) {
+      for (int i = 0, hi = vec.Count; i < hi; ++i) fold(i, init, vec[i]);
+      return init;
+    }
+    public static TO Fold<T, TO>(this IReadOnlyList<T> vec, Func<TO, T, TO> fold, TO init) {
+      var hi = vec.Count;
+      for (var i = 0; i < hi; i++) init = fold(init, vec[i]);
+      return init;
+    }
+    public static TO Fold<T, TO>(this IReadOnlyList<T> vec, Func<TO, T, TO> fold, Func<T, TO> to) {
+      var hi = vec.Count;
       if (hi == 0) return default;
-      var accum = indicator(vector[0]);
-      for (var i = 1; i < hi; i++) accum = sequence(accum, vector[i]);
-      return accum;
-    }
-    public static T Reduce<T>(this T[] vector, Func<T, T, T> sequence) {
-      var hi = vector.Length;
-      if (hi == 0) return default; //throw new IndexOutOfRangeException();
-      var accum = vector[0];
-      for (var i = 1; i < hi; i++) accum = sequence(accum, vector[i]);
-      return accum;
-    }
-    public static TO Reduce<T, TO>(this T[] vector, Func<TO, TO, TO> sequence, Func<T, TO> indicator) {
-      var hi = vector.Length;
-      if (hi == 0) return default;
-      var accum = indicator(vector[0]);
-      for (var i = 1; i < hi; i++) accum = sequence(accum, indicator(vector[i]));
-      return accum;
+      var init = to(vec[0]);
+      for (var i = 1; i < hi; i++) init = fold(init, vec[i]);
+      return init;
     }
 
-    public static TO Fold<T, TO>(this T[] vector, Func<int, TO, T, TO> sequence, TO accum) {
-      var hi = vector.Length;
-      for (var i = 0; i < hi; i++) accum = sequence(i, accum, vector[i]);
-      return accum;
+    public static TO Fold<T, TO>(this IReadOnlyList<T> vec, Func<int, TO, T, TO> fold, TO init) {
+      var hi = vec.Count;
+      for (var i = 0; i < hi; i++) init = fold(i, init, vec[i]);
+      return init;
     }
-    public static TO Fold<T, TO>(this T[] vector, Func<int, TO, T, TO> sequence, Func<T, TO> indicator) {
-      var hi = vector.Length;
+    public static TO Fold<T, TO>(this IReadOnlyList<T> vec, Func<int, TO, T, TO> fold, Func<T, TO> to) {
+      var hi = vec.Count;
       if (hi == 0) return default; //throw new IndexOutOfRangeException();
-      var accum = indicator(vector[0]);
-      for (var i = 1; i < hi; i++) accum = sequence(i, accum, vector[i]);
-      return accum;
+      var init = to(vec[0]);
+      for (var i = 1; i < hi; i++) init = fold(i, init, vec[i]);
+      return init;
     }
-    public static T Reduce<T>(this T[] vector, Func<int, T, T, T> sequence) {
-      var hi = vector.Length;
+
+    public static T Reduce<T>(this IReadOnlyList<T> vec, Func<T, T, T> fold) {
+      var hi = vec.Count;
       if (hi == 0) return default; //throw new IndexOutOfRangeException();
-      var accum = vector[0];
-      for (var i = 1; i < hi; i++) accum = sequence(i, accum, vector[i]);
-      return accum;
+      var init = vec[0];
+      for (var i = 1; i < hi; i++) init = fold(init, vec[i]);
+      return init;
     }
-    public static TO Reduce<T, TO>(this T[] vector, Func<int, TO, TO, TO> sequence, Func<T, TO> indicator) {
-      var hi = vector.Length;
+    public static TO Reduce<T, TO>(this IReadOnlyList<T> vec, Func<TO, TO, TO> fold, Func<T, TO> to) {
+      var hi = vec.Count;
       if (hi == 0) return default;
-      var accum = indicator(vector[0]);
-      for (var i = 1; i < hi; i++) accum = sequence(i, accum, indicator(vector[i]));
-      return accum;
+      var init = to(vec[0]);
+      for (var i = 1; i < hi; i++) init = fold(init, to(vec[i]));
+      return init;
     }
-    public static string Join<T>(this T[] vector, Func<T, string> toStr, string de = ", ") =>
-      vector.Reduce((acc, cu) => acc + de + cu, toStr) ?? "";
+    public static T Reduce<T>(this IReadOnlyList<T> vec, Func<int, T, T, T> fold) {
+      var hi = vec.Count;
+      if (hi == 0) return default; //throw new IndexOutOfRangeException();
+      var init = vec[0];
+      for (var i = 1; i < hi; i++) init = fold(i, init, vec[i]);
+      return init;
+    }
+    public static TO Reduce<T, TO>(this IReadOnlyList<T> vec, Func<int, TO, TO, TO> fold, Func<T, TO> to) {
+      var hi = vec.Count;
+      if (hi == 0) return default;
+      var init = to(vec[0]);
+      for (var i = 1; i < hi; i++) init = fold(i, init, to(vec[i]));
+      return init;
+    }
+    public static string Join<T>(this IReadOnlyList<T> vec, Func<T, string> toStr, string de = ", ") =>
+      vec.Reduce((acc, cu) => acc + de + cu, toStr) ?? "";
   }
 }

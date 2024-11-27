@@ -9,15 +9,15 @@ namespace Veho.Columns {
       return col;
     }
 
-    public static TO[] Column<T, TO>(this T[,] matrix, int y, Func<T, TO> fn, int h = 0) {
+    public static TO[] Column<T, TO>(this T[,] matrix, int y, Func<T, TO> func, int h = 0) {
       var col = new TO[h == 0 ? h = matrix.Height() : h];
-      for (var i = 0; i < h; i++) col[i] = fn(matrix[i, y]);
+      for (var i = 0; i < h; i++) col[i] = func(matrix[i, y]);
       return col;
     }
 
-    public static TO[] Column<T, TO>(this T[,] matrix, int y, Func<int, T, TO> fn, int h = 0) {
+    public static TO[] Column<T, TO>(this T[,] matrix, int y, Func<int, T, TO> func, int h = 0) {
       var col = new TO[h == 0 ? h = matrix.Height() : h];
-      for (var i = 0; i < h; i++) col[i] = fn(i, matrix[i, y]);
+      for (var i = 0; i < h; i++) col[i] = func(i, matrix[i, y]);
       return col;
     }
 
@@ -27,15 +27,15 @@ namespace Veho.Columns {
       return vec;
     }
 
-    public static TO[,] MatrixColumn<T, TO>(this T[,] matrix, int y, Func<T, TO> fn, int h = 0) {
+    public static TO[,] MatrixColumn<T, TO>(this T[,] matrix, int y, Func<T, TO> func, int h = 0) {
       var vec = new TO[h == 0 ? h = matrix.Height() : h, 1];
-      for (var i = 0; i < h; i++) vec[i, 0] = fn(matrix[i, y]);
+      for (var i = 0; i < h; i++) vec[i, 0] = func(matrix[i, y]);
       return vec;
     }
 
-    public static TO[,] MatrixColumn<T, TO>(this T[,] matrix, int y, Func<int, T, TO> fn, int h = 0) {
+    public static TO[,] MatrixColumn<T, TO>(this T[,] matrix, int y, Func<int, T, TO> func, int h = 0) {
       var vec = new TO[h == 0 ? h = matrix.Height() : h, 1];
-      for (var i = 0; i < h; i++) vec[i, 0] = fn(i, matrix[i, y]);
+      for (var i = 0; i < h; i++) vec[i, 0] = func(i, matrix[i, y]);
       return vec;
     }
   }

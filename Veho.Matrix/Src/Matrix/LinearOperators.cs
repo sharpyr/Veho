@@ -41,9 +41,9 @@ namespace Veho.Matrix {
       if (interim == 0) return matrix;
       for (var i = 0; i < height; i++) {
         for (var j = 0; j < width; j++) {
-          var accum = zipper(aX[i, 0], bX[0, j]);
-          for (var k = 0; k < interim; k++) accum = reducer(accum, zipper(aX[i, k], bX[k, j]));
-          matrix[i, j] = accum;
+          var tar = zipper(aX[i, 0], bX[0, j]);
+          for (var k = 0; k < interim; k++) tar = reducer(tar, zipper(aX[i, k], bX[k, j]));
+          matrix[i, j] = tar;
         }
       }
       return matrix;
@@ -54,9 +54,9 @@ namespace Veho.Matrix {
       if (interim == 0) return matrix;
       Parallel.For(0, height, i => {
         Parallel.For(0, width, j => {
-          var accum = zipper(aX[i, 0], bX[0, j]);
-          for (var k = 0; k < interim; k++) accum = reducer(accum, zipper(aX[i, k], bX[k, j]));
-          matrix[i, j] = accum;
+          var tar = zipper(aX[i, 0], bX[0, j]);
+          for (var k = 0; k < interim; k++) tar = reducer(tar, zipper(aX[i, k], bX[k, j]));
+          matrix[i, j] = tar;
         });
       });
       return matrix;

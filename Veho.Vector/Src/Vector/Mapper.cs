@@ -8,8 +8,7 @@ namespace Veho.Vector {
       return list.Map(x => x);
     }
     public static T[] Slice<T>(this T[] list, int lo) {
-      var hi = list.Length;
-      var len = hi - lo;
+      int hi = list.Length, len = hi - lo;
       var target = new T[len];
       Array.Copy(list, lo, target, 0, len);
       return target;
@@ -21,38 +20,33 @@ namespace Veho.Vector {
       Array.Copy(list, lo, target, 0, len);
       return target;
     }
-    public static void Iterate<T>(this T[] vector, Action<T> fn) {
-      var hi = vector.Length;
-      for (var i = 0; i < hi; i++) fn(vector[i]);
-      // Array.ForEach(vector, fn);
+    public static void Iterate<T>(this T[] vec, Action<T> func) {
+      for (int i = 0,hi = vec.Length; i < hi; i++) func(vec[i]);
     }
-    public static void Iterate<T>(this T[] vector, Action<int, T> fn) {
-      var hi = vector.Length;
-      for (var i = 0; i < hi; i++) fn(i, vector[i]);
+    public static void Iterate<T>(this T[] vec, Action<int, T> func) {
+      for (int i = 0,hi = vec.Length; i < hi; i++) func(i, vec[i]);
     }
-    public static TO[] Map<T, TO>(this IReadOnlyList<T> vector, Func<T, TO> fn) {
-      var hi = vector.Count;
+    public static TO[] Map<T, TO>(this IReadOnlyList<T> vec, Func<T, TO> func) {
+      var hi = vec.Count;
       var result = new TO[hi];
-      for (var i = 0; i < hi; i++) result[i] = fn(vector[i]);
+      for (var i = 0; i < hi; i++) result[i] = func(vec[i]);
       return result;
     }
-    public static TO[] Map<T, TO>(this IReadOnlyList<T> vector, Func<int, T, TO> fn) {
-      var hi = vector.Count;
+    public static TO[] Map<T, TO>(this IReadOnlyList<T> vec, Func<int, T, TO> func) {
+      var hi = vec.Count;
       var result = new TO[hi];
-      for (var i = 0; i < hi; i++) result[i] = fn(i, vector[i]);
-      return result; // return vector.Select(fn).ToArray();
+      for (var i = 0; i < hi; i++) result[i] = func(i, vec[i]);
+      return result; // return vec.Select(func).ToArray();
     }
-    public static T[] Mutate<T>(this T[] vector, Func<T, T> fn) {
-      var hi = vector.Length;
-      for (var i = 0; i < hi; i++) vector[i] = fn(vector[i]);
-      return vector;
+    public static T[] Mutate<T>(this T[] vec, Func<T, T> func) {
+      for (int i = 0,hi = vec.Length; i < hi; i++) vec[i] = func(vec[i]);
+      return vec;
     }
-    public static T[] Mutate<T>(this T[] vector, Func<int, T, T> fn) {
-      var hi = vector.Length;
-      for (var i = 0; i < hi; i++) vector[i] = fn(i, vector[i]);
-      return vector;
+    public static T[] Mutate<T>(this T[] vec, Func<int, T, T> func) {
+      for (int i = 0,hi = vec.Length; i < hi; i++) vec[i] = func(i, vec[i]);
+      return vec;
     }
-    public static TO[] CastTo<T, TO>(this IReadOnlyList<T> vector) => vector.Map(Conv.Cast<T, TO>);
-    public static TO[] CastTo<T, TO>(this IReadOnlyList<T> vector, Converter<T, TO> converter) => vector.Map(x => converter(x));
+    public static TO[] CastTo<T, TO>(this IReadOnlyList<T> vec) => vec.Map(Conv.Cast<T, TO>);
+    public static TO[] CastTo<T, TO>(this IReadOnlyList<T> vec, Converter<T, TO> converter) => vec.Map(x => converter(x));
   }
 }

@@ -60,8 +60,8 @@ using Veho.Vector
 
 var vecA = new[] {1, 2, 3, 4, 5};
 var vecB = new[] {2, 2, 0, 3, 3};
-Func<int, int, int> fn = (x, y) => x * y;
-var vecC = fn.Zipper(vecA, vecB);
+Func<int, int, int> func = (x, y) => x * y;
+var vecC = func.Zipper(vecA, vecB);
 Console.WriteLine(string.Join(", ", vecC));
 ```
 

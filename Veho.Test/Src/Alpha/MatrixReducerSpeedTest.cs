@@ -15,49 +15,49 @@ namespace Veho.Test.Alpha {
       for (++x; x < h; x++)
         for (var j = 0; j < w; j++) { action(matrix[x, j]); }
     }
-    // public static T Reduce<T>(this T[,] matrix, Func<T, T, T> sequence) {
+    // public static T Reduce<T>(this T[,] matrix, Func<T, T, T> fold) {
     //   var (h, w) = matrix.Size();
     //   if (h == 0 || w == 0) return default;
-    //   var accum = matrix[0, 0];
-    //   for (var j = 1; j < w; j++) accum = sequence(accum, matrix[0, j]);
+    //   var tar = matrix[0, 0];
+    //   for (var j = 1; j < w; j++) tar = fold(tar, matrix[0, j]);
     //   for (var i = 1; i < h; i++)
     //     for (var j = 0; j < w; j++)
-    //       accum = sequence(accum, matrix[i, j]);
-    //   return accum;
+    //       tar = fold(tar, matrix[i, j]);
+    //   return tar;
     // }
-    public static T Reduce1<T>(this T[,] matrix, Func<T, T, T> sequence) {
+    public static T Reduce1<T>(this T[,] matrix, Func<T, T, T> fold) {
       var size = matrix.Size();
       if (size.Item1 == 0 || size.Item2 == 0) return default;
-      var accum = matrix[0, 0];
-      void Lambda(int i, int j) => accum = sequence(accum, matrix[i, j]);
+      var tar = matrix[0, 0];
+      void Lambda(int i, int j) => tar = fold(tar, matrix[i, j]);
       size.RestOf((0, 0), Lambda);
-      return accum;
+      return tar;
     }
-    public static T Reduce2<T>(this T[,] matrix, Func<T, T, T> sequence) {
+    public static T Reduce2<T>(this T[,] matrix, Func<T, T, T> fold) {
       var size = matrix.Size();
       if (size.Item1 == 0 || size.Item2 == 0) return default;
-      var accum = matrix[0, 0];
-      size.Rest(matrix, (0, 0), x => accum = sequence(accum, x));
-      return accum;
+      var tar = matrix[0, 0];
+      size.Rest(matrix, (0, 0), x => tar = fold(tar, x));
+      return tar;
     }
-    public static T Reduce3<T>(this T[,] matrix, Func<T, T, T> sequence) {
+    public static T Reduce3<T>(this T[,] matrix, Func<T, T, T> fold) {
       var (h, w) = matrix.Size();
       if (h == 0 || w == 0) return default;
-      var accum = matrix.ReduceRow(0, sequence);
+      var tar = matrix.ReduceRow(0, fold);
       for (var i = 1; i < h; i++)
         for (var j = 0; j < w; j++)
-          accum = sequence(accum, matrix[i, j]);
-      return accum;
+          tar = fold(tar, matrix[i, j]);
+      return tar;
     }
 
-    public static T Reduce4<T>(this T[,] matrix, Func<T, T, T> sequence) {
+    public static T Reduce4<T>(this T[,] matrix, Func<T, T, T> fold) {
       var (h, w) = matrix.Size();
       if (h == 0 || w == 0) return default;
-      var accum = matrix.ReduceColumn(0, sequence);
+      var tar = matrix.ReduceColumn(0, fold);
       for (var j = 1; j < w; j++)
         for (var i = 0; i < h; i++)
-          accum = sequence(accum, matrix[i, j]);
-      return accum;
+          tar = fold(tar, matrix[i, j]);
+      return tar;
     }
   }
 

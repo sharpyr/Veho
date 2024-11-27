@@ -7,12 +7,12 @@ using Veho.Test.Utils;
 
 namespace Veho.Test.Alpha {
   public static class MatrixMapperFunctions {
-    public static TO[,] Map2<T, TO>(this T[,] matrix, Func<T, TO> fn) {
+    public static TO[,] Map2<T, TO>(this T[,] matrix, Func<T, TO> func) {
       var (h, w) = matrix.Size();
       var target = new TO[h, w];
       for (var j = 0; j < w; j++)
         for (var i = 0; i < h; i++)
-          target[i, j] = fn(matrix[i, j]);
+          target[i, j] = func(matrix[i, j]);
       return target;
     }
   }

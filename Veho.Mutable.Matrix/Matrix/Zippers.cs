@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Veho.Mutable.Matrix {
   public static class Zippers {
-    public static List<List<T>> Zip<TA, TB, T>(this IReadOnlyList<IReadOnlyList<TA>> rowsA, IReadOnlyList<IReadOnlyList<TB>> rowsB, Func<TA, TB, T> fn) {
+    public static List<List<T>> Zip<TA, TB, T>(this IReadOnlyList<IReadOnlyList<TA>> rowsA, IReadOnlyList<IReadOnlyList<TB>> rowsB, Func<TA, TB, T> func) {
       var target = new List<List<T>>(rowsA.Count);
       List<T> rowT;
       for (int i = 0, h = rowsA.Count; i < h; i++) {
@@ -11,7 +11,7 @@ namespace Veho.Mutable.Matrix {
         var rowB = rowsB[i];
         target.Add(rowT = new List<T>(h));
         for (int j = 0, w = rowA.Count; j < w; j++)
-          rowT.Add(fn(rowA[j], rowB[j]));
+          rowT.Add(func(rowA[j], rowB[j]));
       }
       return target;
     }
@@ -23,18 +23,18 @@ namespace Veho.Mutable.Matrix {
           action(rowA[j], rowB[j]);
       }
     }
-    public static List<List<TA>> MutaZip<TA, TB>(this List<List<TA>> rowsA, List<List<TB>> rowsB, Func<TA, TB, TA> fn) {
+    public static List<List<TA>> MutaZip<TA, TB>(this List<List<TA>> rowsA, List<List<TB>> rowsB, Func<TA, TB, TA> func) {
       for (int i = 0, h = rowsA.Count; i < h; i++) {
         var rowA = rowsA[i];
         var rowB = rowsB[i];
         for (int j = 0, w = rowA.Count; j < w; j++)
-          rowA[j] = fn(rowA[j], rowB[j]);
+          rowA[j] = func(rowA[j], rowB[j]);
       }
       return rowsA;
     }
 
 
-    public static List<List<T>> Zip<TA, TB, T>(this IReadOnlyList<IReadOnlyList<TA>> rowsA, IReadOnlyList<IReadOnlyList<TB>> rowsB, Func<int, int, TA, TB, T> fn) {
+    public static List<List<T>> Zip<TA, TB, T>(this IReadOnlyList<IReadOnlyList<TA>> rowsA, IReadOnlyList<IReadOnlyList<TB>> rowsB, Func<int, int, TA, TB, T> func) {
       var target = new List<List<T>>(rowsA.Count);
       List<T> rowT;
       for (int i = 0, h = rowsA.Count; i < h; i++) {
@@ -42,7 +42,7 @@ namespace Veho.Mutable.Matrix {
         var rowB = rowsB[i];
         target.Add(rowT = new List<T>(h));
         for (int j = 0, w = rowA.Count; j < w; j++)
-          rowT.Add(fn(i, j, rowA[j], rowB[j]));
+          rowT.Add(func(i, j, rowA[j], rowB[j]));
       }
       return target;
     }
@@ -54,12 +54,12 @@ namespace Veho.Mutable.Matrix {
           action(i, j, rowA[j], rowB[j]);
       }
     }
-    public static List<List<TA>> MutaZip<TA, TB>(this List<List<TA>> rowsA, List<List<TB>> rowsB, Func<int, int, TA, TB, TA> fn) {
+    public static List<List<TA>> MutaZip<TA, TB>(this List<List<TA>> rowsA, List<List<TB>> rowsB, Func<int, int, TA, TB, TA> func) {
       for (int i = 0, h = rowsA.Count; i < h; i++) {
         var rowA = rowsA[i];
         var rowB = rowsB[i];
         for (int j = 0, w = rowA.Count; j < w; j++)
-          rowA[j] = fn(i, j, rowA[j], rowB[j]);
+          rowA[j] = func(i, j, rowA[j], rowB[j]);
       }
       return rowsA;
     }

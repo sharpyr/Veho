@@ -8,7 +8,7 @@ namespace Veho.Mutable.Rows {
     public static IEnumerable<List<T>> SelectRowsIntoIter<T>(this IReadOnlyList<IReadOnlyList<T>> matrix, IReadOnlyList<int> columnIndices) {
       var height = matrix.Height();
       for (var i = 0; i < height; i++) {
-        yield return matrix[i].SelectBy(columnIndices);
+        yield return matrix[i].SelectListBy(columnIndices);
       }
     }
 
@@ -16,7 +16,7 @@ namespace Veho.Mutable.Rows {
     public static IEnumerable<List<T>> IntoRowsIter<T>(this IReadOnlyList<IReadOnlyList<T>> matrix, IReadOnlyList<int> columnIndices) {
       var height = matrix.Height();
       for (var i = 0; i < height; i++) {
-        yield return matrix[i].SelectBy(columnIndices);
+        yield return matrix[i].SelectListBy(columnIndices);
       }
     }
   }

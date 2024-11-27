@@ -26,9 +26,9 @@ namespace Veho.Test.Alpha.Parallelism {
       // Parallelize the outer loop to partition the source array by rows.
       Parallel.For(0, height, i => {
         for (var j = 0; j < width; j++) {
-          double accum = 0;
-          for (var k = 0; k < interim; k++) accum += matA[i, k] * matB[k, j];
-          result[i, j] = accum;
+          double tar = 0;
+          for (var k = 0; k < interim; k++) tar += matA[i, k] * matB[k, j];
+          result[i, j] = tar;
         }
       }); // Parallel.For
     }

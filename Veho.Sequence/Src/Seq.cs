@@ -16,9 +16,9 @@ namespace Veho {
     }
     public static List<T> From<T>(params T[] elements) => elements.ToList();
 
-    public static List<TA> MutaZip<TA, TB>(ref List<TA> list, List<TB> another, Func<TA, TB, TA> fn) {
+    public static List<TA> MutaZip<TA, TB>(ref List<TA> list, List<TB> another, Func<TA, TB, TA> func) {
       var hi = list.Count;
-      for (var i = 0; i < hi; i++) list[i] = fn(list[i], another[i]);
+      for (var i = 0; i < hi; i++) list[i] = func(list[i], another[i]);
       return list;
     }
   }

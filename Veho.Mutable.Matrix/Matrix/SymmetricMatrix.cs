@@ -5,7 +5,7 @@ using Veho.Sequence;
 namespace Veho.Mutable.Matrix {
   public static class SymmetricMatrix {
     public static List<List<T>> SelectBy<T>(IReadOnlyList<IReadOnlyList<T>> rows, IReadOnlyList<int> indices) {
-      return rows.SelectBy(indices).Map(row => row.SelectBy(indices));
+      return rows.SelectListBy(indices).Map(row => row.SelectListBy(indices));
     }
     public static List<List<T>> UpperTriangular<T>(IReadOnlyList<IReadOnlyList<T>> rows) {
       var target = new List<List<T>>(rows.Count);
@@ -36,7 +36,7 @@ namespace Veho.Mutable.Matrix {
       var row = rows[startIndex];
       indices = indices ?? new HashSet<int>();
       indices.Add(startIndex);
-      foreach (var i in row.FilterIndices(x => x.Equals(signal))) {
+      foreach (var i in row.ListIndexes(x => x.Equals(signal))) {
         if (indices.Contains(i)) continue;
         indices.UnionWith(FindIntersectional(rows, i, signal, indices));
       }

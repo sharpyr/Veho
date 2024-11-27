@@ -20,17 +20,17 @@ namespace Veho {
 
     public static Array V1B<T>(int len) => Array.CreateInstance(typeof(T), new[] { len }, SingleOne);
 
-    public static int Push<T>(ref T[] vector, T element) {
+    public static int Push<T>(ref T[] vector, T val) {
       var hi = vector.Length;
       var len = hi + 1;
       Array.Resize(ref vector, len);
-      vector[hi] = element;
+      vector[hi] = val;
       return vector.Length;
     }
 
-    public static TA[] MutaZip<TA, TB>(ref TA[] vector, TB[] another, Func<TA, TB, TA> fn) {
+    public static TA[] MutaZip<TA, TB>(ref TA[] vector, TB[] arr, Func<TA, TB, TA> func) {
       var hi = vector.Length;
-      for (var i = 0; i < hi; i++) vector[i] = fn(vector[i], another[i]);
+      for (var i = 0; i < hi; i++) vector[i] = func(vector[i], arr[i]);
       return vector;
     }
   }

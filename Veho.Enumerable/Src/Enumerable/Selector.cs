@@ -11,14 +11,14 @@ namespace Veho.Enumerable {
         }
       }
     }
-    public static List<int> FilterIndices<T>(this IEnumerable<T> list, Predicate<T> criteria) {
+    public static List<int> FilterIndices<T>(this IEnumerable<T> list, Predicate<T> match) {
       return list.Fold((i, indexes, x) => {
-        if (criteria(x)) indexes.Add(i);
+        if (match(x)) indexes.Add(i);
       }, new List<int>());
     }
-    public static List<int> FilterIndices<T>(this IEnumerable<T> list, Func<int, T, bool> criteria) {
+    public static List<int> FilterIndices<T>(this IEnumerable<T> list, Func<int, T, bool> match) {
       return list.Fold((i, indexes, x) => {
-        if (criteria(i, x)) indexes.Add(i);
+        if (match(i, x)) indexes.Add(i);
       }, new List<int>());
     }
     // public static bool Every<T>(this IEnumerable<T> list, Predicate<T> match) {

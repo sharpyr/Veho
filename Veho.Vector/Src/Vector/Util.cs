@@ -2,23 +2,24 @@
 
 namespace Veho.Vector {
   public static class Util {
-    public static T Swap<T>(this T[] vector, int i, int j) {
-      var temp = vector[i];
-      vector[i] = vector[j];
-      return vector[j] = temp;
+    public static T Swap<T>(this T[] vec, int i, int j) {
+      var temp = vec[i];
+      vec[i] = vec[j];
+      return vec[j] = temp;
     }
 
-    public static T[] Reverse<T>(this T[] arr) {
-      Array.Reverse(arr);
-      return arr;
+    public static T[] Reverse<T>(this T[] vec) {
+      Array.Reverse(vec);
+      return vec;
     }
 
-    public static void Resize<T>(this T[] vector, int len) => Array.Resize(ref vector, len);
+    public static void Resize<T>(this T[] vec, int len) => Array.Resize(ref vec, len);
 
-    public static T[] ZeroOut<T>(this T[] vector) {
-      var len = vector.Length;
+    [Obsolete("Use Rebase")]
+    public static T[] ZeroOut<T>(this T[] vec) {
+      var len = vec.Length;
       var target = new T[len];
-      Array.Copy(vector, 1, target, 0, len);
+      Array.Copy(vec, 1, target, 0, len);
       return target;
     }
   }

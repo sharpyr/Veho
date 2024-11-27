@@ -26,13 +26,13 @@ namespace Veho.Matrix {
       return vec; // matrix.OfType<T>().ToArray();
     }
 
-    public static TP[] Flatten<T, TP>(this T[,] matrix, Func<T, TP> fn) {
+    public static TP[] Flatten<T, TP>(this T[,] matrix, Func<T, TP> func) {
       var (h, w) = matrix.Size();
       var vec = new TP[matrix.Length];
       var label = 0;
       for (var i = 0; i < h; i++)
         for (var j = 0; j < w; j++)
-          vec[label++] = fn(matrix[i, j]);
+          vec[label++] = func(matrix[i, j]);
       return vec;
     }
 

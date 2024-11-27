@@ -5,43 +5,43 @@ using Veho.Sequence;
 
 namespace Veho.Mutable.Matrix {
   public static partial class Mappers {
-    public static void Iterate<T>(this IEnumerable<IReadOnlyList<T>> rows, Action<T> fn) {
+    public static void Iterate<T>(this IEnumerable<IReadOnlyList<T>> rows, Action<T> func) {
       foreach (var row in rows) {
         foreach (var cell in row) {
-          fn(cell);
+          func(cell);
         }
       }
     }
-    public static void Iterate<T>(this IReadOnlyList<IReadOnlyList<T>> rows, Action<int, int, T> fn) {
+    public static void Iterate<T>(this IReadOnlyList<IReadOnlyList<T>> rows, Action<int, int, T> func) {
       for (int i = 0, h = rows.Count; i < h; i++) {
         var row = rows[i];
         for (int j = 0, w = row.Count; j < w; j++) {
-          fn(i, j, row[j]);
+          func(i, j, row[j]);
         }
       }
     }
   }
 
   public static partial class Mappers {
-    public static List<List<TO>> Map<T, TO>(this IReadOnlyList<IReadOnlyList<T>> rows, Func<T, TO> fn) {
-      return rows.Map(row => row.Map(fn));
+    public static List<List<TO>> Map<T, TO>(this IReadOnlyList<IReadOnlyList<T>> rows, Func<T, TO> func) {
+      return rows.Map(row => row.Map(func));
     }
-    public static List<List<TO>> Map<T, TO>(this IReadOnlyList<IReadOnlyList<T>> rows, Func<int, int, T, TO> fn) {
-      return rows.Map((i, row) => row.Map((j, cell) => fn(i, j, cell)));
+    public static List<List<TO>> Map<T, TO>(this IReadOnlyList<IReadOnlyList<T>> rows, Func<int, int, T, TO> func) {
+      return rows.Map((i, row) => row.Map((j, cell) => func(i, j, cell)));
     }
-    public static List<List<T>> Mutate<T>(this List<List<T>> rows, Func<T, T> fn) {
+    public static List<List<T>> Mutate<T>(this List<List<T>> rows, Func<T, T> func) {
       foreach (var row in rows) {
         for (int j = 0, w = row.Count; j < w; j++) {
-          row[j] = fn(row[j]);
+          row[j] = func(row[j]);
         }
       }
       return rows;
     }
-    public static List<List<T>> Mutate<T>(this List<List<T>> rows, Func<int, int, T, T> fn) {
+    public static List<List<T>> Mutate<T>(this List<List<T>> rows, Func<int, int, T, T> func) {
       for (int i = 0, h = rows.Count; i < h; i++) {
         var row = rows[i];
         for (int j = 0, w = row.Count; j < w; j++)
-          row[j] = fn(i, j, row[j]);
+          row[j] = func(i, j, row[j]);
       }
       return rows;
     }

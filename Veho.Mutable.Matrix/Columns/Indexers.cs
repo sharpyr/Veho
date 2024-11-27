@@ -9,16 +9,16 @@ namespace Veho.Mutable.Columns {
       for (var i = 0; i < h; i++) col.Add(rows[i][y]);
       return col;
     }
-    public static List<TO> Column<T, TO>(this IReadOnlyList<IReadOnlyList<T>> rows, int y, Func<T, TO> fn) {
+    public static List<TO> Column<T, TO>(this IReadOnlyList<IReadOnlyList<T>> rows, int y, Func<T, TO> func) {
       var h = rows.Count;
       var col = new List<TO>(rows.Count);
-      for (var i = 0; i < h; i++) col.Add(fn(rows[i][y]));
+      for (var i = 0; i < h; i++) col.Add(func(rows[i][y]));
       return col;
     }
-    public static List<TO> Column<T, TO>(this IReadOnlyList<IReadOnlyList<T>> rows, int y, Func<int, T, TO> fn) {
+    public static List<TO> Column<T, TO>(this IReadOnlyList<IReadOnlyList<T>> rows, int y, Func<int, T, TO> func) {
       var h = rows.Count;
       var col = new List<TO>(rows.Count);
-      for (var i = 0; i < h; i++) col.Add(fn(i, rows[i][y]));
+      for (var i = 0; i < h; i++) col.Add(func(i, rows[i][y]));
       return col;
     }
   }

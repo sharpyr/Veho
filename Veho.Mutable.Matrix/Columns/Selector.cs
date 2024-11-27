@@ -9,7 +9,7 @@ namespace Veho.Mutable.Columns {
       return columnIndices.Map(rows.Column);
     }
     public static List<List<T>> SelectByColumnIndices<T>(this IReadOnlyList<IReadOnlyList<T>> rows, IReadOnlyList<int> columnIndices) {
-      return rows.Map(row => row.SelectBy(columnIndices));
+      return rows.Map(row => row.SelectListBy(columnIndices));
     }
 
     public static IEnumerable<List<T>> SelectColumnsIntoIter<T>(this IReadOnlyList<IReadOnlyList<T>> matrix, IReadOnlyList<int> rowIndices) {

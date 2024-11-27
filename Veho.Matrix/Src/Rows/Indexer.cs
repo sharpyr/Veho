@@ -9,28 +9,28 @@ namespace Veho.Rows {
       return row;
     }
 
-    public static TO[] Row<T, TO>(this T[,] matrix, int x, Func<T, TO> fn, int w = 0) {
+    public static TO[] Row<T, TO>(this T[,] matrix, int x, Func<T, TO> func, int w = 0) {
       var row = new TO[w == 0 ? w = matrix.Width() : w];
-      for (var j = 0; j < w; j++) row[j] = fn(matrix[x, j]);
+      for (var j = 0; j < w; j++) row[j] = func(matrix[x, j]);
       return row;
     }
 
-    public static TO[,] MatrixRow<T, TO>(this T[,] matrix, int x, Func<T, TO> fn, int w = 0) {
+    public static TO[,] MatrixRow<T, TO>(this T[,] matrix, int x, Func<T, TO> func, int w = 0) {
       var vec = new TO[1, w == 0 ? w = matrix.Width() : w];
-      for (var j = 0; j < w; j++) vec[0, j] = fn(matrix[x, j]);
+      for (var j = 0; j < w; j++) vec[0, j] = func(matrix[x, j]);
       return vec;
     }
 
 
-    public static TO[] Row<T, TO>(this T[,] matrix, int x, Func<int, T, TO> fn, int w = 0) {
+    public static TO[] Row<T, TO>(this T[,] matrix, int x, Func<int, T, TO> func, int w = 0) {
       var row = new TO[w == 0 ? w = matrix.Width() : w];
-      for (var j = 0; j < w; j++) row[j] = fn(j, matrix[x, j]);
+      for (var j = 0; j < w; j++) row[j] = func(j, matrix[x, j]);
       return row;
     }
 
-    public static TO[,] MatrixRow<T, TO>(this T[,] matrix, int x, Func<int, T, TO> fn, int w = 0) {
+    public static TO[,] MatrixRow<T, TO>(this T[,] matrix, int x, Func<int, T, TO> func, int w = 0) {
       var vec = new TO[1, w == 0 ? w = matrix.Width() : w];
-      for (var j = 0; j < w; j++) vec[0, j] = fn(j, matrix[x, j]);
+      for (var j = 0; j < w; j++) vec[0, j] = func(j, matrix[x, j]);
       return vec;
     }
  
