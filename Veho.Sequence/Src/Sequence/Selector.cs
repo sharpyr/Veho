@@ -71,7 +71,7 @@ namespace Veho.Sequence {
       }
       return -1;
     }
-    public static int IndexOfInList<T>(this IReadOnlyList<T> list, T value) where T : IEquatable<T> {
+    public static int IndexOfList<T>(this IReadOnlyList<T> list, T value) where T : IEquatable<T> {
       for (int i = 0, hi = list.Count; i < hi; i++) {
         if (list[i].Equals(value)) return i;
       }
