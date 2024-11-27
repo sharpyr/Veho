@@ -79,6 +79,7 @@ namespace Veho.Vector {
     //   return -1;
     // }
 
+    public static int FindIndex<T>(this T[] vec, Predicate<T> match) => Array.FindIndex(vec, match);
     public static int IndexOf<T>(this T[] vec, Predicate<T> match) => Array.FindIndex(vec, match);
     // public static int IndexOf<T>(this IReadOnlyList<T> vec, Predicate<T> match) {
     //   for (int i = 0, hi = vec.Count; i < hi; i++) {
@@ -89,6 +90,8 @@ namespace Veho.Vector {
 
     public static int LastIndexOf<T>(this T[] vec, T value) => Array.LastIndexOf(vec, value);
     public static int LastIndexOf<T>(this T[] vec, Predicate<T> match) => Array.FindLastIndex(vec, match);
+
+    public static int FindLastIndex<T>(this T[] vec, Predicate<T> match) => Array.FindLastIndex(vec, match);
 
     public static (T, T) Dualet<T>(this T[] ve) => (ve[0], ve[1]);
     public static (T, T, T) Triplet<T>(this T[] ve) => (ve[0], ve[1], ve[2]);
