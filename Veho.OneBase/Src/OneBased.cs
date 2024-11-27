@@ -1,4 +1,5 @@
 ﻿using System;
+using Veho.Tuple;
 
 namespace Veho {
   public static class OneBased {
@@ -12,7 +13,7 @@ namespace Veho {
     }
 
     public static T[,] Init<T>((int, int) sizes) => (T[,])Array
-      .CreateInstance(typeof(T), sizes.ToVector(), B1);
+      .CreateInstance(typeof(T), sizes.Vec(), B1);
 
     public static T[,] Init<T>(int ht, int wd) => (T[,])Array
       .CreateInstance(typeof(T), new[] { ht, wd }, B1);

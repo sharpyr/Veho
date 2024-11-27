@@ -1,13 +1,14 @@
 ﻿using System;
+using Veho.Tuple;
 
 namespace Veho {
   public static class Pan {
     private static readonly int[] S1 = { 1, 1 };
 
     public static T[,] Boot<T>((int, int) bases) => (T[,])Array
-      .CreateInstance(typeof(T), Pan.S1, bases.ToVector());
+      .CreateInstance(typeof(T), Pan.S1, bases.Vec());
     public static T[,] Init<T>(this (int, int) sizes, (int, int) bases) => (T[,])Array
-      .CreateInstance(typeof(T), sizes.ToVector(), bases.ToVector());
+      .CreateInstance(typeof(T), sizes.Vec(), bases.Vec());
 
     public static T[,] Init<T>(this (int, int) sizes, (int, int) bases, Func<int, int, T> func) {
       var mx = sizes.Init<T>(bases);

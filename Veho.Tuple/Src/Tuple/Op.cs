@@ -1,8 +1,7 @@
-﻿using Veho.Tuple;
-using static Generic.Math.GenericMath;
+﻿using static Generic.Math.GenericMath;
 using Gen = Generic.Math.GenericMath;
 
-namespace Veho {
+namespace Veho.Tuple {
   public static partial class Op {
     public static bool Equals<T>(this (T x, T y) a, (T x, T y) b) => Equal(a.x, b.x) && Equal(a.y, b.y);
     public static (T x, T y) BitwiseAnd<T>(this (T, T) a, (T, T) b) => a.Zip(b, And);        // op_BitwiseAnd

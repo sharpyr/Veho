@@ -1,5 +1,26 @@
-﻿namespace Veho.Matrix {
+﻿using System;
+
+namespace Veho.Matrix {
   public static class Profile {
+    public static bool Any(this (int height, int width) size) => size.height != 0 && size.width != 0;
+
+    public static bool IsUnit(this (int height, int width) size) => size.height == 1 && size.width == 1;
+
+    public static void Iter(this (int height, int width) size, Action<int, int> func) {
+      var (h, w) = size;
+      for (var i = 0; i < h; i++)
+        for (var j = 0; j < w; j++)
+          func(i, j);
+    }
+    public static void RestOf(this (int height, int width) size, (int x, int y) coordinate, Action<int, int> action) {
+      var (h, w) = size;
+      var (x, y) = coordinate;
+      for (++y; y < w; y++) action(x, y);
+      for (++x; x < h; x++)
+        for (y = 0; y < w; y++)
+          action(x, y);
+    }
+
     public static bool Any<T>(this T[,] matrix) => matrix.Size().Any();
     public static (int height, int width) Size<T>(this T[,] matrix) => (matrix.GetLength(0), matrix.GetLength(1));
     public static (int xlo, int ht, int ylo, int wd) Leaps<T>(this T[,] matrix) => (matrix.GetLowerBound(0), matrix.GetLength(0), matrix.GetLowerBound(1), matrix.GetLength(1));
